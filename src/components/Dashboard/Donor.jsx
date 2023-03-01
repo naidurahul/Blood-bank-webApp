@@ -1,9 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Button, Card, Col, Row } from "react-bootstrap";
-import {
-  PersonCircle
-} from "react-bootstrap-icons";
+import { Alert, Badge, Button, Card, Col, Form, Row } from "react-bootstrap";
+import { PersonCircle } from "react-bootstrap-icons";
 import { useLocation } from "react-router-dom";
 import { donorFields } from "../../common/constants";
 
@@ -62,9 +60,7 @@ const DonorRegistrationDetails = () => {
           />
         </div>
       )}
-      <h1 className="text-4xl text-center my-2" style={{ color: "#276749" }}>
-        Donor Registration
-      </h1>
+
       {donor.length === 0 ? (
         <h1 style={{ textAlign: "center", fontSize: "24px" }}>No data</h1>
       ) : (
@@ -85,11 +81,21 @@ const DonorRegistrationDetails = () => {
           ) : (
             <>
               <div className="p-2">
+                <div>
+                  <Form>
+                    <Form.Control placeholder="Search donor by name here.."></Form.Control>
+                  </Form>
+                </div>
+                <div className="my-4 text-center">
+                  <Alert className="p-3 w-25" variant="danger">
+                    56 Donor
+                  </Alert>
+                </div>
                 {donor
                   ? donor.map((value, index) => {
                       return (
                         <>
-                          <Card>
+                          <Card className="my-2">
                             <Card.Header className="text-right">
                               {" "}
                               <Button size="sm" variant="success mr-2">
@@ -103,16 +109,13 @@ const DonorRegistrationDetails = () => {
                                 Delete
                               </Button>
                             </Card.Header>
-                            <Card.Body className="d-flex">
+                            <Card.Body className="d-flex p-1">
                               <div
-                                style={{ minWidth: 180, maxWidth: 180 }}
-                                className="align-item-center"
+                                style={{ minWidth: 120, maxWidth: 120 }}
+                                className=""
                               >
-                                <div>
-                                  <PersonCircle
-                                    size={70}
-                                    className="ml-5 float-center"
-                                  />
+                                <div className="text-center">
+                                  <PersonCircle size={70} className="ml-5" />
                                   <h6 className="mb-0 mt-2 font-weight-bold xxlarge">
                                     {value.name}
                                   </h6>
@@ -128,13 +131,13 @@ const DonorRegistrationDetails = () => {
                                 </div>
                               </div>
 
-                              <div className="100%">
+                              <div>
                                 <Row noGutters className="">
                                   {donorFields.map((field) => {
                                     return (
                                       <Col
                                         xs={12}
-                                        md={6}
+                                        md={4}
                                         lg={3}
                                         key={field.key}
                                         className={`mt-0`}
