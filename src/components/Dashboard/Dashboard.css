@@ -1,13 +1,15 @@
-.header {
-  height: 10%;
-  width: 95%;
-  margin: 0px auto;
-  color: white;
-  font-weight: bold;
-  font-size: large;
-  display: flex;
-  padding: 5px;
-  justify-content: space-around;
+.side-nav {
+  width: 300px;
+  height: "100%";
+  background-color: white;
+  border: none;
+}
 
-  background-color: black;
+.container-body {
+  height: 85vh;
+}
+
+.bar {
+  height: 1px;
+  background-color: rgb(176, 176, 176);
 }

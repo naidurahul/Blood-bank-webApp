@@ -1,0 +1,8 @@
+.headder {
+  height: 16.5vh !important;
+  position: sticky;
+  border-bottom: 1px solid lightgray;
+  z-index: 10 !important;
+  top: 0 !important;
+  width: 100%;
+}

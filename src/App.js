@@ -4,30 +4,73 @@ import "./App.scss";
 
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Dashboard from "./components/Dashboard/dashboard/Dashboard";
-import Login from "./components/Login/Login";
-import Navbar from "./components/Navbar";
-import BloodRequestFrom from "./Pages/BloodRequestForm/BloodRequestForm";
-import Contact from "./Pages/Contact/Contact";
-import DonorRegistration from "./Pages/DonorReg/DonorReg";
-import Home from "./Pages/Home/Home";
-import LiveCamps from "./Pages/LiveCamps/LiveCamps";
-import Search from "./Pages/Search/Search";
+import Home from "./Pages/Home";
+import DonorRegistrationDetails from "./components/Dashboard/Donor";
+import Navbar from "./common/Nabvar/Navbar";
+import Dashboard from "./components/Dashboard/Dashboard";
+import GlobalRoutes from "./Pages/GlobalRoutes";
 
 function App() {
   return (
     <>
       <BrowserRouter>
-        {/* <Navbar /> */}
         <Routes>
-          <Route element={<Home />} path="/" />
-          <Route element={<DonorRegistration />} path="/donor-registration" />
-          <Route element={<Search />} path="/search" />
-          <Route element={<Contact />} path="/contact" />
-          <Route element={<Dashboard />} path="/dashboard" />
-          <Route element={<Login />} path="/login" />
-          <Route element={<BloodRequestFrom />} path="/blood-request-form" />
-          <Route element={<LiveCamps />} path="/live-blood-camp" />
+          <Route element={<Home />} exact path="/" />
+          <Route element={<GlobalRoutes />} path="/*" />
+          {/* <Route
+            element={
+              <>
+                <Navbar />
+                <DonorRegistrationDetails />
+              </>
+            }
+            path="/search"
+          />
+          <Route
+            element={
+              <>
+                <Navbar />
+                <DonorRegistrationDetails />
+              </>
+            }
+            path="/contact"
+          />
+          <Route
+            element={
+              <>
+                <Navbar />
+                <DonorRegistrationDetails />
+              </>
+            }
+            path="/dashboard"
+          />
+          <Route
+            element={
+              <>
+                <Navbar />
+                <DonorRegistrationDetails />
+              </>
+            }
+            path="/login"
+          />
+          <Route
+            element={
+              <>
+                <Navbar />
+                <DonorRegistrationDetails />
+              </>
+            }
+            path="/blood-request-form"
+          />
+          <Route
+            element={
+              <>
+                <Navbar />
+                <DonorRegistrationDetails />
+              </>
+            }
+            path="/live-blood-camp"
+          /> */}
         </Routes>
         <ToastContainer />
       </BrowserRouter>

@@ -5,15 +5,14 @@ import {
   Card,
   Col,
   Form,
-  Modal,
-  ProgressBar,
-  Row,
+  Modal, Row
 } from "react-bootstrap";
 import { PersonCircle } from "react-bootstrap-icons";
 import { useLocation } from "react-router-dom";
 import { toast } from "react-toastify";
-import { donorFields } from "../../common/constants";
+
 import Loader from "../../common/Loader";
+import { donorFields } from "../../global/constants";
 
 const ConfirmDelete = ({
   openDeleteDonorModal,

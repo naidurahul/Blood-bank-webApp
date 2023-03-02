@@ -1,16 +1,10 @@
-import React, { useEffect, useState } from "react";
-import Navbar from "./Navbar";
 import axios from "axios";
-import Edit from "./Edit";
+import React, { useEffect, useState } from "react";
 import { Button, Card, Col, Form, Row } from "react-bootstrap";
-import BloodRequestForm from "../../Pages/BloodRequestForm/BloodRequestForm";
-import { PersonCircle } from "react-bootstrap-icons";
-import {
-  addOrUpdateItemInArray,
-  bloodRequestFields,
-} from "../../common/constants";
 import { toast } from "react-toastify";
+
 import Loader from "../../common/Loader";
+import { addOrUpdateItemInArray, bloodRequestFields } from "../../global/constants";
 
 const Request = () => {
   const [donor, setDonor] = useState([]);
