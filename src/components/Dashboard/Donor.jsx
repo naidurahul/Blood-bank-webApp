@@ -1,17 +1,18 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Alert, Badge, Button, Card, Col, Form, Row } from "react-bootstrap";
-import { PersonCircle } from "react-bootstrap-icons";
+import { Button, Card, Col, Form, ProgressBar, Row } from "react-bootstrap";
+import { PeopleFill, PersonCircle } from "react-bootstrap-icons";
 import { useLocation } from "react-router-dom";
 import { donorFields } from "../../common/constants";
+import HeaderWithUnderline from "../../common/HeaderWithUnderLine";
 
 const DonorRegistrationDetails = () => {
-  const [donor, setDonor] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [donorList, setDonorList] = useState([]);
+  const [filteredList, setFilteredList] = useState([]);
+  const [searchQuery, setSearchQUery] = useState("");
+  const [fetchingDonors, setFetchingDonors] = useState(false);
   const [show, setShow] = useState(false);
-  const [refresh, setRefresh] = useState(true);
   const { pathname } = useLocation();
-
   const handelDeleteDonor = async (id) => {
     try {
       const { data } = await axios.delete(
@@ -21,28 +22,39 @@ const DonorRegistrationDetails = () => {
       );
       console.log(data);
       setShow(true);
-      setRefresh(!refresh);
+      fetchData();
     } catch (error) {
       console.log(error.response.data.msg);
     }
   };
+  const fetchData = async () => {
+    try {
+      setFetchingDonors(true);
+      const { data } = await axios.get(
+        "http://localhost:4000/api/v1/all/donations"
+      );
+      console.log(data.msg);
+      setDonorList(data.msg);
+      setFilteredList(data.msg);
+      setFetchingDonors(false);
+    } catch (error) {
+      console.log(error.message);
+      setFetchingDonors(false);
+    }
+  };
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        setLoading(true);
-        const { data } = await axios.get(
-          "http://localhost:4000/api/v1/all/donations"
-        );
-        console.log(data.msg);
-        setDonor(data.msg);
-        setLoading(false);
-      } catch (error) {
-        console.log(error.message);
-        setLoading(false);
-      }
-    };
     fetchData();
-  }, [refresh]);
+  }, []);
+  useEffect(() => {
+    const filteredValue =
+      searchQuery !== ""
+        ? donorList.filter((donor) =>
+            donor.name.toLowerCase().includes(searchQuery.toLowerCase())
+          )
+        : [...donorList];
+    setFilteredList([...filteredValue]);
+  }, [searchQuery]);
+  console.log(donorList, filteredList, searchQuery, "filteredList");
   return (
     <>
       {show && (
@@ -61,52 +73,50 @@ const DonorRegistrationDetails = () => {
         </div>
       )}
 
-      {donor.length === 0 ? (
-        <h1 style={{ textAlign: "center", fontSize: "24px" }}>No data</h1>
+      <div className="pl-2">
+        <Row noGutters>
+          <Col xs={12} md={8} lg={8}>
+            <div>
+              <Form>
+                <Form.Control
+                  placeholder="Search donor by name here.."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQUery(e.target.value)}
+                ></Form.Control>
+              </Form>
+            </div>
+          </Col>
+        </Row>
+      </div>
+      {filteredList.length === 0 ? (
+        <div style={{ textAlign: "center", fontSize: "24px", marginTop: 100 }}>
+          <div>No Donors to Show!</div>
+        </div>
       ) : (
         <>
-          {loading ? (
+          {fetchingDonors ? (
             <>
-              <div
-                className="spinner-border mx-auto my-3"
-                role="status"
-                style={{ display: "flex", justifyContent: "center" }}
-              >
-                <span className="visually-hidden">Loading...</span>
-              </div>
-              <h2 className="text-sm font-bold text-red-600 mt-1 text-center">
-                Loading...
-              </h2>
+              <ProgressBar />
             </>
           ) : (
             <>
-              <div className="p-2">
-                <div>
-                  <Form>
-                    <Form.Control placeholder="Search donor by name here.."></Form.Control>
-                  </Form>
-                </div>
-                <div className="my-4 text-center">
-                  <Alert className="p-3 w-25" variant="danger">
-                    56 Donor
-                  </Alert>
-                </div>
-                {donor
-                  ? donor.map((value, index) => {
+              <div className="px-2">
+                {filteredList
+                  ? filteredList.map((value, index) => {
                       return (
                         <>
-                          <Card className="my-2">
-                            <Card.Header className="text-right">
+                          <Card className="my-3">
+                            <Card.Header className="text-right ">
                               {" "}
-                              <Button size="sm" variant="success mr-2">
-                                Edit
-                              </Button>
                               <Button
-                                // onClick={() => handelDeleteDonor(value._id)}
+                                onClick={() => handelDeleteDonor(value._id)}
                                 size="sm"
-                                variant="danger"
+                                variant="danger mr-2"
                               >
                                 Delete
+                              </Button>
+                              <Button size="sm" variant="success ">
+                                Edit
                               </Button>
                             </Card.Header>
                             <Card.Body className="d-flex p-1">

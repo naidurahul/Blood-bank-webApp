@@ -2,6 +2,7 @@
 
 .navbar {
   height: 80px !important;
+  position: sticky;
   border-bottom: 2px solid lightgray;
   z-index: 53000 !important;
   background-color: white !important;
@@ -29,7 +30,7 @@
 }
 .activee:hover {
   border-bottom: none;
-  color: rgb(255, 177, 177) !important;
+  color: rgb(255, 255, 255) !important;
 }
 
 .nav-item {

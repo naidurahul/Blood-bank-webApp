@@ -24,3 +24,22 @@ export const donorFields = [
   { name: "allergies", label: "Allergies" },
   { name: "bleeding", label: "Bleeding" },
 ];
+
+export const shortOptions = [
+  {
+    label: "Max 10",
+    value: 10,
+  },
+  {
+    label: "Max 20",
+    value: 20,
+  },
+  {
+    label: "Max 50",
+    value: 50,
+  },
+  {
+    label: "All",
+    value: 200,
+  },
+];

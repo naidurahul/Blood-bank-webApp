@@ -34,7 +34,7 @@ const Dashboard = () => {
         <div className="d-flex h-100">
           <div className="side-nav h-100 p-2">
             <div className="d-flex justify-content-between">
-              <h5>Dashboard</h5>
+              <h5>Admin Dashboard</h5>
               <XLg size={18} className="hover mt-1" />
             </div>
             <div className="bar" />
