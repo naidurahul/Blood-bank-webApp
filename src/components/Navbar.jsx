@@ -3,6 +3,7 @@ import { Sling as Hamburger } from "hamburger-react";
 import "./Navbar.css";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import Logo from "./Logo.png";
+import { Image } from "react-bootstrap";
 const Navbar = () => {
   const [user, setUser] = useState({});
   const { pathname } = useLocation();
@@ -16,8 +17,8 @@ const Navbar = () => {
         style={{ opacity: "1" }}
       >
         <div className="container-fluid">
-          <div className="flex college__logo__main">
-            <h1 className="mt-2">Blood</h1> <img src={Logo} alt="" />
+          <div className="">
+            <Image src={Logo} height={20} width={120} style={{marginTop:'-5px'}} />
           </div>{" "}
           <button
             class="navbar-toggler"

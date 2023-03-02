@@ -18,7 +18,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <Navbar />
+        {/* <Navbar /> */}
         <Routes>
           <Route element={<Home />} path="/" />
           <Route element={<DonorRegistration />} path="/donor-registration" />

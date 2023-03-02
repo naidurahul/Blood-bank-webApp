@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Dosis:wght@200;400&family=EB+Garamond:wght@400;500&family=Jost:wght@300;400;500;800&display=swap");
 
 .navbar {
-  height: 80px !important;
+  height: 15vh !important;
   position: sticky;
   border-bottom: 2px solid lightgray;
   z-index: 1000 !important;
