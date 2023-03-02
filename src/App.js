@@ -1,6 +1,9 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import "./App.css";
+import "./App.scss";
+
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Dashboard from "./components/Dashboard/dashboard/Dashboard";
 import Login from "./components/Login/Login";
 import Navbar from "./components/Navbar";
@@ -26,6 +29,7 @@ function App() {
           <Route element={<BloodRequestFrom />} path="/blood-request-form" />
           <Route element={<LiveCamps />} path="/live-blood-camp" />
         </Routes>
+        <ToastContainer />
       </BrowserRouter>
     </>
   );

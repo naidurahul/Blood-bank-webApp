@@ -1,17 +1,53 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Button, Card, Col, Form, ProgressBar, Row } from "react-bootstrap";
-import { PeopleFill, PersonCircle } from "react-bootstrap-icons";
+import {
+  Button,
+  Card,
+  Col,
+  Form,
+  Modal,
+  ProgressBar,
+  Row,
+} from "react-bootstrap";
+import { PersonCircle } from "react-bootstrap-icons";
 import { useLocation } from "react-router-dom";
+import { toast } from "react-toastify";
 import { donorFields } from "../../common/constants";
-import HeaderWithUnderline from "../../common/HeaderWithUnderLine";
+import Loader from "../../common/Loader";
+
+const ConfirmDelete = ({
+  openDeleteDonorModal,
+  handleClose,
+  handelDeleteDonor,
+}) => {
+  return (
+    <Modal show={openDeleteDonorModal !== null} onHide={handleClose}>
+      <Modal.Header closeButton></Modal.Header>
+      <Modal.Body>
+        Are you sure you want to delete {openDeleteDonorModal?.name}?
+      </Modal.Body>
+      <Modal.Footer>
+        <Button size="sm" variant="secondary mr-2" onClick={handleClose}>
+          Close
+        </Button>
+        <Button
+          size="sm"
+          variant="danger mr-2"
+          onClick={() => handelDeleteDonor(openDeleteDonorModal?._id)}
+        >
+          Delete
+        </Button>
+      </Modal.Footer>
+    </Modal>
+  );
+};
 
 const DonorRegistrationDetails = () => {
   const [donorList, setDonorList] = useState([]);
+  const [openDeleteDonorModal, setOpenDeleteDonorModal] = useState(null);
   const [filteredList, setFilteredList] = useState([]);
   const [searchQuery, setSearchQUery] = useState("");
   const [fetchingDonors, setFetchingDonors] = useState(false);
-  const [show, setShow] = useState(false);
   const { pathname } = useLocation();
   const handelDeleteDonor = async (id) => {
     try {
@@ -20,8 +56,8 @@ const DonorRegistrationDetails = () => {
           pathname === "/live-blood-camp" ? "hospitals" : "donations"
         }/${id}`
       );
-      console.log(data);
-      setShow(true);
+      setOpenDeleteDonorModal(null);
+      toast.success("Donor Deleted Successfully!");
       fetchData();
     } catch (error) {
       console.log(error.response.data.msg);
@@ -54,25 +90,8 @@ const DonorRegistrationDetails = () => {
         : [...donorList];
     setFilteredList([...filteredValue]);
   }, [searchQuery]);
-  console.log(donorList, filteredList, searchQuery, "filteredList");
   return (
     <>
-      {show && (
-        <div
-          className="alert alert-success alert-dismissible fade show"
-          role="alert"
-        >
-          <strong>Successfully Deleted</strong> .
-          <button
-            type="button"
-            className="btn-close"
-            data-bs-dismiss="alert"
-            aria-label="Close"
-            onClick={() => setShow(false)}
-          />
-        </div>
-      )}
-
       <div className="pl-2">
         <Row noGutters>
           <Col xs={12} md={8} lg={8}>
@@ -88,15 +107,23 @@ const DonorRegistrationDetails = () => {
           </Col>
         </Row>
       </div>
-      {filteredList.length === 0 ? (
-        <div style={{ textAlign: "center", fontSize: "24px", marginTop: 100 }}>
-          <div>No Donors to Show!</div>
+      {fetchingDonors ? (
+        <div className="px-2">
+          <Loader />
         </div>
       ) : (
         <>
-          {fetchingDonors ? (
+          {filteredList.length === 0 ? (
             <>
-              <ProgressBar />
+              <div
+                style={{
+                  textAlign: "center",
+                  fontSize: "24px",
+                  marginTop: 100,
+                }}
+              >
+                <h6 className="xlarge">No Donors to Show!</h6>
+              </div>{" "}
             </>
           ) : (
             <>
@@ -106,20 +133,31 @@ const DonorRegistrationDetails = () => {
                       return (
                         <>
                           <Card className="my-3">
-                            <Card.Header className="text-right ">
-                              {" "}
-                              <Button
-                                onClick={() => handelDeleteDonor(value._id)}
-                                size="sm"
-                                variant="danger mr-2"
-                              >
-                                Delete
-                              </Button>
-                              <Button size="sm" variant="success ">
-                                Edit
-                              </Button>
+                            <Card.Header className="d-flex justify-content-between ">
+                              <div>
+                                Blood Group:{" "}
+                                <span
+                                  className="rounded  text-white px-1"
+                                  style={{ backgroundColor: "#cf3e51" }}
+                                >
+                                  {" "}
+                                  {value.bloodGroup}
+                                </span>{" "}
+                              </div>
+                              <div>
+                                <Button
+                                  onClick={() => setOpenDeleteDonorModal(value)}
+                                  size="sm"
+                                  variant="danger mr-2"
+                                >
+                                  Delete
+                                </Button>
+                                <Button size="sm" variant="success ">
+                                  Edit
+                                </Button>
+                              </div>
                             </Card.Header>
-                            <Card.Body className="d-flex p-1">
+                            <Card.Body className="d-flex p-1 py-2">
                               <div
                                 style={{ minWidth: 120, maxWidth: 120 }}
                                 className=""
@@ -175,6 +213,11 @@ const DonorRegistrationDetails = () => {
                     })
                   : null}
               </div>
+              <ConfirmDelete
+                openDeleteDonorModal={openDeleteDonorModal}
+                handleClose={() => setOpenDeleteDonorModal(null)}
+                handelDeleteDonor={handelDeleteDonor}
+              />
             </>
           )}
         </>

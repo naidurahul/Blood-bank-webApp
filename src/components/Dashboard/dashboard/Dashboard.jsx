@@ -34,34 +34,31 @@ const Dashboard = () => {
         <div className="d-flex h-100">
           <div className="side-nav h-100 p-2">
             <div className="d-flex justify-content-between">
-              <h5>Admin Dashboard</h5>
+              <h5>Dashboard</h5>
               <XLg size={18} className="hover mt-1" />
             </div>
             <div className="bar" />
-            <div className="mt-2 pl-1">
+            <div className="mt-2">
               {tabs.map((tab) => {
                 return (
-                  <Alert
+                  <h6
                     key={tab.tabName}
-                    className="hover w-100   rounded p-1 m-0 "
-                    style={{
-                      backgroundColor:
-                        activeTab.tabName === tab.tabName ? "#eb7a7a" : "white",
-                      color:
-                        activeTab.tabName === tab.tabName ? "white" : "black",
-                      border: "none",
-                    }}
+                    className={`${
+                      activeTab.tabName === tab.tabName
+                        ? "bg-primary-light text-white"
+                        : "bg-white text-dark"
+                    } hover w-100 font-weight-light xlarge p-1 m-0`}
                     onClick={() => setActiveTab(tab)}
                   >
                     {tab.tabName}
-                  </Alert>
+                  </h6>
                 );
               })}
             </div>
           </div>
           <div
-            className="dashboard-body w-100 p-2"
-            style={{ overflowY: "scroll" }}
+            className="bg-light w-100  p-2"
+            style={{ overflowY: "scroll", overflowX: "hidden" }}
           >
             {activeTab.component}
           </div>

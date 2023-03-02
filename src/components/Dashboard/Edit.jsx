@@ -5,9 +5,8 @@ const Edit = ({ value, render, setRender, setShow }) => {
   const handleEdit = async () => {
     try {
       const { data } = await axios.put(
-        `http://localhost:4000/api/v1/update/${
-          value ? value._id : null
-        }/${true}`
+        `http://localhost:4000/api/v1/blood-request/${value?._id}`,
+        { value }
       );
       console.log(data);
       setRender(!render);

@@ -1,0 +1,307 @@
+@import url("https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,600;1,400&family=Montserrat:ital,wght@0,400;1,400;1,600&display=swap");
+$theme-colors: (
+  primary: #b13033,
+  primary-light: #CD474A,
+  light: #f5f5f5,
+  dark: #0c2336,
+  yellow: #feff01,
+  yellow-light: #ffd50069,
+  info: #b4f8c8,
+  secondary: #f1f1f1,
+  grey: #dee2e6,
+  disabled: #eaeaea99,
+  green: #67b718,
+  dark-yellow: rgb(237, 213, 82),
+  light-blue: rgb(155, 152, 252),
+  danger: #ff4406,
+  muted: rgb(152, 152, 152),
+  white: white,
+  water-blue: #f4f6fb,
+  purple: #794d9b,
+  light-primary: #fac278,
+);
+
+$border-radius: 0.5rem;
+
+html,
+body,
+#root {
+  height: 100%;
+  font-family: "Cabin", sans-serif;
+}
+
+.hover {
+  cursor: pointer;
+}
+
+.hover-light:hover {
+  background-color: #ff8e2b36;
+  cursor: pointer;
+}
+
+.hover-dark:hover {
+  color: white;
+  background-color: #ff8e2b;
+  cursor: pointer;
+  border-radius: 0.5rem;
+}
+
+.a {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.left-bar {
+  border-left: 10px solid #0c2336;
+}
+
+.small {
+  font-size: 12px;
+}
+
+.smallFont {
+  font-size: 12px;
+}
+
+.mid {
+  font-size: 13px;
+}
+
+.large {
+  font-size: 14px;
+}
+
+.xlarge {
+  font-size: 16px;
+}
+
+.xxlarge {
+  font-size: 18px;
+}
+.xxxlarge {
+  font-size: 24px;
+}
+
+.tiny {
+  font-size: 10px;
+}
+
+.xs {
+  font-size: 8px;
+}
+.xxxxlarge {
+  font-size: 30px;
+}
+.huge {
+  font-size: 80px;
+}
+
+.fade-in {
+  animation: fadeIn 1s;
+  -webkit-animation: fadeIn 1s;
+  -moz-animation: fadeIn 1s;
+  -o-animation: fadeIn 1s;
+  -ms-animation: fadeIn 1s;
+}
+
+@-webkit-keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.gray-scale {
+  filter: grayscale(100%);
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-o-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-ms-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.dropdown-toggle::before {
+  display: none !important;
+}
+
+.blur {
+  filter: blur(3px);
+}
+
+.opacity-50 {
+  opacity: 0.5;
+}
+
+.steps-circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.step-icon-style {
+  font-size: 20px;
+  position: relative;
+  top: 22%;
+  left: 30%;
+}
+
+.item-at-center {
+  font-size: 20px;
+  position: relative;
+  top: 13%;
+  left: 10%;
+}
+
+.calender {
+  margin-top: 10px;
+  display: grid;
+  max-width: 80vw;
+  margin-left: 2vw;
+  grid-gap: 3px;
+  grid-template-columns: repeat(52, auto);
+}
+
+.week-cell {
+  border: 1px solid #333;
+  height: 1vw;
+  width: 1vw;
+  border-radius: 20%;
+}
+.header {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+}
+
+.select-picker {
+  font-size: 12px !important;
+}
+
+.kanban-input-field {
+  border: 1px solid lightgray !important;
+  outline: none !important;
+  border-radius: 0 !important;
+  width: 100%;
+}
+.remove-outline-from-button {
+  outline: none !important;
+  box-shadow: none !important;
+  border: none !important;
+  text-decoration: none !important;
+}
+
+.remove-outline-from-button:focus {
+  outline: none !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+*,
+html {
+  scroll-behavior: smooth !important;
+}
+
+.horizontal-line {
+  width: 100%;
+  height: 2px solid black;
+}
+.dot {
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+}
+.line {
+  height: 15px;
+  width: 2px;
+  margin-left: 7px;
+}
+.line-sidenav {
+  height: 8px;
+  width: 2px;
+  margin-left: 7px;
+}
+
+.rbc-event {
+  padding: 0 !important;
+}
+
+.calender {
+  display: grid;
+  grid-gap: 2px;
+  grid-template-columns: repeat(52, auto);
+}
+
+.week-cell {
+  border: 1px solid rgb(150, 150, 150);
+  height: 1vw;
+  width: 1vw;
+  border-radius: 1px;
+}
+
+.bottom-button {
+  border-radius: 3px !important;
+  z-index: 99999;
+}
+
+.dashboard-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid #e3e6f0;
+  border-radius: 0.35rem;
+}
+
+@import "~bootstrap/scss/bootstrap";

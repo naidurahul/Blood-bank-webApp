@@ -11,6 +11,16 @@ export const donorFormFields = [
   { name: "allergies", label: "Allergies" },
   { name: "bleeding", label: "Bleeding" },
 ];
+
+export const bloodRequestFields = [
+  { name: "name", label: "Requester Name" },
+  { name: "phoneNumber", label: "Phone Number" },
+  { name: "email", label: "Email" },
+  { name: "gender", label: "Gender" },
+  { name: "address", label: "Requester Address" },
+  { name: "bloodGroup", label: "Blood Group" },
+  { name: "requestAmount", label: "Requested Amount" },
+];
 export const donorFields = [
   { name: "dateOfBirth", label: "Date Of Birth" },
   { name: "phoneNumber", label: "Phone Number" },
@@ -43,3 +53,13 @@ export const shortOptions = [
     value: 200,
   },
 ];
+
+export const addOrUpdateItemInArray = (array, object, pk = "_id") => {
+  const indexInArray = array.findIndex((item) => item[pk] === object[pk]);
+  if (indexInArray === -1) {
+    array.unshift(object);
+    return array;
+  }
+  array[indexInArray] = object;
+  return array;
+};

@@ -2,14 +2,13 @@
   width: 300px;
   height: "100%";
   background-color: white;
+  border: none;
 }
 
 .container-body {
   height: 85vh;
 }
-.dashboard-body {
-  background-color: rgb(238, 240, 241);
-}
+
 .bar {
   height: 1px;
   background-color: rgb(176, 176, 176);
