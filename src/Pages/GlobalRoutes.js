@@ -13,8 +13,8 @@ const GlobalRoutes = () => {
   console.log("hello");
   return (
     <>
-      <div>
         <Navbar />
+      <div className="m-1 p-2 bg-light">
         <Routes>
           <Route element={<Dashboard />} path="/admin/dashboard" />
           <Route element={<DonorRegistration />} path="/donor-registration" />
