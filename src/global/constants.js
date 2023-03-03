@@ -107,3 +107,84 @@ export const addOrUpdateItemInArray = (array, object, pk = "_id") => {
   array[indexInArray] = object;
   return array;
 };
+
+export const sidebarLinks = [
+  {
+    label: "Home",
+    name: "home",
+    link: "/",
+  },
+  {
+    label: "Donor Registration",
+    name: "donorRegistration",
+    link: "/donor-registration",
+  },
+  {
+    label: "Search Donor",
+    name: "searchDonor",
+    link: "/search-donor",
+  },
+  {
+    label: "Request Blood",
+    name: "requestBlood",
+    link: "/request-blood",
+  },
+  {
+    label: "Blood Camps",
+    name: "liveBloodCamp",
+    link: "/live-blood-camp",
+  },
+  {
+    label: "Dashboard",
+    name: "dashboard",
+    link: "/admin/dashboard",
+  },
+  {
+    label: "Contact Us",
+    name: "contactUs",
+    link: "/contact-us",
+  },
+  {
+    label: "About Us",
+    name: "aboutUs",
+    link: "/about-us",
+  },
+];
+
+export const navBarLinks = [
+  [
+    {
+      label: "Donor Registration",
+      name: "donorRegistration",
+      link: "/donor-registration",
+    },
+    {
+      label: "Search Donor",
+      name: "searchDonor",
+      link: "/search-donor",
+    },
+    {
+      label: "Request Blood",
+      name: "requestBlood",
+      link: "/request-blood",
+    },
+  ],
+  [
+    {
+      label: "Blood Camps",
+      name: "liveBloodCamp",
+      link: "/live-blood-camp",
+    },
+
+    {
+      label: "Contact Us",
+      name: "contactUs",
+      link: "/contact-us",
+    },
+    {
+      label: "About Us",
+      name: "aboutUs",
+      link: "/about-us",
+    },
+  ],
+];

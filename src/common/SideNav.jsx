@@ -2,48 +2,7 @@ import { Image, NavLink, Offcanvas } from "react-bootstrap";
 import { XLg } from "react-bootstrap-icons";
 import { useLocation } from "react-router-dom";
 import Logo from "../assets/Logo.png";
-const links = [
-  {
-    label: "Home",
-    name: "home",
-    link: "/",
-  },
-  {
-    label: "Donor Registration",
-    name: "donorRegistration",
-    link: "/donor-registration",
-  },
-  {
-    label: "Search Donor",
-    name: "searchDonor",
-    link: "/search-donor",
-  },
-  {
-    label: "Request Blood",
-    name: "requestBlood",
-    link: "/request-blood",
-  },
-  {
-    label: "Find Live Blood Camp",
-    name: "liveBloodCamp",
-    link: "/live-blood-camp",
-  },
-  {
-    label: "Dashboard",
-    name: "dashboard",
-    link: "/admin/dashboard",
-  },
-  {
-    label: "Contact Us",
-    name: "contactUs",
-    link: "/contact-us",
-  },
-  {
-    label: "About Us",
-    name: "aboutUs",
-    link: "/about-us",
-  },
-];
+import { sidebarLinks } from "../global/constants";
 
 export const SideNav = ({ openSideBar, handleClose }) => {
   const { pathname } = useLocation();
@@ -59,7 +18,7 @@ export const SideNav = ({ openSideBar, handleClose }) => {
           </div>
         </div>
         <div className="text-center pt-3">
-          {links.map((link) => {
+          {sidebarLinks.map((link) => {
             return (
               <NavLink href={link.link}>
                 <div className="d-flex justify-content-center ">
