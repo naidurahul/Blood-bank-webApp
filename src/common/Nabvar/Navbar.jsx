@@ -45,7 +45,9 @@ const Navbar = () => {
                     className="text-decoration-none text-white"
                   >
                     <h6
-                      className="mx-2 xlarge hover"
+                      className={`${
+                        pathname === link.link && "text-decoration-underline"
+                      } mx-2 xlarge  hover`}
                       style={{ fontWeight: 300 }}
                     >
                       {link.label}

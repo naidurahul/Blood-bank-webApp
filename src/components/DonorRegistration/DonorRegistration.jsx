@@ -53,8 +53,10 @@ const DonorRegistration = () => {
       </h6>
       <Row noGutters>
         <Col xs={12} md={6} lg={6}>
-          <div>
-            <h6 className="xxlarge text-light">Why donate blood?</h6>
+          <div className="p-2 border rounded mb-2">
+            <h6 className="huge text-primary mb-0">
+              <span className="xxxxlarge text-white">Why to</span> Donate Blood?
+            </h6>{" "}
             <p className="text-muted">
               Blood donation is a selfless act of kindness and compassion
               towards others. It is a voluntary act of giving that embodies the
@@ -69,7 +71,7 @@ const DonorRegistration = () => {
               our own moral character and sense of purpose.
             </p>
           </div>
-          <div className="text-light">
+          {/* <div className="p-2 border rounded mb-2">
             <h6 className="xxlarge">
               Here are some blood donation slogans by famous people
             </h6>
@@ -87,8 +89,7 @@ const DonorRegistration = () => {
                 and you will save a life." - Dr. Charles Richard Drew
               </h6>
             </div>
-          </div>
-         
+          </div> */}
         </Col>
         <Col xs={12} md={6} lg={6}>
           <Card className="p-2 px-3">

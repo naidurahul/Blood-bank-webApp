@@ -11,7 +11,7 @@ const Home = () => {
 
       <div className="mt-5 mx-5">
         <Row>
-          <Col xs={12} md={6} lg={6}>
+          <Col xs={12} md={6} lg={6} className="my-2">
             <div className="p-2  border rounded">
               <h6 className="huge text-primary">
                 <span className="xxxxlarge text-white">Who is</span> ERAKTA
@@ -30,9 +30,14 @@ const Home = () => {
               </p>
             </div>
           </Col>{" "}
-          <Col xs={12} md={6} lg={6}>
-            <div className="p-2 d-flex align-items-center justify-content-center h-100 ">
-              <Button variant="primary  w-50 ">Donate Blood</Button>{" "}
+          <Col xs={12} md={6} lg={6} className="my-2">
+            <div className="p-2 d-flex flex-column align-items-center justify-content-center h-100 ">
+              <Button variant="outline-primary text-white border-white  w-50 ">
+                Donate Blood
+              </Button>{" "}
+              <Button variant="outline-primary text-white border-white mt-2  w-50 ">
+                Request Blood
+              </Button>{" "}
             </div>
           </Col>
         </Row>
