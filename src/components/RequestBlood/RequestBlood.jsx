@@ -71,25 +71,6 @@ const RequestBlood = () => {
               our own moral character and sense of purpose.
             </p>
           </div>
-          {/* <div className="p-2 border rounded mb-2">
-            <h6 className="xxlarge">
-              Here are some blood donation slogans by famous people
-            </h6>
-            <div className="text-muted">
-              <h6 className="mid mt-2 rounded">
-                "The blood you donate gives someone another chance at life. One
-                day that someone may be a close relative, a friend, a loved
-                one—or even you." - Vera Nazarian
-              </h6>
-              <h6 className="mid mt-1 rounded">
-                "The gift of blood is the gift of life." - Peter Diamandis
-              </h6>
-              <h6 className="mid mt-1 rounded">
-                "To give blood you need neither extra strength nor extra food,
-                and you will save a life." - Dr. Charles Richard Drew
-              </h6>
-            </div>
-          </div> */}
         </Col>
         <Col xs={12} md={6} lg={6}>
           <Card className="p-2 px-3">

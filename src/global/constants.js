@@ -189,3 +189,31 @@ export const navBarLinks = [
     link: "/about-us",
   },
 ];
+
+export const otherPlaceForBloodDonation = [
+  {
+    bloodCenter: "Baglung",
+    contactPerson: "Guru Datta Sharma",
+    phone: "068-520273",
+  },
+  {
+    bloodCenter: "Bhadrapur",
+    contactPerson: "Torna Bikram Karki",
+    phone: "023-520814",
+  },
+  {
+    bloodCenter: "Bhaktapur",
+    contactPerson: "Uttam Kusma",
+    phone: "065-520880",
+  },
+  {
+    bloodCenter: "Butwal",
+    contactPerson: "Jogbahadur Gurung",
+    phone: "071-541004",
+  },
+  {
+    bloodCenter: "Nepalgunj",
+    contactPerson: "Upendra Regmi",
+    phone: "071-520174",
+  },
+];

@@ -10,9 +10,13 @@ import {
   Form,
   Image,
   Row,
+  Table,
 } from "react-bootstrap";
 import { toast } from "react-toastify";
-import { donorFormFields } from "../../global/constants";
+import {
+  donorFormFields,
+  otherPlaceForBloodDonation,
+} from "../../global/constants";
 
 const DonorRegistration = () => {
   const [donorDetails, setDonorDetails] = useState({});
@@ -53,43 +57,40 @@ const DonorRegistration = () => {
       </h6>
       <Row noGutters>
         <Col xs={12} md={6} lg={6}>
-          <div className="p-2 border rounded mb-2">
-            <h6 className="huge text-primary mb-0">
-              <span className="xxxxlarge text-white">Why to</span> Donate Blood?
+          <div className="px-2 pt-2 border rounded mb-2">
+            <h6 className="xxxxlarge text-primary mb-0">
+              <span className="xxxxlarge text-white">Others Place to</span>{" "}
+              Donate Blood
             </h6>{" "}
-            <p className="text-muted">
-              Blood donation is a selfless act of kindness and compassion
-              towards others. It is a voluntary act of giving that embodies the
-              values of empathy, altruism, and solidarity. At its core, blood
-              donation is a demonstration of our interconnectedness as human
-              beings, and a recognition of our shared responsibility to support
-              and care for one another. In sum, blood donation is an act of
-              selflessness that embodies our shared humanity, and reflects our
-              commitment to the ethical principles of reciprocity and
-              magnanimity. By donating blood, we can make a tangible and
-              positive difference in the lives of others, while also cultivating
-              our own moral character and sense of purpose.
+            <p>
+              To donate outside Kathmandu Valley, please contact one of the
+              Regional Blood Transfusion Centres in Biratnagar, Pokhara,
+              Nepalgunj, and Chitwan, or the nearest District Blood Bank or
+              Hospital unit.
             </p>
-          </div>
-          {/* <div className="p-2 border rounded mb-2">
-            <h6 className="xxlarge">
-              Here are some blood donation slogans by famous people
-            </h6>
             <div className="text-muted">
-              <h6 className="mid mt-2 rounded">
-                "The blood you donate gives someone another chance at life. One
-                day that someone may be a close relative, a friend, a loved
-                one—or even you." - Vera Nazarian
-              </h6>
-              <h6 className="mid mt-1 rounded">
-                "The gift of blood is the gift of life." - Peter Diamandis
-              </h6>
-              <h6 className="mid mt-1 rounded">
-                "To give blood you need neither extra strength nor extra food,
-                and you will save a life." - Dr. Charles Richard Drew
-              </h6>
+              <Table striped bordered hover size="sm" className="bg-white ">
+                <thead className="bg-primary text-white">
+                  <tr>
+                    <th>District</th>
+                    <th>Focal Person</th>
+                    <th>Contact No</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {otherPlaceForBloodDonation.map((center) => {
+                    return (
+                      <tr>
+                        <td>{center.bloodCenter}</td>
+                        <td>{center.contactPerson}</td>
+                        <td>{center.phone}</td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </Table>
             </div>
-          </div> */}
+          </div>
         </Col>
         <Col xs={12} md={6} lg={6}>
           <Card className="p-2 px-3">
