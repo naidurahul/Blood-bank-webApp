@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Image } from "react-bootstrap";
 import { List } from "react-bootstrap-icons";
-import { useLocation } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { SideNav } from "../SideNav";
 import Logo from "../../assets/Logo.png";
 import "./Navbar.css";
@@ -31,41 +31,40 @@ const Navbar = () => {
   }, [pathname]);
   return (
     <>
-      <div className="headder bg-light">
+      <div className="header-lg">
         {screenWidth >= 850 ? (
           <div className="d-flex  m-0 mx-2 h-100 justify-content-between">
             <div>
               <Image src={Logo} width={100} className="mt-1" />
             </div>{" "}
             <div className="d-flex align-items-center ">
-              {navBarLinks[0].map((link) => {
+              {navBarLinks.map((link) => {
                 return (
-                  <h6 className="mx-2 xlarge hover" style={{ fontWeight: 300 }}>
-                    {link.label}
-                  </h6>
-                );
-              })}
-              {navBarLinks[1].map((link) => {
-                return (
-                  <h6 className="mx-2 xlarge hover" style={{ fontWeight: 300 }}>
-                    {link.label}
-                  </h6>
+                  <NavLink
+                    to={link.link}
+                    className="text-decoration-none text-white"
+                  >
+                    <h6
+                      className="mx-2 xlarge hover"
+                      style={{ fontWeight: 300 }}
+                    >
+                      {link.label}
+                    </h6>
+                  </NavLink>
                 );
               })}
             </div>
-            <div className="d-flex align-items-center ">
-              <h6>Login</h6>
-            </div>
+            <div className="d-flex align-items-center "></div>
           </div>
         ) : (
-          <div className="d-flex bg-light m-0 h-100 justify-content-between">
+          <div className="d-flex header-lg m-0 h-100 justify-content-between">
             <div>
               <Image src={Logo} width={100} className="ml-5 mt-1" />
             </div>
             <div>
               <List
                 size={40}
-                className="hover mt-4 mr-5"
+                className="hover text-white mt-4 mr-5"
                 onClick={handleOpenSideBar}
               />
             </div>

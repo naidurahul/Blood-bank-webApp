@@ -41,7 +41,7 @@ const DonorRegistration = () => {
 
   return (
     <>
-      <h6 className="xxxxlarge text-center mb-4"> 
+      <h6 className="xxxxlarge text-center text-white  mb-4">
         <Typewriter
           options={{
             strings: ["Register as a Blood Donor", "Save life?"],
@@ -53,57 +53,47 @@ const DonorRegistration = () => {
       </h6>
       <Row noGutters>
         <Col xs={12} md={6} lg={6}>
-          <Alert>
-            <h6 className="xxlarge">Why donate blood?</h6>
-            Blood donation is a selfless act of kindness and compassion towards
-            others. It is a voluntary act of giving that embodies the values of
-            empathy, altruism, and solidarity. At its core, blood donation is a
-            demonstration of our interconnectedness as human beings, and a
-            recognition of our shared responsibility to support and care for one
-            another. In sum, blood donation is an act of selflessness that
-            embodies our shared humanity, and reflects our commitment to the
-            ethical principles of reciprocity and magnanimity. By donating
-            blood, we can make a tangible and positive difference in the lives
-            of others, while also cultivating our own moral character and sense
-            of purpose.
-          </Alert>
-          <Alert variant="dark">
+          <div>
+            <h6 className="xxlarge text-light">Why donate blood?</h6>
+            <p className="text-muted">
+              Blood donation is a selfless act of kindness and compassion
+              towards others. It is a voluntary act of giving that embodies the
+              values of empathy, altruism, and solidarity. At its core, blood
+              donation is a demonstration of our interconnectedness as human
+              beings, and a recognition of our shared responsibility to support
+              and care for one another. In sum, blood donation is an act of
+              selflessness that embodies our shared humanity, and reflects our
+              commitment to the ethical principles of reciprocity and
+              magnanimity. By donating blood, we can make a tangible and
+              positive difference in the lives of others, while also cultivating
+              our own moral character and sense of purpose.
+            </p>
+          </div>
+          <div className="text-light">
             <h6 className="xxlarge">
               Here are some blood donation slogans by famous people
             </h6>
-            <div className="">
-              <h6 className="mid mt-3  bg-light rounded p-2">
+            <div className="text-muted">
+              <h6 className="mid mt-2 rounded">
                 "The blood you donate gives someone another chance at life. One
                 day that someone may be a close relative, a friend, a loved
                 one—or even you." - Vera Nazarian
               </h6>
-              <h6 className="mid mt-3  bg-light rounded p-2">
+              <h6 className="mid mt-1 rounded">
                 "The gift of blood is the gift of life." - Peter Diamandis
               </h6>
-              <h6 className="mid mt-3  bg-light rounded p-2">
+              <h6 className="mid mt-1 rounded">
                 "To give blood you need neither extra strength nor extra food,
                 and you will save a life." - Dr. Charles Richard Drew
               </h6>
             </div>
-          </Alert>
-          {/* <Row noGutters className="my-2">
-            <Col xs={6}>
-              <Card className="text-center">
-                <Card.Header className="">Donor</Card.Header>
-                <Card.Body>67</Card.Body>
-              </Card>
-            </Col>
-            <Col xs={6}>
-              <Card className="text-center">
-                <Card.Header>Helped</Card.Header> <Card.Body>67</Card.Body>
-              </Card>
-            </Col>
-          </Row> */}
+          </div>
+         
         </Col>
         <Col xs={12} md={6} lg={6}>
           <Card className="p-2 px-3">
-            <h6 className="xxlarge mb-0">Donor Registration Form</h6>
-            <h6 className="mid" style={{ fontWeight: 400 }}>
+            <h6 className="xxlarge mb-0 text-dark">Donor Registration Form</h6>
+            <h6 className="mid text-muted" style={{ fontWeight: 400 }}>
               Please consider donating blood to help save lives and support the
               well-being of others. Your generous act of kindness and compassion
               can make a real and positive difference in the world. Thank you
@@ -172,7 +162,7 @@ const DonorRegistration = () => {
               })}
             </Row>
             <Button
-              variant="primary mt-4 w-50 text-right"
+              variant="primary mt-4 w-50 float-right"
               onClick={handleSaveDonorDetails}
             >
               Save My Details

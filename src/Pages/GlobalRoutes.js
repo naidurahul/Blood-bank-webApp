@@ -1,5 +1,6 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
+import Footer from "../common/Footer/Footer";
 import Navbar from "../common/Nabvar/Navbar";
 import AboutUs from "../components/AboutUs/AboutUs";
 import ContactUs from "../components/ContactUs/ContactUs";
@@ -10,11 +11,10 @@ import RequestBlood from "../components/RequestBlood/RequestBlood";
 import SearchDonor from "../components/SearchDonor/SearchDonor";
 
 const GlobalRoutes = () => {
-  console.log("hello");
   return (
     <>
-        <Navbar />
-      <div className="m-1 p-2 bg-light">
+      <Navbar />
+      <div className="m-1 p-2 text-white">
         <Routes>
           <Route element={<Dashboard />} path="/admin/dashboard" />
           <Route element={<DonorRegistration />} path="/donor-registration" />
@@ -25,6 +25,7 @@ const GlobalRoutes = () => {
           <Route element={<SearchDonor />} path="/search-donor" />
         </Routes>
       </div>
+      <Footer />
     </>
   );
 };
