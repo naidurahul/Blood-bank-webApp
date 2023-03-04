@@ -56,7 +56,6 @@ const Navbar = () => {
                 );
               })}
             </div>
-            <div className="d-flex align-items-center "></div>
           </div>
         ) : (
           <div className="d-flex header-lg m-0 h-100 justify-content-between">

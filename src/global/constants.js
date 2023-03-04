@@ -57,13 +57,23 @@ export const donorFormFields = [
 ];
 
 export const bloodRequestFields = [
-  { name: "name", label: "Requester Name" },
-  { name: "phoneNumber", label: "Phone Number" },
-  { name: "email", label: "Email" },
-  { name: "gender", label: "Gender" },
-  { name: "address", label: "Requester Address" },
-  { name: "bloodGroup", label: "Blood Group" },
-  { name: "requestAmount", label: "Requested Amount" },
+  { name: "name", label: "Full Name", type: "text" },
+  { name: "phoneNumber", label: "Phone Number", type: "text" },
+  {
+    name: "bloodGroup",
+    label: "Blood Group",
+    type: "enum",
+    options: ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"],
+  },
+  {
+    name: "gender",
+    label: "Gender",
+    type: "enum",
+    options: ["Male", "Female"],
+  },
+  { name: "email", label: "Email", type: "text" },
+  { name: "address", label: "Address", type: "text" },
+  { name: "requestAmount", label: "Requested Amount", type: "text" },
 ];
 export const donorFields = [
   { name: "dateOfBirth", label: "Date Of Birth" },
@@ -216,4 +226,14 @@ export const otherPlaceForBloodDonation = [
     contactPerson: "Upendra Regmi",
     phone: "071-520174",
   },
+];
+
+export const bloodDonationCriteria = [
+  "Be 18 to 60 years old",
+  "Weight above 45 kg",
+  "Have hemoglobin above 12 gm/dl",
+  "Have blood pressure 110-160 / 70-96 mmHg",
+  "Not to be pregnant, breastfeeding, and recent menstruation",
+  "Not having recent use of drugs or strong medicines",
+  "Not to had a medical surgery for 2 years",
 ];

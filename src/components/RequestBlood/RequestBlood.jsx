@@ -10,18 +10,23 @@ import {
   Form,
   Image,
   Row,
+  Table,
 } from "react-bootstrap";
 import { toast } from "react-toastify";
-import { donorFormFields } from "../../global/constants";
+import {
+  bloodRequestFields,
+  donorFormFields,
+  otherPlaceForBloodDonation,
+} from "../../global/constants";
 
 const RequestBlood = () => {
-  const [donorDetails, setDonorDetails] = useState({});
-  console.log(donorDetails, "donorDetails");
+  const [bloodRequestDetails, setBloodRequestDetails] = useState({});
+  console.log(bloodRequestDetails, "donorDetails");
 
   const saveDonorDetails = async (details) => {
     try {
       const { data } = await axios.post(
-        `http://localhost:4000/api/v1/donation`,
+        `http://localhost:4000/api/v1/blood-request`,
         { ...details }
       );
       if (data.status) {
@@ -33,10 +38,10 @@ const RequestBlood = () => {
   };
 
   const handleSaveDonorDetails = () => {
-    if (!donorDetails.name) {
+    if (!bloodRequestDetails.name) {
       return toast.error("Donor Name is Required");
     }
-    saveDonorDetails(donorDetails);
+    saveDonorDetails(bloodRequestDetails);
   };
 
   return (
@@ -44,7 +49,7 @@ const RequestBlood = () => {
       <h6 className="xxxxlarge text-center text-white  mb-4">
         <Typewriter
           options={{
-            strings: ["Register as a Blood Donor", "Save life?"],
+            strings: ["Are you searching for Blood?", "Want Blood?"],
 
             autoStart: true,
             loop: true,
@@ -53,28 +58,44 @@ const RequestBlood = () => {
       </h6>
       <Row noGutters>
         <Col xs={12} md={6} lg={6}>
-          <div className="p-2 border rounded mb-2">
-            <h6 className="huge text-primary mb-0">
-              <span className="xxxxlarge text-white">Why to</span> Donate Blood?
+          <div className="px-2 pt-2 border rounded mb-2">
+            <h6 className="xxxxlarge text-primary mb-0">
+              <span className="xxxxlarge text-white">Others Place to</span>{" "}
+              Donate Blood
             </h6>{" "}
-            <p className="text-muted">
-              Blood donation is a selfless act of kindness and compassion
-              towards others. It is a voluntary act of giving that embodies the
-              values of empathy, altruism, and solidarity. At its core, blood
-              donation is a demonstration of our interconnectedness as human
-              beings, and a recognition of our shared responsibility to support
-              and care for one another. In sum, blood donation is an act of
-              selflessness that embodies our shared humanity, and reflects our
-              commitment to the ethical principles of reciprocity and
-              magnanimity. By donating blood, we can make a tangible and
-              positive difference in the lives of others, while also cultivating
-              our own moral character and sense of purpose.
+            <p>
+              To donate outside Kathmandu Valley, please contact one of the
+              Regional Blood Transfusion Centres in Biratnagar, Pokhara,
+              Nepalgunj, and Chitwan, or the nearest District Blood Bank or
+              Hospital unit.
             </p>
+            <div className="text-muted">
+              <Table striped bordered hover size="sm" className="bg-white ">
+                <thead className="bg-primary text-white">
+                  <tr>
+                    <th className="thin-fw">District</th>
+                    <th className="thin-fw">Focal Person</th>
+                    <th className="thin-fw">Contact No</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {otherPlaceForBloodDonation.map((center) => {
+                    return (
+                      <tr>
+                        <td className="thin-fw">{center.bloodCenter}</td>
+                        <td className="thin-fw">{center.contactPerson}</td>
+                        <td className="thin-fw">{center.phone}</td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </Table>
+            </div>
           </div>
         </Col>
         <Col xs={12} md={6} lg={6}>
           <Card className="p-2 px-3">
-            <h6 className="xxlarge mb-0 text-dark">Donor Registration Form</h6>
+            <h6 className="xxlarge mb-0 text-dark">Blood Request Form</h6>
             <h6 className="mid text-muted" style={{ fontWeight: 400 }}>
               Please consider donating blood to help save lives and support the
               well-being of others. Your generous act of kindness and compassion
@@ -83,7 +104,7 @@ const RequestBlood = () => {
               community.
             </h6>
             <Row noGutters className="">
-              {donorFormFields.map((field) => {
+              {bloodRequestFields.map((field) => {
                 return (
                   <Col xs={12} md={6} lg={6} key={field.key} className={`my-2`}>
                     <h6 className="mid-font text-dark mb-1">
@@ -96,11 +117,11 @@ const RequestBlood = () => {
                     </h6>
                     {field.type === "enum" && (
                       <Dropdown
-                        className="mb-3"
+                        className=""
                         onSelect={(e) => {
-                          donorDetails[field.name] = e;
-                          setDonorDetails({
-                            ...donorDetails,
+                          bloodRequestDetails[field.name] = e;
+                          setBloodRequestDetails({
+                            ...bloodRequestDetails,
                           });
                         }}
                       >
@@ -109,7 +130,7 @@ const RequestBlood = () => {
                           className="p-1 w-100 text-dark float-left"
                           variant="outline-muted"
                         >
-                          {donorDetails[field.name] ?? "Select Option"}
+                          {bloodRequestDetails[field.name] ?? "Select Option"}
                         </Dropdown.Toggle>
                         <Dropdown.Menu>
                           {field?.options &&
@@ -125,14 +146,14 @@ const RequestBlood = () => {
                     )}
 
                     {(field.type === "text" || field.type === "date") && (
-                      <Form.Group className="mb-3">
+                      <Form.Group className="">
                         <Form.Control
                           type={field.type}
                           placeholder=""
                           className="border-muted"
                           onChange={(e) =>
-                            setDonorDetails({
-                              ...donorDetails,
+                            setBloodRequestDetails({
+                              ...bloodRequestDetails,
                               [field.name]: e.target.value,
                             })
                           }

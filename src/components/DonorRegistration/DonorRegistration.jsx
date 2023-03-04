@@ -14,9 +14,11 @@ import {
 } from "react-bootstrap";
 import { toast } from "react-toastify";
 import {
+  bloodDonationCriteria,
   donorFormFields,
   otherPlaceForBloodDonation,
 } from "../../global/constants";
+import { Check2Circle, PatchCheckFill } from "react-bootstrap-icons";
 
 const DonorRegistration = () => {
   const [donorDetails, setDonorDetails] = useState({});
@@ -59,37 +61,25 @@ const DonorRegistration = () => {
         <Col xs={12} md={6} lg={6}>
           <div className="px-2 pt-2 border rounded mb-2">
             <h6 className="xxxxlarge text-primary mb-0">
-              <span className="xxxxlarge text-white">Others Place to</span>{" "}
-              Donate Blood
+              <span className="xxxxlarge text-white">Can I Donate</span> Blood?
             </h6>{" "}
             <p>
-              To donate outside Kathmandu Valley, please contact one of the
-              Regional Blood Transfusion Centres in Biratnagar, Pokhara,
-              Nepalgunj, and Chitwan, or the nearest District Blood Bank or
-              Hospital unit.
+              Blood donation is open for almost everyone with only a few
+              limitations based on the medical conditions of the blood donor.
+              You can donate blood once every three months
             </p>
-            <div className="text-muted">
-              <Table striped bordered hover size="sm" className="bg-white ">
-                <thead className="bg-primary text-white">
-                  <tr>
-                    <th>District</th>
-                    <th>Focal Person</th>
-                    <th>Contact No</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {otherPlaceForBloodDonation.map((center) => {
-                    return (
-                      <tr>
-                        <td>{center.bloodCenter}</td>
-                        <td>{center.contactPerson}</td>
-                        <td>{center.phone}</td>
-                      </tr>
-                    );
-                  })}
-                </tbody>
-              </Table>
-            </div>
+            <h6 className="xxxxlarge text-primary mb-0">
+              <span className="xxxxlarge text-white">Who Can</span> Donate
+              Blood?
+            </h6>
+            {bloodDonationCriteria.map((text) => {
+              return (
+                <div className="ml-2 d-flex">
+                  <PatchCheckFill className="text-green" />{" "}
+                  <h3 className="xlarge ml-1">{text}</h3>
+                </div>
+              );
+            })}
           </div>
         </Col>
         <Col xs={12} md={6} lg={6}>
@@ -116,7 +106,7 @@ const DonorRegistration = () => {
                     </h6>
                     {field.type === "enum" && (
                       <Dropdown
-                        className="mb-3"
+                        className=""
                         onSelect={(e) => {
                           donorDetails[field.name] = e;
                           setDonorDetails({
@@ -145,7 +135,7 @@ const DonorRegistration = () => {
                     )}
 
                     {(field.type === "text" || field.type === "date") && (
-                      <Form.Group className="mb-3">
+                      <Form.Group className="">
                         <Form.Control
                           type={field.type}
                           placeholder=""

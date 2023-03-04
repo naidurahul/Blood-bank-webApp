@@ -33,7 +33,7 @@ const Request = () => {
       try {
         setLoading(true);
         const { data } = await axios.get(
-          "http://localhost:4000/api/v1/request"
+          "http://localhost:4000/api/v1/blood-request"
         );
         setDonor(data.msg);
         setLoading(false);
