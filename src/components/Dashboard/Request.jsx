@@ -18,8 +18,8 @@ const Request = () => {
       if (data.status) {
         toast.success(
           value?.status === "approve"
-            ? "Request Approved Successfully!"
-            : "Request Rejected Succesfully!"
+            ? "Request has been Approved!"
+            : "Request has been Declined!"
         );
         setDonor([...addOrUpdateItemInArray(donor, value, "_id")]);
         console.log(data, value, donor, "donor");

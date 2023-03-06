@@ -1,24 +1,19 @@
 import axios from "axios";
 import React, { useState } from "react";
-import Typewriter from "typewriter-effect";
 import {
-  Alert,
   Button,
   Card,
   Col,
   Dropdown,
-  Form,
-  Image,
-  Row,
-  Table,
+  Form, Row
 } from "react-bootstrap";
+import { PatchCheckFill } from "react-bootstrap-icons";
 import { toast } from "react-toastify";
+import Typewriter from "typewriter-effect";
 import {
   bloodDonationCriteria,
-  donorFormFields,
-  otherPlaceForBloodDonation,
+  donorFormFields
 } from "../../global/constants";
-import { Check2Circle, PatchCheckFill } from "react-bootstrap-icons";
 
 const DonorRegistration = () => {
   const [donorDetails, setDonorDetails] = useState({});
@@ -39,8 +34,11 @@ const DonorRegistration = () => {
   };
 
   const handleSaveDonorDetails = () => {
-    if (!donorDetails.name) {
-      return toast.error("Donor Name is Required");
+    const emptyFields = donorFormFields.find(
+      (x) => !donorDetails[x.name] && x.required
+    );
+    if (emptyFields) {
+      return toast.error(`${emptyFields.label} is Required`);
     }
     saveDonorDetails(donorDetails);
   };
