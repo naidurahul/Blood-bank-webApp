@@ -1,19 +1,10 @@
 import axios from "axios";
 import React, { useState } from "react";
-import {
-  Button,
-  Card,
-  Col,
-  Dropdown,
-  Form, Row
-} from "react-bootstrap";
+import { Button, Card, Col, Dropdown, Form, Row } from "react-bootstrap";
 import { PatchCheckFill } from "react-bootstrap-icons";
 import { toast } from "react-toastify";
 import Typewriter from "typewriter-effect";
-import {
-  bloodDonationCriteria,
-  donorFormFields
-} from "../../global/constants";
+import { bloodDonationCriteria, donorFormFields } from "../../global/constants";
 
 const DonorRegistration = () => {
   const [donorDetails, setDonorDetails] = useState({});
@@ -72,7 +63,7 @@ const DonorRegistration = () => {
             </h6>
             {bloodDonationCriteria.map((text) => {
               return (
-                <div className="ml-2 d-flex">
+                <div className="ml-2 d-flex" key={text}>
                   <PatchCheckFill className="text-green" />{" "}
                   <h3 className="xlarge ml-1">{text}</h3>
                 </div>
@@ -93,7 +84,7 @@ const DonorRegistration = () => {
             <Row noGutters className="">
               {donorFormFields.map((field) => {
                 return (
-                  <Col xs={12} md={6} lg={6} key={field.key} className={`my-2`}>
+                  <Col xs={12} md={6} lg={6} key={field.name} className={`my-2`}>
                     <h6 className="mid-font text-dark mb-1">
                       {field.label}
                       {field?.required && (

@@ -5,13 +5,14 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import GlobalRoutes from "./Pages/GlobalRoutes";
 import Home from "./Pages/Home";
+import AuthenticatedRoutes from "./Pages/AuthenticatedRoutes";
 
 function App() {
   return (
     <>
       <BrowserRouter>
         <Routes>
-          <Route element={<Home />} exact path="/" />
+          <Route element={<AuthenticatedRoutes />} path="/admin" />
           <Route element={<GlobalRoutes />} path="/*" />
         </Routes>
         <ToastContainer />

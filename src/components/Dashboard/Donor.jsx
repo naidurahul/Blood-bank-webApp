@@ -1,12 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import {
-  Button,
-  Card,
-  Col,
-  Form,
-  Modal, Row
-} from "react-bootstrap";
+import { Button, Card, Col, Form, Modal, Row } from "react-bootstrap";
 import { PersonCircle } from "react-bootstrap-icons";
 import { useLocation } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -26,12 +20,12 @@ const ConfirmDelete = ({
         Are you sure you want to delete {openDeleteDonorModal?.name}?
       </Modal.Body>
       <Modal.Footer>
-        <Button size="sm" variant="secondary mr-2" onClick={handleClose}>
+        <Button size="sm" variant="secondary  mr-2" onClick={handleClose}>
           Close
         </Button>
         <Button
           size="sm"
-          variant="danger mr-2"
+          variant="danger text-white mr-2"
           onClick={() => handelDeleteDonor(openDeleteDonorModal?._id)}
         >
           Delete
@@ -68,7 +62,6 @@ const DonorRegistrationDetails = () => {
       const { data } = await axios.get(
         "http://localhost:4000/api/v1/all/donations"
       );
-      console.log(data.msg);
       setDonorList(data.msg);
       setFilteredList(data.msg);
       setFetchingDonors(false);
@@ -92,7 +85,7 @@ const DonorRegistrationDetails = () => {
   return (
     <>
       <div className="pl-2">
-        <Row noGutters>
+        <Row>
           <Col xs={12} md={8} lg={8}>
             <div>
               <Form>
@@ -126,12 +119,12 @@ const DonorRegistrationDetails = () => {
             </>
           ) : (
             <>
-              <div className="px-2">
+              <div className="px-2 text-dark">
                 {filteredList
                   ? filteredList.map((value, index) => {
                       return (
                         <>
-                          <Card className="my-3">
+                          <Card className="my-3" key={value.name}>
                             <Card.Header className="d-flex justify-content-between ">
                               <div>
                                 Blood Group:{" "}
@@ -147,11 +140,11 @@ const DonorRegistrationDetails = () => {
                                 <Button
                                   onClick={() => setOpenDeleteDonorModal(value)}
                                   size="sm"
-                                  variant="danger mr-2"
+                                  variant="danger text-white mr-2"
                                 >
                                   Delete
                                 </Button>
-                                <Button size="sm" variant="success ">
+                                <Button size="sm" variant="green text-white ">
                                   Edit
                                 </Button>
                               </div>
@@ -179,7 +172,7 @@ const DonorRegistrationDetails = () => {
                               </div>
 
                               <div>
-                                <Row noGutters className="">
+                                <Row className="">
                                   {donorFields.map((field) => {
                                     return (
                                       <Col

@@ -18,14 +18,12 @@ const Navbar = () => {
     function handleResize() {
       setScreenWidth(window.innerWidth);
     }
-
     window.addEventListener("resize", handleResize);
-
     return () => {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
-  console.log(screenWidth, "screenWidth");
+
   useEffect(() => {
     setUser(JSON.parse(localStorage.getItem("blood")));
   }, [pathname]);
@@ -42,6 +40,7 @@ const Navbar = () => {
                 return (
                   <NavLink
                     to={link.link}
+                    key={link.link}
                     className="text-decoration-none text-white"
                   >
                     <h6

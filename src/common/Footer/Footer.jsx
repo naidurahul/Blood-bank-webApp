@@ -1,6 +1,16 @@
 import React from "react";
 import { Button, Col, Form, Row } from "react-bootstrap";
-import { EnvelopeAt, Phone, Telegram, Telephone } from "react-bootstrap-icons";
+import {
+  EnvelopeAt,
+  Facebook,
+  Instagram,
+  Linkedin,
+  Phone,
+  Telegram,
+  Telephone,
+  Twitter,
+  Youtube,
+} from "react-bootstrap-icons";
 
 const Footer = () => {
   return (
@@ -9,11 +19,13 @@ const Footer = () => {
         <Col xs={12} md={6} lg={4}>
           {" "}
           <div className="w-100">
-            <h6 className="text-white xxxlarge ">Quick Link</h6>
-            <div className="text-white ">
-              <h6 className="xlarge thin-fw hover">Donate Blood</h6>
-              <h6 className="xlarge thin-fw hover">Request Blood</h6>
-              <h6 className="xlarge thin-fw hover">Blood Search</h6>
+            <h6 className="text-white xxxlarge ">Social Link</h6>
+            <div className="text-white d-flex">
+              <Facebook className="mx-1 hover" />{" "}
+              <Instagram className="mx-1 hover" />{" "}
+              <Twitter className="mx-1 hover" />{" "}
+              <Youtube className="mx-1 hover" />
+              <Linkedin className="mx-1 hover" />
             </div>
           </div>
         </Col>
@@ -48,8 +60,7 @@ const Footer = () => {
                   className="border-muted"
                 />
               </Form.Group>
-                <Telegram size={30} className='ml-3 mt-1 hover text-white' />
-             
+              <Telegram size={30} className="ml-3 mt-1 hover text-white" />
             </div>
           </div>
         </Col>

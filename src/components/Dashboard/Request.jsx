@@ -4,7 +4,10 @@ import { Button, Card, Col, Form, Row } from "react-bootstrap";
 import { toast } from "react-toastify";
 
 import Loader from "../../common/Loader";
-import { addOrUpdateItemInArray, bloodRequestFields } from "../../global/constants";
+import {
+  addOrUpdateItemInArray,
+  bloodRequestFields,
+} from "../../global/constants";
 
 const Request = () => {
   const [donor, setDonor] = useState([]);
@@ -60,7 +63,7 @@ const Request = () => {
               </Form>
             </div>
           </Col>{" "}
-          <Col xs={12} md={2} lg={2}>
+          {/* <Col xs={12} md={2} lg={2}>
             <Button size="sm" variant="dark mt-1 w-100 ml-1 m-1">
               Filter
             </Button>
@@ -69,7 +72,7 @@ const Request = () => {
             <Button size="sm" variant="dark mt-1 w-100 ml-1">
               Sort
             </Button>
-          </Col>
+          </Col> */}
         </Row>
       </div>
       {loading ? (
@@ -92,19 +95,17 @@ const Request = () => {
         </>
       ) : (
         <>
-          <div className="px-2">
+          <div className="px-2 text-dark">
             {donor
               ? donor.map((value, index) => {
                   return (
                     <>
-                      <Card className="my-3">
+                      <Card className="my-3" key={value.name}>
                         <Card.Header className="d-flex justify-content-between ">
                           <div>
                             <div>
                               <span>Blood Group:</span>
-                              <span
-                                className="rounded  text-white ml-1 px-1 bg-primary"
-                              >
+                              <span className="rounded  text-white ml-1 px-1 bg-primary">
                                 {" "}
                                 {value.bloodGroup}
                               </span>

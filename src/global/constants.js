@@ -204,17 +204,17 @@ export const otherPlaceForBloodDonation = [
   {
     bloodCenter: "Baglung",
     contactPerson: "Guru Datta Sharma",
-    phone: "068-520273",
+    phone: "068-5202732",
   },
   {
     bloodCenter: "Bhadrapur",
     contactPerson: "Torna Bikram Karki",
-    phone: "023-520814",
+    phone: "023-5208142",
   },
   {
     bloodCenter: "Bhaktapur",
     contactPerson: "Uttam Kusma",
-    phone: "065-520880",
+    phone: "065-2381871",
   },
   {
     bloodCenter: "Butwal",
@@ -224,7 +224,7 @@ export const otherPlaceForBloodDonation = [
   {
     bloodCenter: "Bhadrapur",
     contactPerson: "Torna Bikram Karki",
-    phone: "023-520814",
+    phone: "023-5208124",
   },
   {
     bloodCenter: "Baglung",

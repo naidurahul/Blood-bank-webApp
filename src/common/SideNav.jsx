@@ -20,7 +20,7 @@ export const SideNav = ({ openSideBar, handleClose }) => {
         <div className="text-center pt-3">
           {sidebarLinks.map((link) => {
             return (
-              <NavLink href={link.link}>
+              <NavLink key={link.link} href={link.link}>
                 <div className="d-flex justify-content-center ">
                   <h6
                     className="xxxlarge hover my-2"
