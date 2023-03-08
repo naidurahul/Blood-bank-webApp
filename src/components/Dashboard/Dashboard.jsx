@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { XLg } from "react-bootstrap-icons";
 import BloodCamps from "./BloodCamps";
+import BloodStocks from "./BloodStocks";
 import "./Dashboard.css";
 import DonorRegistrationDetails from "./Donor";
 import Request from "./Request";
@@ -15,7 +16,7 @@ const tabs = [
   },
   {
     tabName: "Blood Stock",
-    component: <Request />,
+    component: <BloodStocks />,
   },
   {
     tabName: "Blood Requests",
@@ -52,10 +53,7 @@ const Dashboard = () => {
               })}
             </div>
           </div>
-          <div
-            className="px-2 w-100"
-            style={{ overflowY: "scroll", overflowX: "hidden" }}
-          >
+          <div className="pl-2 w-100" style={{}}>
             {activeTab.component}
           </div>
         </div>

@@ -1,59 +1,159 @@
-import React from "react";
-import { Table } from "react-bootstrap";
-import {
-  PencilFill,
-  SkipEndBtnFill,
-  Trash,
-  Trash2Fill,
-  TrashFill,
-} from "react-bootstrap-icons";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { Button, Table } from "react-bootstrap";
+import { PencilFill, TrashFill } from "react-bootstrap-icons";
+import { toast } from "react-toastify";
+import Loader from "../../common/Loader";
+import { addOrUpdateItemInArray } from "../../global/constants";
+import AddOrEditBloodCamps from "./AddOrEditModal";
 
-const camps = [
-  {
-    cName: "Nobel Blood Donation, 2079",
-    address: "Biratnagar 04",
-    sDate: "2023-08-03",
-    sTime: "15:12",
-    eTime: "12:12",
-  },
-];
 const BloodCamps = () => {
+  const [openAddOrEditBloodCamp, setOpenAddOrEditBloodCamp] = useState(null);
+  const [bloodCamps, setBloodCamps] = useState([]);
+  const [fetchingData, setFetchingData] = useState(false);
+
+  const onFormSubmit = (data) => {
+    if (data.mode === "add") {
+      addBloodCamp(data.data);
+    } else {
+      editBloodCamp(data.data);
+    }
+  };
+
+  const addBloodCamp = async (details) => {
+    try {
+      const { data } = await axios.post(
+        `http://localhost:4000/api/v1/blood-camp`,
+        { ...details }
+      );
+      if (data.status) {
+        toast.success("Succesfully Added");
+        setBloodCamps([...addOrUpdateItemInArray(bloodCamps, data.msg)]);
+        setOpenAddOrEditBloodCamp(null);
+      }
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+  const editBloodCamp = async (details) => {
+    try {
+      const { data } = await axios.put(
+        `http://localhost:4000/api/v1/blood-camp`,
+        { ...details }
+      );
+      if (data.status) {
+        console.log(data.msg);
+        setBloodCamps([...addOrUpdateItemInArray(bloodCamps, data.msg)]);
+        toast.success("Succesfully Edited");
+        setOpenAddOrEditBloodCamp(null);
+      }
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+  const fetchData = async () => {
+    try {
+      setFetchingData(true);
+      const { data } = await axios.get(
+        "http://localhost:4000/api/v1/blood-camp"
+      );
+      setBloodCamps(data.msg);
+      setFetchingData(false);
+    } catch (error) {
+      console.log(error.message);
+      setFetchingData(false);
+    }
+  };
+  const deteletBloodCamp = async (id) => {
+    try {
+      setFetchingData(true);
+      const { data } = await axios.delete(
+        `http://localhost:4000/api/v1/blood-camp/${id}`
+      );
+      setBloodCamps([...bloodCamps.filter((x) => x._id !== id)]);
+      setFetchingData(false);
+    } catch (error) {
+      console.log(error.message);
+      setFetchingData(false);
+    }
+  };
+  useEffect(() => {
+    fetchData();
+  }, []);
   return (
     <>
-      <div className="bg-light">
-        <Table striped bordered hover>
-          <thead>
-            <tr className="mid">
-              <th>SN</th>
-              <th>Camp Name</th>
-              <th>Address</th>
-              <th>Start Date</th>
-              <th>Start Time</th>
-              <th>End Time</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody >
-            {camps.map((camp) => {
-              return (
-                <tr key={camp.cName}>
-                  <td className="mid">1</td>
-                  <td className="mid">{camp.cName}</td>
-                  <td className="mid"> {camp.address} </td>
-                  <td className="mid">{camp.sDate} </td>
-                  <td className="mid"> {camp.sTime} </td>
-                  <td className="mid"> {camp.eTime} </td>
-                  <td className="d-flex">
-                    {" "}
-                    <PencilFill className="hover text-green" />
-                    <TrashFill className="ml-2 hover text-primary-light" />
-                  </td>
+      {fetchingData ? (
+        <>
+          <Loader />{" "}
+        </>
+      ) : (
+        <>
+          <Button
+            size="sm"
+            variant="green float-right text-white mr-2"
+            onClick={() => setOpenAddOrEditBloodCamp({})}
+          >
+            Add a New Blood Camp
+          </Button>
+          <div className="bg-light mt-5">
+            <Table striped bordered hover>
+              <thead>
+                <tr className="mid text-center">
+                  <th>SN</th>
+                  <th>Camp Name</th>
+                  <th>Address</th>
+                  <th>Start Date</th>
+                  <th>Start Time</th>
+                  <th>End Time</th>
+                  <th>Action</th>
                 </tr>
-              );
-            })}
-          </tbody>
-        </Table>
-      </div>
+              </thead>
+              <tbody>
+                {bloodCamps?.length ? (
+                  bloodCamps.map((camp, index) => {
+                    return (
+                      <tr key={camp.cName} className="text-center">
+                        <td>{index + 1}</td>
+                        <td className="mid">{camp.cName}</td>
+                        <td className="mid"> {camp.address} </td>
+                        <td className="mid">{camp.sDate} </td>
+                        <td className="mid"> {camp.sTime} </td>
+                        <td className="mid"> {camp.eTime} </td>
+                        <td className="d-flex justify-content-center">
+                          {" "}
+                          <PencilFill
+                            className="hover text-green"
+                            onClick={() => setOpenAddOrEditBloodCamp(camp)}
+                          />
+                          <TrashFill
+                            className="ml-2 hover text-primary-light"
+                            onClick={() => deteletBloodCamp(camp?._id)}
+                          />
+                        </td>
+                      </tr>
+                    );
+                  })
+                ) : (
+                  <tr className="text-center">
+                    <td className="mid"></td>
+                    <td className="mid"></td>
+                    <td className="mid"> </td>
+                    <td className="mid">No any blood camps to show!</td>
+                    <td className="mid"> </td>
+                    <td className="mid"> </td>
+                    <td className="d-flex justify-content-center"></td>
+                  </tr>
+                )}
+              </tbody>
+            </Table>
+          </div>
+        </>
+      )}
+      <AddOrEditBloodCamps
+        openEditOrAddFormModal={openAddOrEditBloodCamp}
+        handleClose={() => setOpenAddOrEditBloodCamp(null)}
+        onFormSubmit={onFormSubmit}
+      />
     </>
   );
 };

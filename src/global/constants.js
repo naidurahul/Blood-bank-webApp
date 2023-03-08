@@ -129,11 +129,7 @@ export const sidebarLinks = [
     name: "donorRegistration",
     link: "/donor-registration",
   },
-  {
-    label: "Search Donor",
-    name: "searchDonor",
-    link: "/search-donor",
-  },
+
   {
     label: "Request Blood",
     name: "requestBlood",
@@ -172,11 +168,7 @@ export const navBarLinks = [
     name: "donateBlood",
     link: "/donor-registration",
   },
-  {
-    label: "Search Donor",
-    name: "searchDonor",
-    link: "/search-donor",
-  },
+
   {
     label: "Request Blood",
     name: "requestBlood",
@@ -256,4 +248,32 @@ export const bloodDonationCriteria = [
   "Not to be pregnant, breastfeeding, and recent menstruation",
   "Not having recent use of drugs or strong medicines",
   "Not to had a medical surgery for 2 years",
+];
+
+export const bloodCampFormFields = [
+  {
+    name: "cName",
+    label: "Camp Name",
+    type: "text",
+  },
+  {
+    name: "address",
+    label: "Address",
+    type: "text",
+  },
+  {
+    name: "sDate",
+    label: "Starting Date",
+    type: "date",
+  },
+  {
+    name: "sTime",
+    label: "Starting Time",
+    type: "time",
+  },
+  {
+    name: "eTime",
+    label: "End Time",
+    type: "time",
+  },
 ];
