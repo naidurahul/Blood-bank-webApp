@@ -46,7 +46,7 @@ const DonorRegistration = () => {
           }}
         />
       </h6>
-      <Row noGutters>
+      <Row>
         <Col xs={12} md={6} lg={6}>
           <div className="px-2 pt-2 border rounded mb-2">
             <h6 className="xxxxlarge text-primary mb-0">
@@ -81,10 +81,16 @@ const DonorRegistration = () => {
               for considering this important opportunity to give back to your
               community.
             </h6>
-            <Row noGutters className="">
+            <Row className="">
               {donorFormFields.map((field) => {
                 return (
-                  <Col xs={12} md={6} lg={6} key={field.name} className={`my-2`}>
+                  <Col
+                    xs={12}
+                    md={6}
+                    lg={6}
+                    key={field.name}
+                    className={`my-2`}
+                  >
                     <h6 className="mid-font text-dark mb-1">
                       {field.label}
                       {field?.required && (

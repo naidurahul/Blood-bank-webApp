@@ -1,5 +1,6 @@
-import React, { useState } from "react";
-import { XLg } from "react-bootstrap-icons";
+import React, { useEffect, useState } from "react";
+import { BoxArrowDownRight, BoxArrowRight, XLg } from "react-bootstrap-icons";
+import { useNavigate } from "react-router-dom";
 import BloodCamps from "./BloodCamps";
 import BloodStocks from "./BloodStocks";
 import "./Dashboard.css";
@@ -26,13 +27,26 @@ const tabs = [
 
 const Dashboard = () => {
   const [activeTab, setActiveTab] = useState(tabs[0]);
+  const navigate = useNavigate();
+  const user = localStorage.getItem("user");
+
+  const onLogout = () => {
+    localStorage.removeItem("user");
+    navigate(`/login`, { replace: true });
+  };
+  useEffect(() => {
+    if (!user) {
+      navigate(`/login`, { replace: true });
+    }
+  }, [user]);
   return (
     <>
       <div className="container-body m-1">
         <div className="d-flex h-100">
           <div className="side-nav bg-white h-100 p-2">
             <div className="d-flex justify-content-between text-dark">
-              <h5>Dashboard</h5>
+              <h5>Dashboard</h5>{" "}
+              <BoxArrowRight className="hover" onClick={onLogout} />
             </div>
             <div className="bar" />
             <div className="mt-2">
@@ -53,7 +67,7 @@ const Dashboard = () => {
               })}
             </div>
           </div>
-          <div className="pl-2 w-100" style={{}}>
+          <div className="pl-2 w-100" style={{ overflowY: "scroll" }}>
             {activeTab.component}
           </div>
         </div>

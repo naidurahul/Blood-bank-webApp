@@ -277,3 +277,21 @@ export const bloodCampFormFields = [
     type: "time",
   },
 ];
+
+export const ourTeam = [
+  {
+    name: "Samrat Ojha",
+    photoLink:
+      "https://pps.whatsapp.net/v/t61.24694-24/321245389_3426314510948590_7415383907336547307_n.jpg?ccb=11-4&oh=01_AdQYAfqVRok99DJU3Y1fPyG7FKUfsstwBlT_h75Cz3jWqw&oe=64167BC5",
+  },
+  {
+    name: "Rahul Naidu",
+    photoLink:
+      "https://scontent.fbir1-1.fna.fbcdn.net/v/t39.30808-1/330591003_939709637055251_6821796126160515038_n.jpg?stp=dst-jpg_p200x200&_nc_cat=109&ccb=1-7&_nc_sid=f67be1&_nc_ohc=pIzf5N4r3CIAX8Fm4b1&_nc_ht=scontent.fbir1-1.fna&oh=00_AfBxGV-_6rqlH-a1FaPbBdG50QOunJS8paUgpT3ODamk8Q&oe=640DB1EB",
+  },
+  {
+    name: "Prabin Khawas",
+    photoLink:
+      "https://i.pinimg.com/originals/e9/36/ab/e936ab240156c33be7974c2c36188bdf.jpg",
+  },
+];

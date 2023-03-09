@@ -1,18 +1,8 @@
 import axios from "axios";
 import React, { useState } from "react";
-import Typewriter from "typewriter-effect";
-import {
-  Alert,
-  Button,
-  Card,
-  Col,
-  Dropdown,
-  Form,
-  Image,
-  Row,
-  Table,
-} from "react-bootstrap";
+import { Button, Card, Col, Dropdown, Form, Row, Table } from "react-bootstrap";
 import { toast } from "react-toastify";
+import Typewriter from "typewriter-effect";
 import {
   bloodRequestFields,
   otherPlaceForBloodDonation,
@@ -107,7 +97,13 @@ const RequestBlood = () => {
             <Row noGutters className="">
               {bloodRequestFields.map((field) => {
                 return (
-                  <Col xs={12} md={6} lg={6} key={field.key} className={`my-2`}>
+                  <Col
+                    xs={12}
+                    md={6}
+                    lg={6}
+                    key={field.name}
+                    className={`my-2`}
+                  >
                     <h6 className="mid-font text-dark mb-1">
                       {field.label}
                       {field?.required && (
