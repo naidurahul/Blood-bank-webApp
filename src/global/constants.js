@@ -150,11 +150,6 @@ export const sidebarLinks = [
     name: "contactUs",
     link: "/contact-us",
   },
-  {
-    label: "About Us",
-    name: "aboutUs",
-    link: "/about-us",
-  },
 ];
 
 export const navBarLinks = [
@@ -184,11 +179,6 @@ export const navBarLinks = [
     label: "Contact Us",
     name: "contactUs",
     link: "/contact-us",
-  },
-  {
-    label: "About Us",
-    name: "aboutUs",
-    link: "/about-us",
   },
 ];
 
@@ -254,6 +244,11 @@ export const bloodCampFormFields = [
   {
     name: "cName",
     label: "Camp Name",
+    type: "text",
+  },
+  {
+    name: "description",
+    label: "Camp Description",
     type: "text",
   },
   {

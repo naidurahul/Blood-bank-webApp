@@ -102,6 +102,7 @@ const BloodCamps = () => {
                 <tr className="mid text-center">
                   <th>SN</th>
                   <th>Camp Name</th>
+                  <th>Camp Description</th>
                   <th>Address</th>
                   <th>Start Date</th>
                   <th>Start Time</th>
@@ -113,9 +114,10 @@ const BloodCamps = () => {
                 {bloodCamps?.length ? (
                   bloodCamps.map((camp, index) => {
                     return (
-                      <tr key={camp.cName} className="text-center">
+                      <tr key={camp.cName} className="text-left">
                         <td>{index + 1}</td>
                         <td className="mid">{camp.cName}</td>
+                        <td className="mid text-left"> {camp?.description} </td>{" "}
                         <td className="mid"> {camp.address} </td>
                         <td className="mid">
                           {moment(camp.sDate).format("MMM Do YYYY")}

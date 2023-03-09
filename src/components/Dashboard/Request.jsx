@@ -63,16 +63,7 @@ const Request = () => {
               </Form>
             </div>
           </Col>{" "}
-          {/* <Col xs={12} md={2} lg={2}>
-            <Button size="sm" variant="dark mt-1 w-100 ml-1 m-1">
-              Filter
-            </Button>
-          </Col>{" "}
-          <Col xs={12} md={2} lg={2}>
-            <Button size="sm" variant="dark mt-1 w-100 ml-1">
-              Sort
-            </Button>
-          </Col> */}
+   
         </Row>
       </div>
       {loading ? (

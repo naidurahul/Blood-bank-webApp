@@ -7,10 +7,18 @@ import GlobalRoutes from "./Pages/GlobalRoutes";
 import Home from "./Pages/Home";
 import AuthenticatedRoutes from "./Pages/AuthenticatedRoutes";
 import Login from "./Pages/Login";
+import { Button } from "react-bootstrap";
 
 function App() {
   return (
     <>
+      <Button
+        variant="green"
+        style={{ zIndex: 100000 }}
+        className="foo mr-5 mb-2"
+      >
+        Dashboard
+      </Button>
       <BrowserRouter>
         <Routes>
           <Route element={<Login />} path="/login" />

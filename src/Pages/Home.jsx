@@ -112,63 +112,66 @@ const Home = () => {
             and modern technology make them an excellent choice for blood
             donation and transfusion needs.
           </p>
-          <div>
-            <h6 className="d-flex mb-0">
-              <ShieldShaded className=" mr-1" size={20} />{" "}
-              <span className="xxlarge mb-1">
-                Safe and Reliable Blood Supply
-              </span>
-            </h6>
-            <p className="ml-3 text-grey">
-              eRakta Nepal is committed to providing a safe and reliable blood
-              supply to those who need it. They follow strict guidelines and
-              procedures to ensure that all blood donations are screened and
-              tested for infectious diseases and other risk factors.
-              Additionally, they maintain accurate records of all blood
-              donations and transfusions, which helps to ensure the safety and
-              quality of the blood supply.
-            </p>
-          </div>{" "}
-          <div>
-            <h6 className="d-flex mb-0">
-              <PersonUp className=" mr-1" size={20} />{" "}
-              <span className="xxlarge mb-1">Easy to Use Platform </span>
-            </h6>
-            <p className="ml-3 text-grey">
-              eRakta Nepal's platform is designed to be user-friendly and easy
-              to navigate. This makes it easy for donors to find nearby donation
-              centers, schedule appointments, and track their donation history.
-              Additionally, recipients can easily request blood and track the
-              status of their request through the eRakta Nepal platform.
-            </p>
-          </div>{" "}
-          <div>
-            <h6 className="d-flex mb-0">
-              <FiletypeJsx className=" mr-1" size={20} />{" "}
-              <span className="xxlarge mb-1">Modern Technology </span>
-            </h6>
-            <p className="ml-3 text-grey">
-              eRakta Nepal uses modern technology to manage its blood supply and
-              donation process. Their platform is web-based and mobile-friendly,
-              which makes it easy for donors and recipients to access
-              information and manage their accounts from anywhere. Additionally,
-              eRakta Nepal uses advanced software to track and manage blood
-              donations, which helps to ensure that the blood supply is always
-              up-to-date and accurate.
-            </p>
-          </div>
-          <div>
-            <h6 className="d-flex mb-0">
-              <Wechat className=" mr-1" size={20} />{" "}
-              <span className="xxlarge mb-1">Social Responsibility </span>
-            </h6>
-            <p className="ml-3 text-grey">
-              eRakta Nepal is a socially responsible organization that is
-              committed to serving the needs of the community. They partner with
-              various organizations and initiatives to promote blood donation
-              awareness and education, as well as to provide support and
-              assistance to those in need.
-            </p>
+          <div className="rounded border p-2">
+            <div>
+              <h6 className="d-flex mb-0">
+                <ShieldShaded className=" mr-1" size={20} />{" "}
+                <span className="xxlarge mb-1">
+                  Safe and Reliable Blood Supply
+                </span>
+              </h6>
+              <p className="ml-3 text-grey">
+                eRakta Nepal is committed to providing a safe and reliable blood
+                supply to those who need it. They follow strict guidelines and
+                procedures to ensure that all blood donations are screened and
+                tested for infectious diseases and other risk factors.
+                Additionally, they maintain accurate records of all blood
+                donations and transfusions, which helps to ensure the safety and
+                quality of the blood supply.
+              </p>
+            </div>{" "}
+            <div>
+              <h6 className="d-flex mb-0">
+                <PersonUp className=" mr-1" size={20} />{" "}
+                <span className="xxlarge mb-1">Easy to Use Platform </span>
+              </h6>
+              <p className="ml-3 text-grey">
+                eRakta Nepal's platform is designed to be user-friendly and easy
+                to navigate. This makes it easy for donors to find nearby
+                donation centers, schedule appointments, and track their
+                donation history. Additionally, recipients can easily request
+                blood and track the status of their request through the eRakta
+                Nepal platform.
+              </p>
+            </div>{" "}
+            <div>
+              <h6 className="d-flex mb-0">
+                <FiletypeJsx className=" mr-1" size={20} />{" "}
+                <span className="xxlarge mb-1">Modern Technology </span>
+              </h6>
+              <p className="ml-3 text-grey">
+                eRakta Nepal uses modern technology to manage its blood supply
+                and donation process. Their platform is web-based and
+                mobile-friendly, which makes it easy for donors and recipients
+                to access information and manage their accounts from anywhere.
+                Additionally, eRakta Nepal uses advanced software to track and
+                manage blood donations, which helps to ensure that the blood
+                supply is always up-to-date and accurate.
+              </p>
+            </div>
+            <div>
+              <h6 className="d-flex mb-0">
+                <Wechat className=" mr-1" size={20} />{" "}
+                <span className="xxlarge mb-1">Social Responsibility </span>
+              </h6>
+              <p className="ml-3 text-grey">
+                eRakta Nepal is a socially responsible organization that is
+                committed to serving the needs of the community. They partner
+                with various organizations and initiatives to promote blood
+                donation awareness and education, as well as to provide support
+                and assistance to those in need.
+              </p>
+            </div>
           </div>
         </div>
       </div>
