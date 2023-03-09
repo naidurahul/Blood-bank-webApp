@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Col, Row } from "react-bootstrap";
 import { PenFill } from "react-bootstrap-icons";
 import AddOrEditBloodCamps from "./AddOrEditModal";
+import EditBloodStock from "./EditBloodStock";
 
 const bloodGroup = ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"];
 
@@ -40,8 +41,8 @@ const BloodStocks = () => {
         </Row>
       </div>
 
-      <AddOrEditBloodCamps
-        openEditOrAddFormModal={openEditBloodStock}
+      <EditBloodStock
+        openEditBloodStock={openEditBloodStock}
         handleClose={() => setOpenEditBloodStock(null)}
       />
     </>
