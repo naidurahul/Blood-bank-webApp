@@ -15,13 +15,11 @@ import {
 import { toast } from "react-toastify";
 import {
   bloodRequestFields,
-  donorFormFields,
   otherPlaceForBloodDonation,
 } from "../../global/constants";
 
 const RequestBlood = () => {
   const [bloodRequestDetails, setBloodRequestDetails] = useState({});
-  console.log(bloodRequestDetails, "donorDetails");
 
   const saveDonorDetails = async (details) => {
     try {
@@ -38,8 +36,11 @@ const RequestBlood = () => {
   };
 
   const handleSaveDonorDetails = () => {
-    if (!bloodRequestDetails.name) {
-      return toast.error("Donor Name is Required");
+    const emptyFields = bloodRequestFields.find(
+      (x) => !bloodRequestDetails[x.name]
+    );
+    if (emptyFields) {
+      return toast.error(`${emptyFields.label} is Required`);
     }
     saveDonorDetails(bloodRequestDetails);
   };

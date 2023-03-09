@@ -40,7 +40,13 @@ const Home = () => {
       </div>
       <div className="mt-5 mx-5">
         <Row>
-          <Col xs={12} md={6} lg={6} />
+          <Col xs={12} md={6} lg={6}>
+            <div className="p-2 d-flex flex-column align-items-center justify-content-center h-100 ">
+              <Button variant="outline-primary text-white border-white  w-50 ">
+                Blood Camps
+              </Button>{" "}
+            </div>{" "}
+          </Col>
           <Col xs={12} md={6} lg={6}>
             <div className="p-2  border rounded">
               <h6 className="huge text-primary">
