@@ -8,7 +8,6 @@ import { bloodDonationCriteria, donorFormFields } from "../../global/constants";
 
 const DonorRegistration = () => {
   const [donorDetails, setDonorDetails] = useState({});
-  console.log(donorDetails, "donorDetails");
 
   const saveDonorDetails = async (details) => {
     try {

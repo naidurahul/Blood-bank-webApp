@@ -1,4 +1,5 @@
 import axios from "axios";
+import moment from "moment/moment";
 import React, { useEffect, useState } from "react";
 import { Button, Table } from "react-bootstrap";
 import { PencilFill, TrashFill } from "react-bootstrap-icons";
@@ -11,7 +12,7 @@ const BloodCamps = () => {
   const [openAddOrEditBloodCamp, setOpenAddOrEditBloodCamp] = useState(null);
   const [bloodCamps, setBloodCamps] = useState([]);
   const [fetchingData, setFetchingData] = useState(false);
-
+  console.log(moment("12:30", "HH:mm")?._d);
   const onFormSubmit = (data) => {
     if (data.mode === "add") {
       addBloodCamp(data.data);
@@ -95,7 +96,7 @@ const BloodCamps = () => {
           >
             Add a New Blood Camp
           </Button>
-          <div className="bg-light mt-5">
+          <div className="bg-light mt-5 h-100">
             <Table striped bordered hover>
               <thead>
                 <tr className="mid text-center">
@@ -116,9 +117,20 @@ const BloodCamps = () => {
                         <td>{index + 1}</td>
                         <td className="mid">{camp.cName}</td>
                         <td className="mid"> {camp.address} </td>
-                        <td className="mid">{camp.sDate} </td>
-                        <td className="mid"> {camp.sTime} </td>
-                        <td className="mid"> {camp.eTime} </td>
+                        <td className="mid">
+                          {moment(camp.sDate).format("MMM Do YYYY")}
+                        </td>
+                        <td className="mid">
+                          {moment(moment(camp.sTime, "HH:mm")?._d).format(
+                            "HH:mm a"
+                          )}{" "}
+                        </td>
+                        <td className="mid">
+                          {" "}
+                          {moment(moment(camp.eTime, "HH:mm")?._d).format(
+                            "HH:mm a"
+                          )}{" "}
+                        </td>
                         <td className="d-flex justify-content-center">
                           {" "}
                           <PencilFill

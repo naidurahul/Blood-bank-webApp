@@ -73,9 +73,9 @@ const RequestBlood = () => {
                   {otherPlaceForBloodDonation.map((center) => {
                     return (
                       <tr key={center.phone}>
-                        <td className="thin-fw">{center.bloodCenter}</td>
-                        <td className="thin-fw">{center.contactPerson}</td>
-                        <td className="thin-fw">{center.phone}</td>
+                        <td className="thin-fw large">{center.bloodCenter}</td>
+                        <td className="thin-fw large">{center.contactPerson}</td>
+                        <td className="thin-fw large">{center.phone}</td>
                       </tr>
                     );
                   })}

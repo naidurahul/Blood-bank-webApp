@@ -5,6 +5,7 @@ import BloodCamps from "./BloodCamps";
 import BloodStocks from "./BloodStocks";
 import "./Dashboard.css";
 import DonorRegistrationDetails from "./Donor";
+import Feedback from "./Feedback";
 import Request from "./Request";
 const tabs = [
   {
@@ -22,6 +23,10 @@ const tabs = [
   {
     tabName: "Blood Requests",
     component: <Request />,
+  },
+  {
+    tabName: "Feedbacks",
+    component: <Feedback />,
   },
 ];
 
