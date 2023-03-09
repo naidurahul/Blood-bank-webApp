@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Button, Form, Modal } from "react-bootstrap";
-import { bloodCampFormFields } from "../../global/constants";
 
 const EditBloodStock = ({ openEditBloodStock, handleClose, onFormSubmit }) => {
   const [formValues, setFormValues] = useState({});
@@ -22,7 +21,7 @@ const EditBloodStock = ({ openEditBloodStock, handleClose, onFormSubmit }) => {
                 value={formValues?.stock}
                 onChange={(e) =>
                   setFormValues({
-                    bg: openEditBloodStock?.bg,
+                    ...formValues,
                     stock: e.target.value >= 0 ? Number(e.target.value) : 0,
                   })
                 }
@@ -41,7 +40,7 @@ const EditBloodStock = ({ openEditBloodStock, handleClose, onFormSubmit }) => {
             onClick={() =>
               onFormSubmit({
                 data: formValues,
-                mode: formValues?._id ? "edit" : "add",
+                mode: openEditBloodStock?._id ? "edit" : "add",
               })
             }
           >
