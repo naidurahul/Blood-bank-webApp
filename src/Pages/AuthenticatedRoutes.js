@@ -12,7 +12,7 @@ const AuthenticatedRoutes = () => {
   return (
     <>
       <Navbar />
-      <div className="m-1 p-2 text-white">
+      <div className="m-1 p-2 text-dark">
         <Routes>
           <Route element={<Dashboard />} path="/admin/dashboard" />
         </Routes>

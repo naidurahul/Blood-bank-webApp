@@ -29,7 +29,7 @@ const Navbar = () => {
   }, [pathname]);
   return (
     <>
-      <div className="header-lg">
+      <div className="header-lg " >
         {screenWidth >= 850 ? (
           <div className="d-flex  m-0 mx-2 h-100 justify-content-between">
             <div>
@@ -41,11 +41,12 @@ const Navbar = () => {
                   <NavLink
                     to={link.link}
                     key={link.link}
-                    className="text-decoration-none text-white"
+                    className="text-decoration-none text-light"
                   >
                     <h6
                       className={`${
-                        pathname === link.link && "text-decoration-underline"
+                        pathname === link.link &&
+                        "border rounded bg-light text-dark p-2"
                       } mx-2 xlarge  hover`}
                       style={{ fontWeight: 300 }}
                     >
@@ -64,7 +65,7 @@ const Navbar = () => {
             <div>
               <List
                 size={40}
-                className="hover text-white mt-4 mr-5"
+                className="hover text-dark mt-4 mr-5"
                 onClick={handleOpenSideBar}
               />
             </div>

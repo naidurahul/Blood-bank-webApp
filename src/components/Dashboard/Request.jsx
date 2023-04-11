@@ -63,7 +63,6 @@ const Request = () => {
               </Form>
             </div>
           </Col>{" "}
-   
         </Row>
       </div>
       {loading ? (
@@ -96,7 +95,7 @@ const Request = () => {
                           <div>
                             <div>
                               <span>Blood Group:</span>
-                              <span className="rounded  text-white ml-1 px-1 bg-primary">
+                              <span className="rounded  text-dark ml-1 px-1 bg-primary">
                                 {" "}
                                 {value.bloodGroup}
                               </span>
@@ -105,7 +104,7 @@ const Request = () => {
                                 <Button
                                   size="sm"
                                   disabled
-                                  variant="green text-white ml-1"
+                                  variant="green text-dark ml-1"
                                 >
                                   {value?.status?.toUpperCase()}
                                 </Button>
@@ -114,7 +113,7 @@ const Request = () => {
                                 <Button
                                   size="sm"
                                   disabled
-                                  variant="yellow text-white ml-1"
+                                  variant="yellow text-dark ml-1"
                                 >
                                   {value?.status?.toUpperCase()}
                                 </Button>

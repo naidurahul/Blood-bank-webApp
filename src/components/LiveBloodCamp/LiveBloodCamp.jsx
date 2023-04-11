@@ -2,6 +2,7 @@ import axios from "axios";
 import moment from "moment";
 import React, { useEffect, useState } from "react";
 import { Card, Col, Row } from "react-bootstrap";
+import { BuildingFill, Buildings, Hospital } from "react-bootstrap-icons";
 import Typewriter from "typewriter-effect";
 
 const LiveBloodCamp = () => {
@@ -25,7 +26,7 @@ const LiveBloodCamp = () => {
   }, []);
   return (
     <>
-      <h6 className="xxxxlarge text-center text-white  mb-4">
+      <h6 className="xxxxlarge text-center text-dark  mb-4">
         <Typewriter
           options={{
             strings: ["Searching Blood Camps?", "Save life?"],
@@ -41,8 +42,8 @@ const LiveBloodCamp = () => {
             return (
               <Col xs={12} md={6} lg={6}>
                 <Card className="text-dark ">
-                  <Card.Header className="font-normal xxxlarge">
-                    Camp {index + 1}
+                  <Card.Header className="d-flex font-normal xxxlarge">
+                    <Hospital className="mr-2" /> Camp {index + 1}
                   </Card.Header>
                   <Card.Body>
                     <h6 className="xxlarge">{camp.cName} </h6>

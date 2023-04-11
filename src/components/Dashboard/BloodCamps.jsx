@@ -91,7 +91,7 @@ const BloodCamps = () => {
         <>
           <Button
             size="sm"
-            variant="green float-right text-white mr-2"
+            variant="green float-right text-dark mr-2"
             onClick={() => setOpenAddOrEditBloodCamp({})}
           >
             Add a New Blood Camp
@@ -117,7 +117,10 @@ const BloodCamps = () => {
                       <tr key={camp.cName} className="text-left">
                         <td>{index + 1}</td>
                         <td className="mid">{camp.cName}</td>
-                        <td className="mid text-left"> {camp?.description} </td>{" "}
+                        <td className="mid text-left">
+                          {" "}
+                          {camp?.description}{" "}
+                        </td>{" "}
                         <td className="mid"> {camp.address} </td>
                         <td className="mid">
                           {moment(camp.sDate).format("MMM Do YYYY")}

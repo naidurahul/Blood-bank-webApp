@@ -12,15 +12,15 @@ import { ourTeam } from "../global/constants";
 const Home = () => {
   return (
     <>
-      <div className="mt-2 ">
+      <div className="mt-2 text-dark">
         <Row>
           <Col xs={12} md={8} lg={8} className="my-2">
             <div className="p-2   rounded">
               <h6 className="huge text-primary">
-                <span className="xxxxlarge text-white">Who is</span> ERAKTA
+                <span className="xxxxlarge text-dark">Who is</span> ERAKTA
                 NEPAL?
               </h6>
-              <p className="text-grey">
+              <p className="text-dark">
                 eRakta Nepal is a non-profit organization that is dedicated to
                 providing a safe and reliable blood supply to those in need.
                 Their mission is to promote and facilitate voluntary blood
@@ -29,7 +29,7 @@ const Home = () => {
                 initiatives to raise awareness about the importance of blood
                 donation and to encourage more people to donate blood.
               </p>{" "}
-              <p className="text-grey">
+              <p className="text-dark">
                 eRakta Nepal's platform is designed to be user-friendly and
                 accessible, making it easy for donors and recipients to find
                 information, schedule appointments, and track their donation
@@ -44,10 +44,10 @@ const Home = () => {
           </Col>{" "}
           <Col xs={12} md={4} lg={4} className="my-2">
             <div className="p-2 d-flex flex-column align-items-center justify-content-center h-100 ">
-              <Button variant="outline-primary text-white border-white  w-50 ">
+              <Button variant="outline-primary text-primary border-dark  w-50 ">
                 Donate Blood
               </Button>{" "}
-              <Button variant="outline-primary text-white border-white mt-2  w-50 ">
+              <Button variant="outline-primary text-primary border-dark mt-2  w-50 ">
                 Request Blood
               </Button>{" "}
             </div>
@@ -57,9 +57,9 @@ const Home = () => {
 
       <div className="p-2 mt-4   rounded ">
         <h6 className="huge text-primary">
-          <span className="xxxxlarge text-white">What </span> We Do?
+          <span className="xxxxlarge text-dark">What </span> We Do?
         </h6>
-        <p className="text-grey">
+        <p className="text-dark">
           Blood banks play a vital role in ensuring the availability of safe and
           sufficient blood supply for medical treatments and emergency
           situations. A blood bank management system is an essential tool that
@@ -103,9 +103,9 @@ const Home = () => {
       <div className="mt-3">
         <div className="p-2   rounded">
           <h6 className="huge text-primary">
-            <span className="xxxxlarge text-white">Why</span> ERAKTA NEPAL?
+            <span className="xxxxlarge text-dark">Why</span> ERAKTA NEPAL?
           </h6>
-          <p className="text-grey">
+          <p className="text-dark">
             eRakta Nepal is a reliable and socially responsible organization
             that is committed to providing safe and reliable blood supply to
             those who need it. Their user-friendly platform, dedicated staff,
@@ -115,12 +115,12 @@ const Home = () => {
           <div className="rounded border p-2">
             <div>
               <h6 className="d-flex mb-0">
-                <ShieldShaded className=" mr-1" size={20} />{" "}
-                <span className="xxlarge mb-1">
+                <ShieldShaded className="text-dark mr-3 mt-1" size={20} />{" "}
+                <span className="xxxlarge text-dark mb-1">
                   Safe and Reliable Blood Supply
                 </span>
               </h6>
-              <p className="ml-3 text-grey">
+              <p className="ml-3 text-dark">
                 eRakta Nepal is committed to providing a safe and reliable blood
                 supply to those who need it. They follow strict guidelines and
                 procedures to ensure that all blood donations are screened and
@@ -132,10 +132,10 @@ const Home = () => {
             </div>{" "}
             <div>
               <h6 className="d-flex mb-0">
-                <PersonUp className=" mr-1" size={20} />{" "}
-                <span className="xxlarge mb-1">Easy to Use Platform </span>
+                <PersonUp className="text-dark mr-3 mt-1" size={20} />{" "}
+                <span className="xxxlarge text-dark mb-1">Easy to Use Platform </span>
               </h6>
-              <p className="ml-3 text-grey">
+              <p className="ml-3 text-dark">
                 eRakta Nepal's platform is designed to be user-friendly and easy
                 to navigate. This makes it easy for donors to find nearby
                 donation centers, schedule appointments, and track their
@@ -146,10 +146,10 @@ const Home = () => {
             </div>{" "}
             <div>
               <h6 className="d-flex mb-0">
-                <FiletypeJsx className=" mr-1" size={20} />{" "}
-                <span className="xxlarge mb-1">Modern Technology </span>
+                <FiletypeJsx className="text-dark mr-3 mt-1" size={20} />{" "}
+                <span className="xxxlarge text-dark mb-1">Modern Technology </span>
               </h6>
-              <p className="ml-3 text-grey">
+              <p className="ml-3 text-dark">
                 eRakta Nepal uses modern technology to manage its blood supply
                 and donation process. Their platform is web-based and
                 mobile-friendly, which makes it easy for donors and recipients
@@ -161,10 +161,10 @@ const Home = () => {
             </div>
             <div>
               <h6 className="d-flex mb-0">
-                <Wechat className=" mr-1" size={20} />{" "}
-                <span className="xxlarge mb-1">Social Responsibility </span>
+                <Wechat className="text-dark mr-3 mt-1" size={20} />{" "}
+                <span className="xxxlarge text-dark mb-1">Social Responsibility </span>
               </h6>
-              <p className="ml-3 text-grey">
+              <p className="ml-3 text-dark">
                 eRakta Nepal is a socially responsible organization that is
                 committed to serving the needs of the community. They partner
                 with various organizations and initiatives to promote blood
@@ -177,13 +177,13 @@ const Home = () => {
       </div>
 
       <div className="mt-4  rounded text-center py-2">
-        <h6 className="xxxxlarge">Meet Our Team</h6>
+        <h6 className="xxxxlarge text-dark">Meet Our Team</h6>
         <div className="d-flex  justify-content-around mt-5">
           {ourTeam.map((member) => {
             return (
               <div key={member.name} className="text-center">
                 <Image width={120} roundedCircle src={member.photoLink} />
-                <h6 className="xxlarge mt-1">{member.name}</h6>
+                <h6 className="xxlarge text-dark mt-1">{member.name}</h6>
               </div>
             );
           })}

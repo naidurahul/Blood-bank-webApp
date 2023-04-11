@@ -61,7 +61,7 @@ const Dashboard = () => {
                     key={tab.tabName}
                     className={`${
                       activeTab.tabName === tab.tabName
-                        ? "bg-primary-light text-white"
+                        ? "bg-primary-light text-dark"
                         : "bg-white text-dark"
                     } hover w-100 font-weight-light xlarge p-1 m-0`}
                     onClick={() => setActiveTab(tab)}

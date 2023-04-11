@@ -1,5 +1,5 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 import "./App.scss";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -8,17 +8,20 @@ import Home from "./Pages/Home";
 import AuthenticatedRoutes from "./Pages/AuthenticatedRoutes";
 import Login from "./Pages/Login";
 import { Button } from "react-bootstrap";
+import { useEffect } from "react";
 
 function App() {
   return (
     <>
-      <Button
-        variant="green"
-        style={{ zIndex: 100000 }}
-        className="foo mr-5 mb-2"
-      >
-        Dashboard
-      </Button>
+      {/* {user && (
+        <Button
+          variant="green"
+          style={{ zIndex: 100000 }}
+          className="foo mr-5 mb-2"
+        >
+          Dashboard
+        </Button>
+      )} */}
       <BrowserRouter>
         <Routes>
           <Route element={<Login />} path="/login" />

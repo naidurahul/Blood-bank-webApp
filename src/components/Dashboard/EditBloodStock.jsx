@@ -36,7 +36,7 @@ const EditBloodStock = ({ openEditBloodStock, handleClose, onFormSubmit }) => {
           </Button>
           <Button
             size="sm"
-            variant="danger text-white mr-2"
+            variant="danger text-dark mr-2"
             onClick={() =>
               onFormSubmit({
                 data: formValues,

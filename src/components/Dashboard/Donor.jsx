@@ -25,7 +25,7 @@ const ConfirmDelete = ({
         </Button>
         <Button
           size="sm"
-          variant="danger text-white mr-2"
+          variant="danger text-dark mr-2"
           onClick={() => handelDeleteDonor(openDeleteDonorModal?._id)}
         >
           Delete
@@ -129,7 +129,7 @@ const DonorRegistrationDetails = () => {
                               <div>
                                 Blood Group:{" "}
                                 <span
-                                  className="rounded  text-white px-1"
+                                  className="rounded  text-dark px-1"
                                   style={{ backgroundColor: "#cf3e51" }}
                                 >
                                   {" "}
@@ -140,11 +140,11 @@ const DonorRegistrationDetails = () => {
                                 <Button
                                   onClick={() => setOpenDeleteDonorModal(value)}
                                   size="sm"
-                                  variant="danger text-white mr-2"
+                                  variant="danger text-dark mr-2"
                                 >
                                   Delete
                                 </Button>
-                                <Button size="sm" variant="green text-white ">
+                                <Button size="sm" variant="green text-dark ">
                                   Edit
                                 </Button>
                               </div>

@@ -35,7 +35,7 @@ const DonorRegistration = () => {
 
   return (
     <>
-      <h6 className="xxxxlarge text-center text-white  mb-4">
+      <h6 className="xxxxlarge text-center text-dark  mb-4">
         <Typewriter
           options={{
             strings: ["Register as a Blood Donor", "Save life?"],
@@ -49,7 +49,7 @@ const DonorRegistration = () => {
         <Col xs={12} md={6} lg={6}>
           <div className="px-2 pt-2 border rounded mb-2">
             <h6 className="xxxxlarge text-primary mb-0">
-              <span className="xxxxlarge text-white">Can I Donate</span> Blood?
+              <span className="xxxxlarge text-dark">Can I Donate</span> Blood?
             </h6>{" "}
             <p>
               Blood donation is open for almost everyone with only a few
@@ -57,8 +57,7 @@ const DonorRegistration = () => {
               You can donate blood once every three months
             </p>
             <h6 className="xxxxlarge text-primary mb-0">
-              <span className="xxxxlarge text-white">Who Can</span> Donate
-              Blood?
+              <span className="xxxxlarge text-dark">Who Can</span> Donate Blood?
             </h6>
             {bloodDonationCriteria.map((text) => {
               return (

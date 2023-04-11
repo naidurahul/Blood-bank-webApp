@@ -28,23 +28,23 @@ body,
 #root {
   height: 100%;
   font-family: "Titillium Web", sans-serif;
-  background: rgb(51, 1, 1);
-  background: -moz-radial-gradient(
-    circle,
-    rgba(51, 1, 1, 0.994817910074186) 0%,
-    rgba(0, 0, 0, 1) 92%
-  );
-  background: -webkit-radial-gradient(
-    circle,
-    rgba(51, 1, 1, 0.994817910074186) 0%,
-    rgba(0, 0, 0, 1) 92%
-  );
-  background: radial-gradient(
-    circle,
-    rgba(51, 1, 1, 0.994817910074186) 0%,
-    rgba(0, 0, 0, 1) 92%
-  );
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#330101",endColorstr="#000000",GradientType=1);
+  // background: rgb(51, 1, 1);
+  // background: -moz-radial-gradient(
+  //   circle,
+  //   rgba(51, 1, 1, 0.994817910074186) 0%,
+  //   rgba(0, 0, 0, 1) 92%
+  // );
+  // background: -webkit-radial-gradient(
+  //   circle,
+  //   rgba(51, 1, 1, 0.994817910074186) 0%,
+  //   rgba(0, 0, 0, 1) 92%
+  // );
+  // background: radial-gradient(
+  //   circle,
+  //   rgba(51, 1, 1, 0.994817910074186) 0%,
+  //   rgba(0, 0, 0, 1) 92%
+  // );
+  // filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#330101",endColorstr="#000000",GradientType=1);
 }
 
 .hover {

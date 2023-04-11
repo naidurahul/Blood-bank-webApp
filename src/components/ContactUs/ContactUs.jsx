@@ -33,7 +33,7 @@ const ContactUs = () => {
 
   return (
     <>
-      <h6 className="xxxxlarge text-center text-white  mb-4">
+      <h6 className="xxxxlarge text-center text-dark  mb-4">
         <Typewriter
           options={{
             strings: [
@@ -51,7 +51,7 @@ const ContactUs = () => {
         <Col xs={12} md={6} lg={6}>
           <div className="px-2 pt-2 border rounded mb-2">
             <h6 className="xxxxlarge text-primary mb-0">
-              <span className="xxxxlarge text-white">Why do we need</span> Your
+              <span className="xxxxlarge text-dark">Why do we need</span> Your
               Feedback?
             </h6>{" "}
             <div className=" d-flex justify-content-between">
