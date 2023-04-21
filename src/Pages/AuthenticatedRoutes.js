@@ -2,7 +2,6 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 import Footer from "../common/Footer/Footer";
 import Navbar from "../common/Nabvar/Navbar";
-import Dashboard from "../components/Dashboard/Dashboard";
 import DashboardMain from "../components/Dashboard/DashboardMain";
 
 const AuthenticatedRoutes = () => {

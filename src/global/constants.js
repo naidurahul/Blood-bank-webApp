@@ -75,6 +75,16 @@ export const bloodRequestFields = [
   { name: "address", label: "Address", type: "text" },
   { name: "requestAmount", label: "Requested Amount", type: "text" },
 ];
+export const requestFields = [
+  { name: "name", label: "Name" },
+  { name: "gender", label: "Date Of Birth" },
+  { name: "bloodGroup", label: "Phone Number" },
+  { name: "address", label: "Email" },
+  { name: "phoneNumber", label: "Ocupation" },
+  { name: "email", label: "Donor Address" },
+  { name: "requestAmount", label: "Last Donation" },
+  { name: "status", label: "Diseases" },
+];
 export const donorFields = [
   { name: "name", label: "Name" },
   { name: "dateOfBirth", label: "Date Of Birth" },

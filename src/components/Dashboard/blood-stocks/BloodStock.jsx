@@ -13,6 +13,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import EditBloodStock from "./EditBloodStock";
 import { DropletHalf, PencilSquare } from "react-bootstrap-icons";
+import Loader from "../../../common/Loader";
 Chart.register(...registerables);
 
 const bloodGroup = [
@@ -110,47 +111,55 @@ const BloodStock = () => {
             Blood Stock{" "}
           </h6>
         </Card.Header>{" "}
-        <Row className="">
-          {bloodGroup?.map((b, index) => {
-            const donorNumber = findTotalDonor(b.bg);
+        {fetchingData ? (
+          <div className="px-2">
+            <Loader />
+          </div>
+        ) : (
+          <Row className="">
+            {bloodGroup?.map((b, index) => {
+              const donorNumber = findTotalDonor(b.bg);
 
-            return (
-              <>
-                <Col xs={4} md={4} className="d-flex my-2">
-                  <Image
-                    className="hover"
-                    src={b.image}
-                    width={50}
-                    onClick={() =>
-                      setOpenEditBloodStock(
-                        bloodStocks?.find((x) => x.bg === b.bg) ?? { bg: b.bg }
-                      )
-                    }
-                  />
-                  <div>
-                    <h6 className="xxxlarge d-flex mb-0">
-                      {" "}
-                      {bloodStocks?.find((x) => x.bg === b.bg)?.stock ??
-                        "0"}{" "}
-                      <PencilSquare
-                        size={15}
-                        className="mt-2 ml-2 hover"
-                        onClick={() =>
-                          setOpenEditBloodStock(
-                            bloodStocks?.find((x) => x.bg === b.bg) ?? {
-                              bg: b.bg,
-                            }
-                          )
-                        }
-                      />
-                    </h6>
-                    <h6 className="large ml-1 text-muted mb-0">Pint</h6>
-                  </div>
-                </Col>
-              </>
-            );
-          })}
-        </Row>
+              return (
+                <>
+                  <Col xs={4} md={4} className="d-flex my-2">
+                    <Image
+                      className="hover"
+                      src={b.image}
+                      width={50}
+                      onClick={() =>
+                        setOpenEditBloodStock(
+                          bloodStocks?.find((x) => x.bg === b.bg) ?? {
+                            bg: b.bg,
+                          }
+                        )
+                      }
+                    />
+                    <div>
+                      <h6 className="xxxlarge d-flex mb-0">
+                        {" "}
+                        {bloodStocks?.find((x) => x.bg === b.bg)?.stock ??
+                          "0"}{" "}
+                        <PencilSquare
+                          size={15}
+                          className="mt-2 ml-2 hover"
+                          onClick={() =>
+                            setOpenEditBloodStock(
+                              bloodStocks?.find((x) => x.bg === b.bg) ?? {
+                                bg: b.bg,
+                              }
+                            )
+                          }
+                        />
+                      </h6>
+                      <h6 className="large ml-1 text-muted mb-0">Pint</h6>
+                    </div>
+                  </Col>
+                </>
+              );
+            })}
+          </Row>
+        )}
       </Card>{" "}
       <EditBloodStock
         openEditBloodStock={openEditBloodStock}

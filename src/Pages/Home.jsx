@@ -54,8 +54,7 @@ const Home = () => {
                 <h6 className="my-2 xxxlarge ">Managing Blood Stocks</h6>
                 <p>
                   Managing blood stocks involves keeping track of the available
-                  blood inventory, including the type, quantity, and expiration
-                  date of each blood product.
+                  blood inventory,quantity.
                 </p>
               </div>
             </Col>{" "}
@@ -66,8 +65,7 @@ const Home = () => {
                 <h6 className="my-2 xxxlarge ">Organizing Blood Camps</h6>
                 <p>
                   Organizing blood camps involves planning, coordinating, and
-                  executing events to encourage blood donation in a community or
-                  specific location.
+                  executing events to encourage blood donation.
                 </p>
               </div>
             </Col>{" "}
@@ -79,7 +77,7 @@ const Home = () => {
                 <p>
                   Maintaining blood supply involves ensuring a steady and
                   adequate supply of blood products to meet the needs of
-                  patients in hospitals and healthcare.
+                  patients.
                 </p>
               </div>
             </Col>{" "}
@@ -90,8 +88,7 @@ const Home = () => {
                 <h6 className="my-2 xxxlarge ">Registering Blood Donors</h6>
                 <p>
                   Registering blood donors involves collecting and recording
-                  important information about individuals who have donated
-                  blood, including their details.
+                  important information about Donors.
                 </p>
               </div>
             </Col>

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Button, Form, Modal } from "react-bootstrap";
+import { PencilSquare } from "react-bootstrap-icons";
 
 const EditBloodStock = ({ openEditBloodStock, handleClose, onFormSubmit }) => {
   const [formValues, setFormValues] = useState({});
@@ -10,7 +11,13 @@ const EditBloodStock = ({ openEditBloodStock, handleClose, onFormSubmit }) => {
     <>
       {" "}
       <Modal show={openEditBloodStock !== null} onHide={handleClose}>
-        <Modal.Header closeButton>Blood Stock</Modal.Header>
+        <Modal.Header closeButton>
+          {" "}
+          <h6 className="mb-0 xxlarge d-flex">
+            <PencilSquare size={30} className="mr-2" /> Update Blood Stock(
+            {openEditBloodStock?.bg})
+          </h6>
+        </Modal.Header>
         <Modal.Body>
           <div>
             <h6 className="mid-font text-dark my-1">Stock</h6>

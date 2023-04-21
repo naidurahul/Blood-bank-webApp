@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { Card, Table } from "react-bootstrap";
+import { Card, Form, Table } from "react-bootstrap";
 import { CardChecklist } from "react-bootstrap-icons";
 import { donorFieldsToShowInTable } from "../../../global/constants";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { useLocation } from "react-router-dom";
 import DonorDetail from "./DonorDetail";
+import Loader from "../../../common/Loader";
 
 const DonorRegistration = () => {
   const [donorList, setDonorList] = useState([]);
@@ -57,35 +58,49 @@ const DonorRegistration = () => {
   }, [searchQuery]);
   return (
     <>
-      <Card className="mt-3 w-50">
-        <Card.Header className="py-0 px-1 text-center">
+      <Card className="mt-2 w-50">
+        <Card.Header className="py-0 px-1 text-center d-flex justify-content-between">
           <h6 className="my-2 xxlarge d-flex">
             <CardChecklist size={30} className="mt-0 mr-1" />
             Donor List{" "}
           </h6>
+          <Form className="my-1">
+            <Form.Control
+              placeholder="Search donor by name here.."
+              value={searchQuery}
+              onChange={(e) => setSearchQUery(e.target.value)}
+            ></Form.Control>
+          </Form>
         </Card.Header>{" "}
-        <Table striped bordered hover>
-          <thead>
-            <tr>
-              {donorFieldsToShowInTable?.map((donor) => {
-                return <td>{donor.label}</td>;
+        {fetchingDonors ? (
+          <div className="px-2">
+            <Loader />
+          </div>
+        ) : (
+          <Table striped bordered hover style={{ marginBottom: "0px" }}>
+            <thead>
+              <tr>
+                {donorFieldsToShowInTable?.map((donor) => {
+                  return <td>{donor.label}</td>;
+                })}
+              </tr>
+            </thead>
+            <tbody>
+              {filteredList.map((donor) => {
+                return (
+                  <tr className="" onClick={() => setOpenDetailmodal(donor)}>
+                    <td>{donor?.name}</td>
+                    <td>{donor?.bloodGroup}</td>
+                    <td>{donor?.phoneNumber}</td>
+                    <td>{donor?.address}</td>
+                  </tr>
+                );
               })}
-            </tr>
-          </thead>
-          <tbody>
-            {filteredList.map((donor) => {
-              return (
-                <tr className="" onClick={() => setOpenDetailmodal(donor)}>
-                  <td>{donor?.name}</td>
-                  <td>{donor?.bloodGroup}</td>
-                  <td>{donor?.phoneNumber}</td>
-                  <td>{donor?.address}</td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </Table>
+            </tbody>
+          </Table>
+        )}
       </Card>
+
       <DonorDetail
         openDetailModal={openDetailModal}
         handleClose={() => setOpenDetailmodal(null)}

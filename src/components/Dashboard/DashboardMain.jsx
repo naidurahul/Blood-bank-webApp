@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import {
+  BarChartLine,
   BoxArrowDownRight,
   BoxArrowRight,
   Calculator,
@@ -28,29 +29,11 @@ const tabs = [
     tabName: "Blood Stock",
     component: <BloodStock />,
     icon: (
-      <DropletFill
+      <BarChartLine
         size={30}
         className="my-4 hover"
         style={{ marginLeft: 40 }}
       />
-    ),
-  },
-  {
-    tabName: "Donor Form",
-    component: <OverallDashboard />,
-    icon: (
-      <PersonCheck
-        size={30}
-        className="my-4 hover"
-        style={{ marginLeft: 40 }}
-      />
-    ),
-  },
-  {
-    tabName: "Blood Campp",
-    component: <OverallDashboard />,
-    icon: (
-      <Hospital size={30} className="my-4 hover" style={{ marginLeft: 40 }} />
     ),
   },
 ];

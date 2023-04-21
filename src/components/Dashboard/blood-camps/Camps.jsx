@@ -6,6 +6,7 @@ import { addOrUpdateItemInArray } from "../../../global/constants";
 import moment from "moment";
 import { toast } from "react-toastify";
 import AddOrEditBloodCamps from "./AddOrEditModal";
+import Loader from "../../../common/Loader";
 
 const Camps = () => {
   const [openAddOrEditBloodCamp, setOpenAddOrEditBloodCamp] = useState(null);
@@ -90,42 +91,48 @@ const Camps = () => {
           </h6>
           <Button
             size="sm"
-            variant="bootstrap-primary text-white  mr-2  px-1 py-1 my-2"
+            variant="bootstrap-primary text-white px-1 py-1 my-2"
             onClick={() => setOpenAddOrEditBloodCamp({})}
           >
             Add New
           </Button>
         </Card.Header>
-        <Table striped bordered hover>
-          <thead>
-            <tr>
-              <td>Vanue</td>
-              <td>Time</td>
-              <td>Action</td>
-            </tr>
-          </thead>
-          <tbody>
-            {bloodCamps?.map((camp) => {
-              return (
-                <tr className="">
-                  <td>{camp?.cName}</td>
-                  <td>{moment(camp.sDate).format("MMM Do YYYY")}</td>
-                  <td className="text-center d-flex justify-content-around">
-                    <PencilSquare
-                      size={20}
-                      className="text-green hover"
-                      onClick={() => setOpenAddOrEditBloodCamp(camp)}
-                    />
-                    <TrashFill
-                      className="ml-2 hover text-danger"
-                      onClick={() => deteletBloodCamp(camp?._id)}
-                    />
-                  </td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </Table>
+        {fetchingData ? (
+          <div className="px-2">
+            <Loader />
+          </div>
+        ) : (
+          <Table striped bordered hover style={{ marginBottom: "0px" }}>
+            <thead>
+              <tr>
+                <td>Vanue</td>
+                <td>Time</td>
+                <td>Action</td>
+              </tr>
+            </thead>
+            <tbody>
+              {bloodCamps?.map((camp) => {
+                return (
+                  <tr className="">
+                    <td>{camp?.cName}</td>
+                    <td>{moment(camp.sDate).format("MMM Do YYYY")}</td>
+                    <td className="text-center d-flex justify-content-around">
+                      <PencilSquare
+                        size={20}
+                        className="text-green hover"
+                        onClick={() => setOpenAddOrEditBloodCamp(camp)}
+                      />
+                      <TrashFill
+                        className="ml-2 hover text-danger"
+                        onClick={() => deteletBloodCamp(camp?._id)}
+                      />
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </Table>
+        )}
       </Card>{" "}
       <AddOrEditBloodCamps
         openEditOrAddFormModal={openAddOrEditBloodCamp}
