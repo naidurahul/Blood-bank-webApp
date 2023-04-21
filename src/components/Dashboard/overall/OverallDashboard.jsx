@@ -1,36 +1,11 @@
 import { Chart, registerables } from "chart.js";
 import React from "react";
-import { Button, Card, Col, Image, Row, Table } from "react-bootstrap";
-import {
-  CardChecklist,
-  CheckCircleFill,
-  HCircle,
-  PencilSquare,
-  XCircleFill,
-} from "react-bootstrap-icons";
-import AB from "../../../assets/AB.png";
-import AN from "../../../assets/AN.png";
-import AP from "../../../assets/AP.png";
-import BN from "../../../assets/BN.png";
-import BP from "../../../assets/BP.png";
-import ON from "../../../assets/ON.png";
-import OP from "../../../assets/OP.png";
-import { donorFieldsToShowInTable } from "../../../global/constants";
 import Camps from "../blood-camps/Camps";
+import BloodRequest from "../blood-request/BloodRequest";
 import BloodStock from "../blood-stocks/BloodStock";
 import DonorRegistration from "../donor-reg/DonorRegistration";
-import BloodRequest from "../blood-request/BloodRequest";
 Chart.register(...registerables);
 
-const bloodGroup = [
-  { bg: "A+", image: AP },
-  { bg: "A-", image: AN },
-  { bg: "B+", image: BP },
-  { bg: "B-", image: BN },
-  { bg: "O+", image: OP },
-  { bg: "O-", image: ON },
-  { bg: "AB+", image: AB },
-];
 const OverallDashboard = () => {
   return (
     <>
@@ -39,7 +14,7 @@ const OverallDashboard = () => {
           <BloodStock />
           <Camps />
         </div>
-        <div style={{ height: 250 }} className="d-flex">
+        <div  className="d-flex">
           <DonorRegistration />
           <BloodRequest />
         </div>

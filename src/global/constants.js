@@ -76,6 +76,7 @@ export const bloodRequestFields = [
   { name: "requestAmount", label: "Requested Amount", type: "text" },
 ];
 export const donorFields = [
+  { name: "name", label: "Name" },
   { name: "dateOfBirth", label: "Date Of Birth" },
   { name: "phoneNumber", label: "Phone Number" },
   { name: "email", label: "Email" },
@@ -92,7 +93,6 @@ export const donorFieldsToShowInTable = [
   { name: "name", label: "Name" },
   { name: "bg", label: "Group" },
   { name: "phoneNumber", label: "Phone" },
-  { name: "email", label: "Email" },
   { name: "address", label: "Address" },
 ];
 
