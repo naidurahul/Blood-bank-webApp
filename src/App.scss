@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital@1&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Crimson+Text:ital@1&display=swap");
 $theme-colors: (
   primary: #7f181b,
   primary-light: #e01c20,
@@ -10,7 +10,7 @@ $theme-colors: (
   secondary: #f1f1f1,
   grey: #dee2e6,
   disabled: #eaeaea99,
-  green: #67b718,
+  green: #3d7407,
   dark-yellow: rgb(237, 213, 82),
   light-blue: rgb(155, 152, 252),
   danger: #ff4406,
@@ -19,6 +19,8 @@ $theme-colors: (
   water-blue: #f4f6fb,
   purple: #794d9b,
   light-primary: #fac278,
+  light-green: rgb(195, 247, 195),
+  light-red: rgb(248, 211, 197),
 );
 $border-radius: 0.5rem;
 

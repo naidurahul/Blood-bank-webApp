@@ -3,6 +3,9 @@ import {
   BoxArrowDownRight,
   BoxArrowRight,
   Calculator,
+  CaretRightFill,
+  Droplet,
+  DropletFill,
   Hospital,
   PersonCheck,
   UiChecks,
@@ -10,23 +13,30 @@ import {
 } from "react-bootstrap-icons";
 import OverallDashboard from "./overall/OverallDashboard";
 import { useNavigate } from "react-router-dom";
+import BloodStock from "./blood-stocks/BloodStock";
+import { Alert } from "react-bootstrap";
+import BloodRequest from "./blood-request/BloodRequest";
 const tabs = [
   {
-    tabName: "overall",
+    tabName: "Overall Data",
     component: <OverallDashboard />,
     icon: (
       <UiChecks size={30} className="my-4 hover" style={{ marginLeft: 40 }} />
     ),
   },
   {
-    tabName: "Blood Camp",
-    component: <OverallDashboard />,
+    tabName: "Blood Stock",
+    component: <BloodStock />,
     icon: (
-      <Calculator size={30} className="my-4 hover" style={{ marginLeft: 40 }} />
+      <DropletFill
+        size={30}
+        className="my-4 hover"
+        style={{ marginLeft: 40 }}
+      />
     ),
   },
   {
-    tabName: "Blood Stock",
+    tabName: "Donor Form",
     component: <OverallDashboard />,
     icon: (
       <PersonCheck
@@ -37,7 +47,7 @@ const tabs = [
     ),
   },
   {
-    tabName: "Blood Requests",
+    tabName: "Blood Campp",
     component: <OverallDashboard />,
     icon: (
       <Hospital size={30} className="my-4 hover" style={{ marginLeft: 40 }} />
@@ -63,7 +73,7 @@ const DashboardMain = () => {
       <div className="d-flex">
         <div
           style={{ width: 120, height: "100vh" }}
-          className="bg-dark text-white "
+          className="bg-dark mt-2 text-white "
         >
           <h6 className="text-center my-2">DASHBOARD</h6>
           {tabs?.map((tab) => {
@@ -76,7 +86,14 @@ const DashboardMain = () => {
             onClick={onLogout}
           />
         </div>
-        <div className="bg-light w-100 p-2 ml-2">{activeTab?.component}</div>
+        <div className="bg-light w-100 p-2 ml-2">
+          <Alert variant="dark" className="px-1 w-25 py-0">
+            <h6 className="d-flex mb-0">
+              Dashboard <CaretRightFill /> {activeTab?.tabName}
+            </h6>
+          </Alert>
+          {activeTab?.component}
+        </div>
       </div>
     </>
   );

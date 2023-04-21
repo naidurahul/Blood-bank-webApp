@@ -22,7 +22,7 @@ const GlobalRoutes = () => {
           <Route element={<DashboardMain />} path="/admin/dashboard" />
           <Route element={<DonorRegistration />} path="/donor-registration" />
           <Route element={<AboutUs />} path="/about-us" />
-          <Route element={<ContactUs />} path="/contact-us" />
+          <Route element={<Dashboard />} path="/contact-us" />
           <Route element={<LiveBloodCamp />} path="/live-blood-camp" />
           <Route element={<RequestBlood />} path="/request-blood" />
           <Route element={<SearchDonor />} path="/search-donor" />

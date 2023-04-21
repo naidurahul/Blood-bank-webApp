@@ -88,6 +88,13 @@ export const donorFields = [
   { name: "allergies", label: "Allergies" },
   { name: "bleeding", label: "Bleeding" },
 ];
+export const donorFieldsToShowInTable = [
+  { name: "name", label: "Name" },
+  { name: "bg", label: "Group" },
+  { name: "phoneNumber", label: "Phone" },
+  { name: "email", label: "Email" },
+  { name: "address", label: "Address" },
+];
 
 export const shortOptions = [
   {
@@ -179,6 +186,11 @@ export const navBarLinks = [
     label: "Contact Us",
     name: "contactUs",
     link: "/contact-us",
+  },
+  {
+    label: "Dashboard",
+    name: "dashboard",
+    link: "/admin/dashboard",
   },
 ];
 
