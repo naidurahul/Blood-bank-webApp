@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import Footer from "../common/Footer/Footer";
 import Navbar from "../common/Nabvar/Navbar";
 import Dashboard from "../components/Dashboard/Dashboard";
+import DashboardMain from "../components/Dashboard/DashboardMain";
 
 const AuthenticatedRoutes = () => {
   const user = localStorage.getItem("user");
@@ -14,7 +15,7 @@ const AuthenticatedRoutes = () => {
       <Navbar />
       <div className="m-1 p-2 text-dark">
         <Routes>
-          <Route element={<Dashboard />} path="/admin/dashboard" />
+          <Route element={<DashboardMain />} path="/admin/dashboard" />
         </Routes>
       </div>
       <Footer />

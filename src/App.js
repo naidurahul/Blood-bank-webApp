@@ -13,15 +13,6 @@ import { useEffect } from "react";
 function App() {
   return (
     <>
-      {/* {user && (
-        <Button
-          variant="green"
-          style={{ zIndex: 100000 }}
-          className="foo mr-5 mb-2"
-        >
-          Dashboard
-        </Button>
-      )} */}
       <BrowserRouter>
         <Routes>
           <Route element={<Login />} path="/login" />

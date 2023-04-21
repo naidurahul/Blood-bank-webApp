@@ -29,11 +29,11 @@ const Navbar = () => {
   }, [pathname]);
   return (
     <>
-      <div className="header-lg " >
+      <div className="header-lg ">
         {screenWidth >= 850 ? (
           <div className="d-flex  m-0 mx-2 h-100 justify-content-between">
             <div>
-              <Image src={Logo} width={100} className="mt-1" />
+              <Image src={Logo} style={{ marginTop: "-60px" }} width={200} />
             </div>{" "}
             <div className="d-flex align-items-center ">
               {navBarLinks.map((link) => {
@@ -41,12 +41,11 @@ const Navbar = () => {
                   <NavLink
                     to={link.link}
                     key={link.link}
-                    className="text-decoration-none text-light"
+                    className="text-decoration-none text-dark"
                   >
                     <h6
                       className={`${
-                        pathname === link.link &&
-                        "border rounded bg-light text-dark p-2"
+                        pathname === link.link && "text-dark underline-custom"
                       } mx-2 xlarge  hover`}
                       style={{ fontWeight: 300 }}
                     >
@@ -60,7 +59,7 @@ const Navbar = () => {
         ) : (
           <div className="d-flex header-lg m-0 h-100 justify-content-between">
             <div>
-              <Image src={Logo} width={100} className="ml-5 mt-1" />
+              <Image src={Logo} style={{ marginTop: "-60px" }} width={200} />
             </div>
             <div>
               <List

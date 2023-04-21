@@ -1,5 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Jost&family=Titillium+Web:ital,wght@1,200&display=swap");
-
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital@1&display=swap');
 $theme-colors: (
   primary: #7f181b,
   primary-light: #e01c20,
@@ -27,7 +26,7 @@ html,
 body,
 #root {
   height: 100%;
-  font-family: "Titillium Web", sans-serif;
+  font-family: "Crimson Text", serif;
   // background: rgb(51, 1, 1);
   // background: -moz-radial-gradient(
   //   circle,
@@ -51,6 +50,9 @@ body,
   cursor: pointer;
 }
 
+.home-text {
+  font-family: "Crimson Text", serif;
+}
 .hover-light:hover {
   background-color: #ff8e2b36;
   cursor: pointer;
@@ -110,7 +112,7 @@ body,
   font-size: 8px;
 }
 .xxxxlarge {
-  font-size: 30px;
+  font-size: 35px;
 }
 .huge {
   font-size: 50px;

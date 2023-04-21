@@ -1,25 +1,12 @@
 .header-lg {
   height: 12vh !important;
   position: sticky;
-  background: rgb(51, 1, 1);
-  background: -moz-radial-gradient(
-    circle,
-    rgba(51, 1, 1, 0.994817910074186) 0%,
-    rgba(0, 0, 0, 1) 92%
-  );
-  background: -webkit-radial-gradient(
-    circle,
-    rgba(51, 1, 1, 0.994817910074186) 0%,
-    rgba(0, 0, 0, 1) 92%
-  );
-  background: radial-gradient(
-    circle,
-    rgba(51, 1, 1, 0.994817910074186) 0%,
-    rgba(0, 0, 0, 1) 92%
-  );
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#330101",endColorstr="#000000",GradientType=1);
-  color: white;
+  background: rgb(249, 249, 249);
+  color: black;
   z-index: 10 !important;
   top: 0 !important;
   width: 100%;
+}
+.underline-custom {
+  text-decoration: underline;
 }

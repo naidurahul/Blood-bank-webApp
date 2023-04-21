@@ -147,7 +147,7 @@ const DonorRegistration = () => {
               })}
             </Row>
             <Button
-              variant="primary mt-4 w-50 float-right"
+              variant="outline-primary  mt-2 w-50 float-right"
               onClick={handleSaveDonorDetails}
             >
               Save My Details
