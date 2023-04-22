@@ -1,6 +1,7 @@
 import React from "react";
 import { Alert, Button, Card, Col, Image, Row } from "react-bootstrap";
 import HomePhoto from "../assets/Home.png";
+import CampHome from "../assets/CampHome.png";
 import ManagindBlood from "../assets/managingBlood.jpg";
 import SupplyBlood from "../assets/SupplyBlood.jpg";
 import RegisterDonor from "../assets/RegisterDonor.jpg";
@@ -90,6 +91,36 @@ const Home = () => {
                   Registering blood donors involves collecting and recording
                   important information about Donors.
                 </p>
+              </div>
+            </Col>
+          </Row>
+        </div>
+        <div className="mx-2 my-5 py-5">
+          <Row>
+            <Col xs={12} md={6} lg={6}>
+              <Image
+                src={CampHome}
+                style={{ marginTop: "-60px" }}
+                width={800}
+              />
+            </Col>
+            <Col xs={12} md={6} lg={6}>
+              <div
+                style={{ height: "100%" }}
+                className="d-flex py-2 home-text text-center  flex-column justify-content-center align-items-center"
+              >
+                <h6 className="huge  text-primary">
+                  Get Involve in Blood Donation
+                </h6>
+                <Alert variant="dark" className="w-75">
+                  We Organize blood donation campaign every week , you can get
+                  enrolled in it
+                </Alert>
+                <div className="p-2 d-flex  ">
+                  <Button variant="outline-primary  border-dark mx-2  ">
+                    See Camps
+                  </Button>{" "}
+                </div>
               </div>
             </Col>
           </Row>
