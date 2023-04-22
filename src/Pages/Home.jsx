@@ -8,6 +8,7 @@ import RegisterDonor from "../assets/RegisterDonor.jpg";
 import OrganizeBloodCamp from "../assets/OrganizeBloodCamp.jpg";
 import BeAHero from "../assets/BeAHero.png";
 import { ArrowRightCircle } from "react-bootstrap-icons";
+import { ourTeam } from "../global/constants";
 
 const Home = () => {
   return (
@@ -165,6 +166,19 @@ const Home = () => {
               </div>
             </Col>
           </Row>
+        </div>
+        <div className="mt-4  rounded text-center py-2">
+          <h6 className="xxxxlarge my-5 text-center">Meet Our Team</h6>
+          <div className="d-flex  justify-content-around mt-5">
+            {ourTeam.map((member) => {
+              return (
+                <div key={member.name} className="text-center">
+                  <Image width={120} roundedCircle src={member.photoLink} />
+                  <h6 className="xxlarge text-dark mt-1">{member.name}</h6>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
     </>

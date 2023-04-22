@@ -17,6 +17,7 @@ import { useNavigate } from "react-router-dom";
 import BloodStock from "./blood-stocks/BloodStock";
 import { Alert } from "react-bootstrap";
 import BloodRequest from "./blood-request/BloodRequest";
+import Graphs from "./Graphs";
 const tabs = [
   {
     tabName: "Overall Data",
@@ -27,7 +28,7 @@ const tabs = [
   },
   {
     tabName: "Blood Stock",
-    component: <BloodStock />,
+    component: <Graphs />,
     icon: (
       <BarChartLine
         size={30}
