@@ -58,32 +58,24 @@ export const donorFormFields = [
 
 export const bloodRequestFields = [
   { name: "name", label: "Full Name", type: "text" },
-  { name: "phoneNumber", label: "Phone Number", type: "text" },
   {
     name: "bloodGroup",
     label: "Blood Group",
     type: "enum",
     options: ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"],
   },
-  {
-    name: "gender",
-    label: "Gender",
-    type: "enum",
-    options: ["Male", "Female"],
-  },
   { name: "email", label: "Email", type: "text" },
   { name: "address", label: "Address", type: "text" },
   { name: "requestAmount", label: "Requested Amount", type: "text" },
+  { name: "reason", label: "Give Your Reason", type: "text" },
 ];
 export const requestFields = [
   { name: "name", label: "Name" },
-  { name: "gender", label: "Date Of Birth" },
-  { name: "bloodGroup", label: "Phone Number" },
-  { name: "address", label: "Email" },
-  { name: "phoneNumber", label: "Ocupation" },
-  { name: "email", label: "Donor Address" },
-  { name: "requestAmount", label: "Last Donation" },
-  { name: "status", label: "Diseases" },
+  { name: "bloodGroup", label: "Blood Group" },
+  { name: "address", label: "Address" },
+  { name: "email", label: "Email" },
+  { name: "requestAmount", label: "Requested Amount" },
+  { name: "status", label: "Status" },
 ];
 export const donorFields = [
   { name: "name", label: "Name" },
@@ -187,16 +179,16 @@ export const navBarLinks = [
     link: "/request-blood",
   },
   {
+    label: "Contact Us",
+    name: "contactUs",
+    link: "/contact-us",
+  },
+  {
     label: "Blood Camps",
     name: "liveBloodCamp",
     link: "/live-blood-camp",
   },
 
-  {
-    label: "Contact Us",
-    name: "contactUs",
-    link: "/contact-us",
-  },
   {
     label: "Dashboard",
     name: "dashboard",

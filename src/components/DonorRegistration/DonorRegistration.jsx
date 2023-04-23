@@ -1,10 +1,10 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { Button, Card, Col, Dropdown, Form, Row } from "react-bootstrap";
-import { PatchCheckFill } from "react-bootstrap-icons";
+import { Button, Col, Dropdown, Form, Image, Row } from "react-bootstrap";
 import { toast } from "react-toastify";
-import Typewriter from "typewriter-effect";
-import { bloodDonationCriteria, donorFormFields } from "../../global/constants";
+import RegisterAsDonor from "../../assets/RegisterAsDonor.png";
+import { donorFormFields } from "../../global/constants";
+import { ArrowRight, Search } from "react-bootstrap-icons";
 
 const DonorRegistration = () => {
   const [donorDetails, setDonorDetails] = useState({});
@@ -35,50 +35,19 @@ const DonorRegistration = () => {
 
   return (
     <>
-      <h6 className="xxxxlarge text-center text-dark  mb-4">
-        <Typewriter
-          options={{
-            strings: ["Register as a Blood Donor", "Save life?"],
-
-            autoStart: true,
-            loop: true,
-          }}
-        />
-      </h6>
       <Row>
         <Col xs={12} md={6} lg={6}>
-          <div className="px-2 pt-2 border rounded mb-2">
-            <h6 className="xxxxlarge text-primary mb-0">
-              <span className="xxxxlarge text-dark">Can I Donate</span> Blood?
-            </h6>{" "}
-            <p>
-              Blood donation is open for almost everyone with only a few
-              limitations based on the medical conditions of the blood donor.
-              You can donate blood once every three months
-            </p>
-            <h6 className="xxxxlarge text-primary mb-0">
-              <span className="xxxxlarge text-dark">Who Can</span> Donate Blood?
-            </h6>
-            {bloodDonationCriteria.map((text) => {
-              return (
-                <div className="ml-2 d-flex" key={text}>
-                  <PatchCheckFill className="text-green" />{" "}
-                  <h3 className="xlarge ml-1">{text}</h3>
-                </div>
-              );
-            })}
-          </div>
+          <Image src={RegisterAsDonor} width={700} />
         </Col>
         <Col xs={12} md={6} lg={6}>
-          <Card className="p-2 px-3">
-            <h6 className="xxlarge mb-0 text-dark">Donor Registration Form</h6>
-            <h6 className="mid text-muted" style={{ fontWeight: 400 }}>
-              Please consider donating blood to help save lives and support the
-              well-being of others. Your generous act of kindness and compassion
-              can make a real and positive difference in the world. Thank you
-              for considering this important opportunity to give back to your
-              community.
-            </h6>
+          <div className="p-2 px-3">
+            <h6 className="huge mb-0 text-dark">
+              Request Blood,
+              <h6 className="huge mb-0 text-dark d-flex">
+                Find your Life Saver
+                <Search className="ml-2 mt-1 text-primary" />
+              </h6>
+            </h6>{" "}
             <Row className="">
               {donorFormFields.map((field) => {
                 return (
@@ -89,14 +58,14 @@ const DonorRegistration = () => {
                     key={field.name}
                     className={`my-2`}
                   >
-                    <h6 className="mid-font text-dark mb-1">
+                    <Form.Label className="text-dark mb-0">
                       {field.label}
                       {field?.required && (
                         <span className="text-red" style={{ color: "red" }}>
                           *
                         </span>
-                      )}
-                    </h6>
+                      )}{" "}
+                    </Form.Label>
                     {field.type === "enum" && (
                       <Dropdown
                         className=""
@@ -111,6 +80,7 @@ const DonorRegistration = () => {
                           size="sm"
                           className="p-1 w-100 text-dark float-left"
                           variant="outline-muted"
+                          style={{ height: 40, borderRadius: 8 }}
                         >
                           {donorDetails[field.name] ?? "Select Option"}
                         </Dropdown.Toggle>
@@ -147,12 +117,12 @@ const DonorRegistration = () => {
               })}
             </Row>
             <Button
-              variant="outline-primary  mt-2 w-50 float-right"
+              variant="outline-green mt-4 float-right d-flex"
               onClick={handleSaveDonorDetails}
             >
-              Save My Details
+              Register <ArrowRight className="mt-1 ml-2" />
             </Button>{" "}
-          </Card>
+          </div>
         </Col>
       </Row>
     </>

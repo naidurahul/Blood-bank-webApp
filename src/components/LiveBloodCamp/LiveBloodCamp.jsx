@@ -6,10 +6,12 @@ import {
   ArrowRight,
   BuildingFill,
   Buildings,
+  ChatDotsFill,
   DatabaseX,
   Hospital,
   PeopleFill,
   PersonCheckFill,
+  Search,
 } from "react-bootstrap-icons";
 import Typewriter from "typewriter-effect";
 import Participant from "./Participant";
@@ -74,23 +76,24 @@ const LiveBloodCamp = () => {
   }, [searchQuery, bloodCamps]);
   return (
     <>
-      <h6 className="xxxxlarge text-center text-dark  mb-3">
-        <Typewriter
-          options={{
-            strings: ["Searching Blood Camps?", "Save life?"],
-
-            autoStart: true,
-            loop: true,
-          }}
-        />
+      <h6 className="huge mb-0 text-dark mt-3 ">
+        Make a Difference Today,
+        <h6 className="xxxxlarge mb-0 text-dark d-flex ">
+          Find Blood Donation Camps in Nepal and Save Lives
+          <Search size={40} className="ml-2 mt-1 text-primary" />
+        </h6>
       </h6>
-      <Form className="my-1 w-25">
-        <Form.Control
-          placeholder="Search camps by location.."
-          value={searchQuery}
-          onChange={(e) => setSearchQUery(e.target.value)}
-        ></Form.Control>
-      </Form>
+      <div className="d-flex flex-row-reverse">
+        <div className="w-100 d-flex flex-row-reverse">
+          <Form className="my-1 w-25">
+            <Form.Control
+              placeholder="Search camps by location.."
+              value={searchQuery}
+              onChange={(e) => setSearchQUery(e.target.value)}
+            ></Form.Control>
+          </Form>
+        </div>
+      </div>
       {fetchingDate ? (
         <Loader />
       ) : (

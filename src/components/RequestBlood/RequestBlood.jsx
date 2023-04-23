@@ -2,21 +2,18 @@ import axios from "axios";
 import React, { useState } from "react";
 import {
   Button,
-  Card,
   Col,
   Dropdown,
   Form,
   Image,
-  Row,
-  Table,
+  Row
 } from "react-bootstrap";
+import { ArrowRight, Search } from "react-bootstrap-icons";
 import { toast } from "react-toastify";
-import Typewriter from "typewriter-effect";
+import RequestBloods from "../../assets/RequestBlood.png";
 import {
-  bloodRequestFields,
-  otherPlaceForBloodDonation,
+  bloodRequestFields
 } from "../../global/constants";
-import RequestBloods from "../../assets/requestBlood.jpg";
 
 const RequestBlood = () => {
   const [bloodRequestDetails, setBloodRequestDetails] = useState({});
@@ -28,14 +25,15 @@ const RequestBlood = () => {
         { ...details }
       );
       if (data.status) {
-        toast.success("Succesfully Registered");
+        toast.success("Succesfully Requested Blood");
+        setBloodRequestDetails({});
       }
     } catch (error) {
       console.log(error.message);
     }
   };
 
-  const handleSaveDonorDetails = () => {
+  const handleResuesterDetails = () => {
     const emptyFields = bloodRequestFields.find(
       (x) => !bloodRequestDetails[x.name]
     );
@@ -47,24 +45,19 @@ const RequestBlood = () => {
 
   return (
     <>
-      <h6 className="xxxxlarge text-center text-dark  mb-4">
-        <Typewriter
-          options={{
-            strings: ["Are you searching for Blood?", "Want Blood?"],
-
-            autoStart: true,
-            loop: true,
-          }}
-        />
-      </h6>
       <Row noGutters>
         <Col xs={12} md={6} lg={6}>
-          <Image src={RequestBloods} width={500} />
+          <Image src={RequestBloods} width={700} />
         </Col>
         <Col xs={12} md={6} lg={6}>
           <div className="p-2 px-3">
-            <h6 className="xxlarge mb-0 text-dark">Blood Request Form</h6>
-            
+            <h6 className="huge mb-0 text-dark">
+              Request Blood,
+              <h6 className="huge mb-0 text-dark d-flex">
+                Find your Life Saver
+                <Search className="ml-2 mt-1 text-primary" />
+              </h6>
+            </h6>{" "}
             <Row noGutters className="">
               {bloodRequestFields.map((field) => {
                 return (
@@ -75,14 +68,15 @@ const RequestBlood = () => {
                     key={field.name}
                     className={`my-2`}
                   >
-                    <h6 className="mid-font text-dark mb-1">
+                    <Form.Label className="text-dark mb-0">
                       {field.label}
                       {field?.required && (
                         <span className="text-red" style={{ color: "red" }}>
                           *
                         </span>
-                      )}
-                    </h6>
+                      )}{" "}
+                    </Form.Label>
+
                     {field.type === "enum" && (
                       <Dropdown
                         className=""
@@ -97,8 +91,9 @@ const RequestBlood = () => {
                           size="sm"
                           className="p-1 w-100 text-dark float-left"
                           variant="outline-muted"
+                          style={{ height: 40,borderRadius:8 }}
                         >
-                          {bloodRequestDetails[field.name] ?? "Select Option"}
+                          {bloodRequestDetails[field.name] ?? "Select Blood Group"}
                         </Dropdown.Toggle>
                         <Dropdown.Menu>
                           {field?.options &&
@@ -133,10 +128,10 @@ const RequestBlood = () => {
               })}
             </Row>
             <Button
-              variant="primary mt-4 w-50 float-right"
-              onClick={handleSaveDonorDetails}
+              variant="outline-green mt-4 float-right d-flex"
+              onClick={handleResuesterDetails}
             >
-              Save My Details
+              Request <ArrowRight className="mt-1 ml-2" />
             </Button>{" "}
           </div>
         </Col>

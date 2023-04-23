@@ -9,6 +9,7 @@ import {
   DropletFill,
   Hospital,
   PersonCheck,
+  Send,
   UiChecks,
   UiChecksGrid,
 } from "react-bootstrap-icons";
@@ -31,6 +32,17 @@ const tabs = [
     component: <Graphs />,
     icon: (
       <BarChartLine
+        size={30}
+        className="my-4 hover"
+        style={{ marginLeft: 40 }}
+      />
+    ),
+  },
+  {
+    tabName: "Feedbacks",
+    component: <Graphs />,
+    icon: (
+      <Send
         size={30}
         className="my-4 hover"
         style={{ marginLeft: 40 }}

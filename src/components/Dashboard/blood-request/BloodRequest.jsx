@@ -4,19 +4,16 @@ import { Card, Table } from "react-bootstrap";
 import {
   CardChecklist,
   CheckCircleFill,
-  Eye,
-  EyeFill,
-  InfoCircle,
   InfoCircleFill,
   XCircleFill,
 } from "react-bootstrap-icons";
-import { addOrUpdateItemInArray } from "../../../global/constants";
 import { toast } from "react-toastify";
-import RequestDetail from "./RequestDetail";
 import Loader from "../../../common/Loader";
+import { addOrUpdateItemInArray } from "../../../global/constants";
+import RequestDetail from "./RequestDetail";
 
 const BloodRequest = () => {
-  const [donor, setDonor] = useState([]);
+  const [requester, setRequester] = useState([]);
   const [openDetailModal, setOpenDetailmodal] = useState(null);
   const [loading, setLoading] = useState(false);
   const handleEdit = async (value) => {
@@ -31,8 +28,7 @@ const BloodRequest = () => {
             ? "Request has been Approved!"
             : "Request has been Declined!"
         );
-        setDonor([...addOrUpdateItemInArray(donor, value, "_id")]);
-        console.log(data, value, donor, "donor");
+        setRequester([...addOrUpdateItemInArray(requester, value, "_id")]);
       }
     } catch (error) {
       console.log(error.message);
@@ -45,7 +41,7 @@ const BloodRequest = () => {
         const { data } = await axios.get(
           "http://localhost:4000/api/v1/blood-request"
         );
-        setDonor(data.msg);
+        setRequester(data.msg);
         setLoading(false);
       } catch (error) {
         console.log(error.message);
@@ -78,7 +74,7 @@ const BloodRequest = () => {
               </tr>
             </thead>
             <tbody>
-              {donor?.map((request) => {
+              {requester?.map((request) => {
                 return (
                   <tr
                     className={

@@ -34,20 +34,6 @@ const ContactUs = () => {
 
   return (
     <>
-      {/* <h6 className="xxxxlarge text-center text-dark  mb-4">
-        <Typewriter
-          options={{
-            strings: [
-              "Give us some feedbacks",
-              "We are waiting for your FeedBacks",
-            ],
-
-            autoStart: true,
-            loop: true,
-          }}
-        />
-      </h6> */}
-
       <Row>
         <Col xs={12} md={6} lg={6}>
           <Image src={Contact} width={700} />
