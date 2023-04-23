@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Button, Form, Modal } from "react-bootstrap";
+import { Button, Form, Modal, Table } from "react-bootstrap";
 import { bloodCampFormFields } from "../../../global/constants";
 import { PencilSquare } from "react-bootstrap-icons";
 
@@ -9,6 +9,8 @@ const AddOrEditBloodCamps = ({
   onFormSubmit,
 }) => {
   const [formValues, setFormValues] = useState({});
+  const [openParticipants, setOpenParticipants] = useState(false);
+
   useEffect(() => {
     setFormValues(openEditOrAddFormModal);
   }, [openEditOrAddFormModal]);
@@ -23,31 +25,66 @@ const AddOrEditBloodCamps = ({
           </h6>
         </Modal.Header>
         <Modal.Body>
-          <div>
-            {bloodCampFormFields.map((field) => {
-              return (
-                <>
-                  <h6 className="mid-font text-dark my-1">{field.label}</h6>
-                  <Form.Group className="">
-                    <Form.Control
-                      type={field.type}
-                      value={formValues?.[field.name]}
-                      placeholder=""
-                      className="border-muted"
-                      onChange={(e) =>
-                        setFormValues({
-                          ...formValues,
-                          [field.name]: e.target.value,
-                        })
-                      }
-                    />
-                  </Form.Group>
-                </>
-              );
-            })}
-          </div>
+          {!openParticipants && (
+            <div>
+              {bloodCampFormFields.map((field) => {
+                return (
+                  <>
+                    <h6 className="mid-font text-dark my-1">{field.label}</h6>
+                    <Form.Group className="">
+                      <Form.Control
+                        type={field.type}
+                        value={formValues?.[field.name]}
+                        placeholder=""
+                        className="border-muted"
+                        onChange={(e) =>
+                          setFormValues({
+                            ...formValues,
+                            [field.name]: e.target.value,
+                          })
+                        }
+                      />
+                    </Form.Group>
+                  </>
+                );
+              })}
+            </div>
+          )}
+          {openParticipants && (
+            <>
+              <h6 className="mid-font text-dark my-1">All Participants</h6>
+
+              <Table striped bordered hover style={{ marginBottom: "0px" }}>
+                <thead>
+                  <tr>
+                    <td>Name</td>
+                    <td>Contact Number</td>
+                  </tr>
+                </thead>
+                <tbody>
+                  {openEditOrAddFormModal?.donorRegistered?.map((donor) => {
+                    return (
+                      <tr>
+                        <td>{donor?.name}</td>
+                        <td>{donor?.contactNumber}</td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </Table>
+            </>
+          )}
         </Modal.Body>
         <Modal.Footer>
+          {openEditOrAddFormModal?._id && (
+            <Button
+              size="sm"
+              variant="light-green  mr-2"
+              onClick={() => setOpenParticipants(!openParticipants)}
+            >
+              {openParticipants ? "Hide Participants" : "View Participants"}{" "}
+            </Button>
+          )}
           <Button size="sm" variant="danger  mr-2" onClick={handleClose}>
             Close
           </Button>

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Card, Form, Table } from "react-bootstrap";
-import { CardChecklist } from "react-bootstrap-icons";
+import { CardChecklist, InfoCircleFill } from "react-bootstrap-icons";
 import { donorFieldsToShowInTable } from "../../../global/constants";
 import axios from "axios";
 import { toast } from "react-toastify";
@@ -92,7 +92,14 @@ const DonorRegistration = () => {
                     <td>{donor?.name}</td>
                     <td>{donor?.bloodGroup}</td>
                     <td>{donor?.phoneNumber}</td>
-                    <td>{donor?.address}</td>
+                    <td className="d-flex justify-content-between">
+                      {donor?.address}{" "}
+                      <InfoCircleFill
+                        size={20}
+                        className="text-light-blue ml-3 mt-1 hover"
+                        onClick={() => setOpenDetailmodal(donor)}
+                      />
+                    </td>
                   </tr>
                 );
               })}

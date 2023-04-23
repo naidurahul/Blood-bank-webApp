@@ -88,7 +88,7 @@ const Home = () => {
           <Col xs={12} md={4} lg={2} className="my-2">
             <Card className="px-2 text-dark text-center bg-info  py-2">
               <h6 className="xxxlarge">17</h6>
-              <h6 className="xlarge mb-0">Life Saved</h6>
+              <h6 className="xlarge mb-0">Total Donor</h6>
             </Card>
           </Col>
           <Col xs={12} md={4} lg={2} className="my-2">

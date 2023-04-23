@@ -288,11 +288,6 @@ export const bloodCampFormFields = [
     label: "Starting Time",
     type: "time",
   },
-  {
-    name: "eTime",
-    label: "End Time",
-    type: "time",
-  },
 ];
 
 export const ourTeam = [

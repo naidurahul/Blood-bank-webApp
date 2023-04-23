@@ -1,13 +1,48 @@
 import axios from "axios";
 import moment from "moment";
 import React, { useEffect, useState } from "react";
-import { Card, Col, Row } from "react-bootstrap";
-import { BuildingFill, Buildings, Hospital } from "react-bootstrap-icons";
+import { Alert, Button, Card, Col, Row } from "react-bootstrap";
+import {
+  ArrowRight,
+  BuildingFill,
+  Buildings,
+  Hospital,
+  PeopleFill,
+  PersonCheckFill,
+} from "react-bootstrap-icons";
 import Typewriter from "typewriter-effect";
+import Participant from "./Participant";
+import { addOrUpdateItemInArray } from "../../global/constants";
+import { toast } from "react-toastify";
 
 const LiveBloodCamp = () => {
   const [bloodCamps, setBloodCamps] = useState([]);
+  const [openParticipantModal, setOpenParticipantModal] = useState(null);
   const [fetchingDate, setFetchingData] = useState(false);
+
+  const onFormSubmit = (data) => {
+    if (data) {
+      editBloodCamp(data.data);
+    }
+  };
+
+  const editBloodCamp = async (details) => {
+    console.log(details);
+    try {
+      const { data } = await axios.put(
+        `http://localhost:4000/api/v1/blood-camp`,
+        { ...details }
+      );
+      if (data.status) {
+        console.log(data.msg);
+        setBloodCamps([...addOrUpdateItemInArray(bloodCamps, data.msg)]);
+        toast.success("Succesfully Registered");
+        setOpenParticipantModal(null);
+      }
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
   const fetchData = async () => {
     try {
       setFetchingData(true);
@@ -41,35 +76,46 @@ const LiveBloodCamp = () => {
           {bloodCamps?.map((camp, index) => {
             return (
               <Col xs={12} md={6} lg={6}>
-                <Card className="text-dark ">
-                  <Card.Header className="d-flex font-normal xxxlarge">
-                    <Hospital className="mr-2" /> Camp {index + 1}
-                  </Card.Header>
-                  <Card.Body>
-                    <h6 className="xxlarge">{camp.cName} </h6>
-                    <p>{camp?.description}</p>
-                    <h6 className="xxlarge">
-                      Starting Date:
-                      <span className="xlarge text-muted">
-                        {moment(camp.sDate).format("MMM Do YYYY")}
-                      </span>
-                    </h6>{" "}
-                    <h6 className="xxlarge">
-                      Location:
-                      <span className="xlarge text-muted">{camp?.address}</span>
-                    </h6>
-                    <h6 className="xxlarge">
-                      Starts At:
-                      <span className="xlarge text-muted">
-                        {moment(camp.sDate).format("HH:mm a")}
-                      </span>
-                    </h6>
-                    <h6 className="xxlarge">
-                      Ends At:
-                      <span className="xlarge text-muted">
-                        {moment(camp.eDate).format("HH:mm a")}
-                      </span>
-                    </h6>
+                <Card className="blood-camp-card my-2">
+                  <Card.Body className="d-flex justify-content-between">
+                    <div>
+                      <Card.Title className="blood-camp-card-title d-flex justify-content-between">
+                        {camp.cName}
+                      </Card.Title>
+                      <Card.Subtitle className="mb-2 text-muted">
+                        {camp?.address}{" "}
+                      </Card.Subtitle>
+                      <Card.Text className="blood-camp-card-details tiny">
+                        <div>
+                          <strong>Date:</strong>{" "}
+                          {moment(camp.sDate).format("MMM Do YYYY")}
+                          <br />
+                          <strong>Time:</strong>{" "}
+                          {moment(camp.sDate).format("HH:mm a")}
+                          <br />
+                          {camp?.description}
+                        </div>
+                      </Card.Text>
+                      <Button
+                        variant="outline-primary d-flex border-dark"
+                        onClick={() => setOpenParticipantModal(camp)}
+                      >
+                        Participate <ArrowRight className="mt-1 ml-2" />
+                      </Button>{" "}
+                    </div>{" "}
+                    <Alert
+                      variant="green"
+                      className="d-flex px-1 pt-1 pb-0"
+                      style={{ height: 60 }}
+                    >
+                      <PersonCheckFill size={40} className="mr-2" />{" "}
+                      <div>
+                        <h6 className="xxlarge mb-0">Participants</h6>
+                        <h6 className="xxxlarge mb-0">
+                          {camp?.donorRegistered?.length}
+                        </h6>
+                      </div>
+                    </Alert>
                   </Card.Body>
                 </Card>
               </Col>
@@ -77,6 +123,11 @@ const LiveBloodCamp = () => {
           })}
         </Row>
       </div>
+      <Participant
+        openParticipantModal={openParticipantModal}
+        handleClose={() => setOpenParticipantModal(null)}
+        onFormSubmit={onFormSubmit}
+      />
     </>
   );
 };

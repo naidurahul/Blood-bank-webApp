@@ -14,6 +14,12 @@ const Camps = () => {
   const [fetchingData, setFetchingData] = useState(false);
   console.log(moment("12:30", "HH:mm")?._d);
   const onFormSubmit = (data) => {
+    if (!data?.data?.cName) return toast.error("Camp Name is required!");
+    if (!data?.data?.address) return toast.error("Address is required!");
+    if (!data?.data?.description)
+      return toast.error("Camp Description is required!");
+    if (!data?.data?.sDate) return toast.error("Date is required!");
+    if (!data?.data?.sTime) return toast.error("Time is required!");
     if (data.mode === "add") {
       addBloodCamp(data.data);
     } else {

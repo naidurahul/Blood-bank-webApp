@@ -4,6 +4,10 @@ import { Card, Table } from "react-bootstrap";
 import {
   CardChecklist,
   CheckCircleFill,
+  Eye,
+  EyeFill,
+  InfoCircle,
+  InfoCircleFill,
   XCircleFill,
 } from "react-bootstrap-icons";
 import { addOrUpdateItemInArray } from "../../../global/constants";
@@ -82,12 +86,16 @@ const BloodRequest = () => {
                         ? "bg-light-green"
                         : "bg-light-red"
                     }
-                    onClick={() => setOpenDetailmodal(request)}
                   >
                     <td>{request?.name}</td>
                     <td>{request?.address}</td>
                     <td>{request?.bloodGroup}</td>
                     <td className="text-center d-flex justify-content-around">
+                      <InfoCircleFill
+                        size={20}
+                        className="text-light-blue hover"
+                        onClick={() => setOpenDetailmodal(request)}
+                      />
                       <CheckCircleFill
                         size={20}
                         className="text-green hover"

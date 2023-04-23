@@ -7,7 +7,11 @@ import SupplyBlood from "../assets/SupplyBlood.jpg";
 import RegisterDonor from "../assets/RegisterDonor.jpg";
 import OrganizeBloodCamp from "../assets/OrganizeBloodCamp.jpg";
 import BeAHero from "../assets/BeAHero.png";
-import { ArrowRightCircle } from "react-bootstrap-icons";
+import {
+  ArrowRight,
+  ArrowRightCircle,
+  ArrowUpRight,
+} from "react-bootstrap-icons";
 import { ourTeam } from "../global/constants";
 
 const Home = () => {
@@ -28,11 +32,12 @@ const Home = () => {
                   products to those in need
                 </Alert>
                 <div className="p-2 d-flex  ">
-                  <Button variant="outline-primary  border-dark mx-2  ">
+                  <Button variant="outline-primary d-flex border-dark mx-2  ">
                     Donate Blood
+                    <ArrowRight className="mt-1 ml-2" />
                   </Button>{" "}
-                  <Button variant="outline-primary  border-dark mx-2  ">
-                    Request Blood
+                  <Button variant="outline-primary d-flex border-dark mx-2  ">
+                    Request Blood <ArrowRight className="mt-1 ml-2" />
                   </Button>{" "}
                 </div>
               </div>
@@ -118,8 +123,8 @@ const Home = () => {
                   enrolled in it
                 </Alert>
                 <div className="p-2 d-flex  ">
-                  <Button variant="outline-primary  border-dark mx-2  ">
-                    See Camps
+                  <Button variant="outline-primary d-flex border-dark mx-2  ">
+                    See Camps <ArrowRight className="mt-1 ml-2" />
                   </Button>{" "}
                 </div>
               </div>
