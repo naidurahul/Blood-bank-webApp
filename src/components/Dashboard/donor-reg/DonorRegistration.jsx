@@ -109,7 +109,7 @@ const DonorRegistration = () => {
                       {donor?.address}{" "}
                       <InfoCircleFill
                         size={20}
-                        className="text-light-blue ml-3 mt-1 hover"
+                        className="text-muted ml-3 mt-1 hover"
                         onClick={() => setOpenDetailmodal(donor)}
                       />
                     </td>

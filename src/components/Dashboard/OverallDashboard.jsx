@@ -9,7 +9,7 @@ Chart.register(...registerables);
 const OverallDashboard = () => {
   return (
     <>
-      <div className="w-100">
+      <div className="w-100 mt-2">
         <div className="d-flex">
           <BloodStock />
           <Camps />

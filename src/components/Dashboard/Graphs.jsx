@@ -44,7 +44,7 @@ const Graphs = () => {
 
   return (
     <>
-      <div className="d-flex">
+      <div className="d-flex mt-5">
         <div style={{ height: 500, width: 550 }} className="ml-0">
           <Bar
             style={{ width: "100%" }}

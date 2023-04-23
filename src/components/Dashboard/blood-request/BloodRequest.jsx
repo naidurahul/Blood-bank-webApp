@@ -89,7 +89,7 @@ const BloodRequest = () => {
                     <td className="text-center d-flex justify-content-around">
                       <InfoCircleFill
                         size={20}
-                        className="text-light-blue hover"
+                        className="text-muted hover"
                         onClick={() => setOpenDetailmodal(request)}
                       />
                       <CheckCircleFill
