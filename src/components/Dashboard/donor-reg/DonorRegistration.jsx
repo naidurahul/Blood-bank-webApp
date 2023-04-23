@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Card, Form, Table } from "react-bootstrap";
-import { CardChecklist, InfoCircleFill } from "react-bootstrap-icons";
+import { CardChecklist, DatabaseX, InfoCircleFill } from "react-bootstrap-icons";
 import { donorFieldsToShowInTable } from "../../../global/constants";
 import axios from "axios";
 import { toast } from "react-toastify";
@@ -76,6 +76,15 @@ const DonorRegistration = () => {
           <div className="px-2">
             <Loader />
           </div>
+        ) : !filteredList.length ? (
+          <h6 className="mt-5 w-100 d-flex xxlarge justify-content-center">
+            <DatabaseX
+              size={30}
+              className="mr-1"
+              style={{marginTop:'-10px'}}
+            />{" "}
+            No Data to Show!
+          </h6>
         ) : (
           <Table striped bordered hover style={{ marginBottom: "0px" }}>
             <thead>

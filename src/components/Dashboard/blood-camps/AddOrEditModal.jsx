@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Button, Form, Modal, Table } from "react-bootstrap";
 import { bloodCampFormFields } from "../../../global/constants";
-import { PencilSquare } from "react-bootstrap-icons";
+import { DatabaseX, PencilSquare } from "react-bootstrap-icons";
 
 const AddOrEditBloodCamps = ({
   openEditOrAddFormModal,
@@ -10,6 +10,10 @@ const AddOrEditBloodCamps = ({
 }) => {
   const [formValues, setFormValues] = useState({});
   const [openParticipants, setOpenParticipants] = useState(false);
+  const handleCancelOrClose = () => {
+    handleClose();
+    setOpenParticipants(false);
+  };
 
   useEffect(() => {
     setFormValues(openEditOrAddFormModal);
@@ -17,7 +21,10 @@ const AddOrEditBloodCamps = ({
   return (
     <>
       {" "}
-      <Modal show={openEditOrAddFormModal !== null} onHide={handleClose}>
+      <Modal
+        show={openEditOrAddFormModal !== null}
+        onHide={handleCancelOrClose}
+      >
         <Modal.Header closeButton>
           <h6 className="mb-0 xxlarge d-flex">
             <PencilSquare size={30} className="mr-2" />{" "}
@@ -50,30 +57,40 @@ const AddOrEditBloodCamps = ({
               })}
             </div>
           )}
-          {openParticipants && (
-            <>
-              <h6 className="mid-font text-dark my-1">All Participants</h6>
+          {openParticipants &&
+            (!formValues?.donorRegistered?.length ? (
+              <h6 className="mt-2 w-100 d-flex xxlarge justify-content-center">
+                <DatabaseX
+                  size={30}
+                  className="mr-1"
+                  style={{ marginTop: "-10px" }}
+                />{" "}
+                No Participants to Show!
+              </h6>
+            ) : (
+              <>
+                <h6 className="mid-font text-dark my-1">All Participants</h6>
 
-              <Table striped bordered hover style={{ marginBottom: "0px" }}>
-                <thead>
-                  <tr>
-                    <td>Name</td>
-                    <td>Contact Number</td>
-                  </tr>
-                </thead>
-                <tbody>
-                  {openEditOrAddFormModal?.donorRegistered?.map((donor) => {
-                    return (
-                      <tr>
-                        <td>{donor?.name}</td>
-                        <td>{donor?.contactNumber}</td>
-                      </tr>
-                    );
-                  })}
-                </tbody>
-              </Table>
-            </>
-          )}
+                <Table striped bordered hover style={{ marginBottom: "0px" }}>
+                  <thead>
+                    <tr>
+                      <td>Name</td>
+                      <td>Contact Number</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {openEditOrAddFormModal?.donorRegistered?.map((donor) => {
+                      return (
+                        <tr>
+                          <td>{donor?.name}</td>
+                          <td>{donor?.contactNumber}</td>
+                        </tr>
+                      );
+                    })}
+                  </tbody>
+                </Table>
+              </>
+            ))}
         </Modal.Body>
         <Modal.Footer>
           {openEditOrAddFormModal?._id && (
@@ -85,7 +102,11 @@ const AddOrEditBloodCamps = ({
               {openParticipants ? "Hide Participants" : "View Participants"}{" "}
             </Button>
           )}
-          <Button size="sm" variant="danger  mr-2" onClick={handleClose}>
+          <Button
+            size="sm"
+            variant="danger  mr-2"
+            onClick={handleCancelOrClose}
+          >
             Close
           </Button>
           <Button

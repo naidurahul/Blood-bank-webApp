@@ -12,12 +12,11 @@ import {
   ArrowRightCircle,
   ArrowUpRight,
 } from "react-bootstrap-icons";
-import { ourTeam } from "../global/constants";
 
 const Home = () => {
   return (
     <>
-      <div className="mt-5">
+      <div className="mt-4">
         <div className="mx-2 my-2">
           <Row>
             <Col xs={12} md={6} lg={6}>
@@ -26,7 +25,7 @@ const Home = () => {
                 className="d-flex py-2 home-text text-center  flex-column justify-content-center align-items-center"
               >
                 <h6 className="huge  text-primary">Effective blood supply</h6>
-                <Alert variant="dark" className="w-75">
+                <Alert  className="w-75">
                   Say goodbye to manual processes and hello to streamlined
                   operations that ensure quick and efficient delivery of blood
                   products to those in need
@@ -101,7 +100,35 @@ const Home = () => {
             </Col>
           </Row>
         </div>
-        <div className="mx-2 my-5 py-5">
+        <div className="mx-4mb-5  mt-5">
+          <Row className="mx-2 d-flex justify-content-center ">
+            <Col xs={12} md={4} lg={2} className="my-2">
+              <Alert className="px-2 text-dark text-center py-2">
+                <h6 className="xxxlarge">21</h6>
+                <h6 className="xlarge mb-0">Event Organized</h6>
+              </Alert>
+            </Col>
+            <Col xs={12} md={4} lg={2} className="my-2">
+              <Alert className="px-2 text-dark text-center py-2">
+                <h6 className="xxxlarge">322</h6>
+                <h6 className="xlarge mb-0">Blood Collected</h6>
+              </Alert>
+            </Col>
+            <Col xs={12} md={4} lg={2} className="my-2">
+              <Alert className="px-2 text-dark text-center py-2">
+                <h6 className="xxxlarge">17</h6>
+                <h6 className="xlarge mb-0">Total Donor</h6>
+              </Alert>
+            </Col>
+            <Col xs={12} md={4} lg={2} className="my-2">
+              <Alert className="px-2 text-dark text-center py-2">
+                <h6 className="xxxlarge">872</h6>
+                <h6 className="xlarge mb-0">Blood Searched</h6>
+              </Alert>
+            </Col>
+          </Row>
+        </div>
+        <div className="mx-2 my-4 py-5">
           <Row>
             <Col xs={12} md={6} lg={6}>
               <Image
@@ -118,7 +145,7 @@ const Home = () => {
                 <h6 className="huge  text-primary">
                   Get Involve in Blood Donation
                 </h6>
-                <Alert variant="dark" className="w-75">
+                <Alert  className="w-75">
                   We Organize blood donation campaign every week , you can get
                   enrolled in it
                 </Alert>
@@ -131,7 +158,7 @@ const Home = () => {
             </Col>
           </Row>
         </div>
-        <div className="mx-4 my-5">
+        <div className="mx-4 mb-4">
           <Row>
             <Col xs={12} md={6} lg={6}>
               <Image src={BeAHero} width={800} />
@@ -171,19 +198,6 @@ const Home = () => {
               </div>
             </Col>
           </Row>
-        </div>
-        <div className="mt-4  rounded text-center py-2">
-          <h6 className="xxxxlarge my-5 text-center">Meet Our Team</h6>
-          <div className="d-flex  justify-content-around mt-5">
-            {ourTeam.map((member) => {
-              return (
-                <div key={member.name} className="text-center">
-                  <Image width={120} roundedCircle src={member.photoLink} />
-                  <h6 className="xxlarge text-dark mt-1">{member.name}</h6>
-                </div>
-              );
-            })}
-          </div>
         </div>
       </div>
     </>

@@ -1,12 +1,22 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { Button, Card, Col, Dropdown, Form, Row, Table } from "react-bootstrap";
+import {
+  Button,
+  Card,
+  Col,
+  Dropdown,
+  Form,
+  Image,
+  Row,
+  Table,
+} from "react-bootstrap";
 import { toast } from "react-toastify";
 import Typewriter from "typewriter-effect";
 import {
   bloodRequestFields,
   otherPlaceForBloodDonation,
 } from "../../global/constants";
+import RequestBloods from "../../assets/requestBlood.jpg";
 
 const RequestBlood = () => {
   const [bloodRequestDetails, setBloodRequestDetails] = useState({});
@@ -49,53 +59,12 @@ const RequestBlood = () => {
       </h6>
       <Row noGutters>
         <Col xs={12} md={6} lg={6}>
-          <div className="px-2 pt-2 border rounded mb-2">
-            <h6 className="xxxxlarge text-primary mb-0">
-              <span className="xxxxlarge text-dark">Others Place to</span>{" "}
-              Donate Blood
-            </h6>{" "}
-            <p>
-              To donate outside Kathmandu Valley, please contact one of the
-              Regional Blood Transfusion Centres in Biratnagar, Pokhara,
-              Nepalgunj, and Chitwan, or the nearest District Blood Bank or
-              Hospital unit.
-            </p>
-            <div className="text-muted">
-              <Table striped bordered hover size="sm" className="bg-white ">
-                <thead className="bg-primary text-light">
-                  <tr>
-                    <th className="thin-fw">District</th>
-                    <th className="thin-fw">Focal Person</th>
-                    <th className="thin-fw">Contact No</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {otherPlaceForBloodDonation.map((center) => {
-                    return (
-                      <tr key={center.phone}>
-                        <td className="thin-fw large">{center.bloodCenter}</td>
-                        <td className="thin-fw large">
-                          {center.contactPerson}
-                        </td>
-                        <td className="thin-fw large">{center.phone}</td>
-                      </tr>
-                    );
-                  })}
-                </tbody>
-              </Table>
-            </div>
-          </div>
+          <Image src={RequestBloods} width={500} />
         </Col>
         <Col xs={12} md={6} lg={6}>
-          <Card className="p-2 px-3">
+          <div className="p-2 px-3">
             <h6 className="xxlarge mb-0 text-dark">Blood Request Form</h6>
-            <h6 className="mid text-muted" style={{ fontWeight: 400 }}>
-              Please consider donating blood to help save lives and support the
-              well-being of others. Your generous act of kindness and compassion
-              can make a real and positive difference in the world. Thank you
-              for considering this important opportunity to give back to your
-              community.
-            </h6>
+            
             <Row noGutters className="">
               {bloodRequestFields.map((field) => {
                 return (
@@ -169,7 +138,7 @@ const RequestBlood = () => {
             >
               Save My Details
             </Button>{" "}
-          </Card>
+          </div>
         </Col>
       </Row>
     </>

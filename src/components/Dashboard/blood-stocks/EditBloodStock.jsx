@@ -14,8 +14,8 @@ const EditBloodStock = ({ openEditBloodStock, handleClose, onFormSubmit }) => {
         <Modal.Header closeButton>
           {" "}
           <h6 className="mb-0 xxlarge d-flex">
-            <PencilSquare size={30} className="mr-2" /> Update Blood Stock(
-            {openEditBloodStock?.bg})
+            <PencilSquare size={30} className="mr-2" /> Update Blood Stock [
+            {openEditBloodStock?.bg}]
           </h6>
         </Modal.Header>
         <Modal.Body>
