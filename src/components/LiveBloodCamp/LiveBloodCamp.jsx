@@ -83,9 +83,9 @@ const LiveBloodCamp = () => {
           <Search size={40} className="ml-2 mt-1 text-primary" />
         </h6>
       </h6>
-      <div className="d-flex flex-row-reverse">
+      <div className="d-flex my-3 flex-row-reverse">
         <div className="w-100 d-flex flex-row-reverse">
-          <Form className="my-1 w-25">
+          <Form className="my-1 w-50">
             <Form.Control
               placeholder="Search camps by location.."
               value={searchQuery}
@@ -133,7 +133,7 @@ const LiveBloodCamp = () => {
                             </div>
                           </Card.Text>
                           <Button
-                            variant="outline-primary d-flex border-dark"
+                            variant="outline-green d-flex border-dark"
                             onClick={() => setOpenParticipantModal(camp)}
                           >
                             Participate <ArrowRight className="mt-1 ml-2" />

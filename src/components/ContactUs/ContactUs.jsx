@@ -79,7 +79,7 @@ const ContactUs = () => {
               </Form>
             </div>
             <Button
-              variant="outline-green mt-4 float-right d-flex"
+              variant="outline-green mt-3 d-flex"
               onClick={onSendClick}
             >
               Sends <ArrowRight className="mt-1 ml-2" />

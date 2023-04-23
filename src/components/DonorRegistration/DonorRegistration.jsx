@@ -4,7 +4,7 @@ import { Button, Col, Dropdown, Form, Image, Row } from "react-bootstrap";
 import { toast } from "react-toastify";
 import RegisterAsDonor from "../../assets/RegisterAsDonor.png";
 import { donorFormFields } from "../../global/constants";
-import { ArrowRight, Search } from "react-bootstrap-icons";
+import { ArrowRight, HeartPulseFill, Search } from "react-bootstrap-icons";
 
 const DonorRegistration = () => {
   const [donorDetails, setDonorDetails] = useState({});
@@ -17,6 +17,7 @@ const DonorRegistration = () => {
       );
       if (data.status) {
         toast.success("Succesfully Registered");
+        setDonorDetails({});
       }
     } catch (error) {
       console.log(error.message);
@@ -42,10 +43,10 @@ const DonorRegistration = () => {
         <Col xs={12} md={6} lg={6}>
           <div className="p-2 px-3">
             <h6 className="huge mb-0 text-dark">
-              Request Blood,
+              Donate Blood,
               <h6 className="huge mb-0 text-dark d-flex">
-                Find your Life Saver
-                <Search className="ml-2 mt-1 text-primary" />
+                Be a Life Saver
+                <HeartPulseFill className="ml-2 mt-1 text-danger" />
               </h6>
             </h6>{" "}
             <Row className="">
@@ -56,7 +57,7 @@ const DonorRegistration = () => {
                     md={6}
                     lg={6}
                     key={field.name}
-                    className={`my-2`}
+                    className={`my-0`}
                   >
                     <Form.Label className="text-dark mb-0">
                       {field.label}
@@ -102,7 +103,7 @@ const DonorRegistration = () => {
                         <Form.Control
                           type={field.type}
                           placeholder=""
-                          className="border-muted"
+                          className=""
                           onChange={(e) =>
                             setDonorDetails({
                               ...donorDetails,
@@ -117,7 +118,7 @@ const DonorRegistration = () => {
               })}
             </Row>
             <Button
-              variant="outline-green mt-4 float-right d-flex"
+              variant="outline-green mt-3 d-flex"
               onClick={handleSaveDonorDetails}
             >
               Register <ArrowRight className="mt-1 ml-2" />

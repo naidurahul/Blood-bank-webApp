@@ -20,7 +20,7 @@ const EditBloodStock = ({ openEditBloodStock, handleClose, onFormSubmit }) => {
         </Modal.Header>
         <Modal.Body>
           <div>
-            <h6 className="mid-font text-dark my-1">Stock</h6>
+            <Form.Label className="text-dark mb-0">Stock</Form.Label>
             <Form.Group className="">
               <Form.Control
                 type="number"
@@ -32,7 +32,7 @@ const EditBloodStock = ({ openEditBloodStock, handleClose, onFormSubmit }) => {
                     stock: e.target.value >= 0 ? Number(e.target.value) : 0,
                   })
                 }
-                className="border-muted"
+                className=""
               />
             </Form.Group>
           </div>

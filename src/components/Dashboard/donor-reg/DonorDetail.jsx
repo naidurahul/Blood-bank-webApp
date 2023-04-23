@@ -22,10 +22,7 @@ const DonorDetail = ({ openDetailModal, handleClose }) => {
                     <p className="mb-0 text-dark">
                       <span className="text-muted xlarge">{field.label}: </span>
                     </p>
-                    <p
-                      className="mb-0 bg-light-green  text-dark px-2 py-1 mid rounded"
-              
-                    >
+                    <p className="mb-0 bg-light-green  text-dark px-2 py-1 mid rounded">
                       {openDetailModal?.[field.name] ?? "N/A"}
                     </p>
                   </Col>

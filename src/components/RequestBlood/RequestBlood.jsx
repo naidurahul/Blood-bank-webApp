@@ -1,19 +1,10 @@
 import axios from "axios";
 import React, { useState } from "react";
-import {
-  Button,
-  Col,
-  Dropdown,
-  Form,
-  Image,
-  Row
-} from "react-bootstrap";
+import { Button, Col, Dropdown, Form, Image, Row } from "react-bootstrap";
 import { ArrowRight, Search } from "react-bootstrap-icons";
 import { toast } from "react-toastify";
 import RequestBloods from "../../assets/RequestBlood.png";
-import {
-  bloodRequestFields
-} from "../../global/constants";
+import { bloodRequestFields } from "../../global/constants";
 
 const RequestBlood = () => {
   const [bloodRequestDetails, setBloodRequestDetails] = useState({});
@@ -66,7 +57,7 @@ const RequestBlood = () => {
                     md={6}
                     lg={6}
                     key={field.name}
-                    className={`my-2`}
+                    className={`my-0`}
                   >
                     <Form.Label className="text-dark mb-0">
                       {field.label}
@@ -91,9 +82,10 @@ const RequestBlood = () => {
                           size="sm"
                           className="p-1 w-100 text-dark float-left"
                           variant="outline-muted"
-                          style={{ height: 40,borderRadius:8 }}
+                          style={{ height: 40, borderRadius: 8 }}
                         >
-                          {bloodRequestDetails[field.name] ?? "Select Blood Group"}
+                          {bloodRequestDetails[field.name] ??
+                            "Select Blood Group"}
                         </Dropdown.Toggle>
                         <Dropdown.Menu>
                           {field?.options &&
@@ -112,8 +104,9 @@ const RequestBlood = () => {
                       <Form.Group className="">
                         <Form.Control
                           type={field.type}
+                          value={bloodRequestDetails[field.name]}
                           placeholder=""
-                          className="border-muted"
+                          className=""
                           onChange={(e) =>
                             setBloodRequestDetails({
                               ...bloodRequestDetails,
@@ -128,7 +121,7 @@ const RequestBlood = () => {
               })}
             </Row>
             <Button
-              variant="outline-green mt-4 float-right d-flex"
+              variant="outline-green mt-3 d-flex"
               onClick={handleResuesterDetails}
             >
               Request <ArrowRight className="mt-1 ml-2" />

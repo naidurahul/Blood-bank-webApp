@@ -37,13 +37,15 @@ const AddOrEditBloodCamps = ({
               {bloodCampFormFields.map((field) => {
                 return (
                   <>
-                    <h6 className="mid-font text-dark my-1">{field.label}</h6>
+                    <Form.Label className="text-dark mb-0">
+                      {field.label}
+                    </Form.Label>
                     <Form.Group className="">
                       <Form.Control
                         type={field.type}
                         value={formValues?.[field.name]}
                         placeholder=""
-                        className="border-muted"
+                        className=""
                         onChange={(e) =>
                           setFormValues({
                             ...formValues,

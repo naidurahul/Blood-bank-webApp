@@ -83,7 +83,9 @@ body,
 .small {
   font-size: 12px;
 }
-
+.larger {
+  font-size: 50px;
+}
 .smallFont {
   font-size: 12px;
 }
@@ -121,6 +123,9 @@ body,
   font-size: 50px;
 }
 
+.border-input {
+  border: 1px solid black;
+}
 .fade-in {
   animation: fadeIn 1s;
   -webkit-animation: fadeIn 1s;
@@ -315,7 +320,5 @@ html {
   border-color: #c82333;
   cursor: pointer;
 }
-
-
 
 @import "~bootstrap/scss/bootstrap";

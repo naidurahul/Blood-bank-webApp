@@ -13,12 +13,13 @@ import {
   UiChecks,
   UiChecksGrid,
 } from "react-bootstrap-icons";
-import OverallDashboard from "./overall/OverallDashboard";
+import OverallDashboard from "./OverallDashboard";
 import { useNavigate } from "react-router-dom";
 import BloodStock from "./blood-stocks/BloodStock";
-import { Alert } from "react-bootstrap";
+import { Alert, Form } from "react-bootstrap";
 import BloodRequest from "./blood-request/BloodRequest";
 import Graphs from "./Graphs";
+import Feedback from "./Feedback";
 const tabs = [
   {
     tabName: "Overall Data",
@@ -39,15 +40,9 @@ const tabs = [
     ),
   },
   {
-    tabName: "Feedbacks",
-    component: <Graphs />,
-    icon: (
-      <Send
-        size={30}
-        className="my-4 hover"
-        style={{ marginLeft: 40 }}
-      />
-    ),
+    tabName: "Feedback",
+    component: <Feedback />,
+    icon: <Send size={30} className="my-4 hover" style={{ marginLeft: 40 }} />,
   },
 ];
 const DashboardMain = () => {
@@ -83,11 +78,11 @@ const DashboardMain = () => {
           />
         </div>
         <div className="bg-light w-100 p-2 ml-2">
-          <Alert variant="dark" className="px-1 w-25 py-0">
-            <h6 className="d-flex mb-0">
-              Dashboard <CaretRightFill /> {activeTab?.tabName}
-            </h6>
-          </Alert>
+          <div variant="dark" className="px-1 w-25 py-0">
+            <Form.Label className="text-dark d-flex mb-0">
+              Dashboard / {activeTab?.tabName}
+            </Form.Label>
+          </div>
           {activeTab?.component}
         </div>
       </div>

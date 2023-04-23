@@ -1,13 +1,10 @@
 export const donorFormFields = [
   { name: "name", label: "Name", type: "text", required: true },
   { name: "dateOfBirth", label: "Date Of Birth", type: "date", required: true },
-  {
-    name: "gender",
-    label: "Gender",
-    type: "enum",
-    options: ["Male", "Female", "Others"],
-    required: true,
-  },
+
+  { name: "phoneNumber", label: "Phone Number", type: "text", required: true },
+  { name: "email", label: "Email", type: "text", required: true },
+  { name: "address", label: "Address", type: "text", required: true },
   {
     name: "bloodGroup",
     label: "Blood Group",
@@ -15,17 +12,6 @@ export const donorFormFields = [
     options: ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"],
     required: true,
   },
-  { name: "phoneNumber", label: "Phone Number", type: "text", required: true },
-  { name: "email", label: "Email", type: "text", required: true },
-  { name: "occupation", label: "Occupation", type: "text" },
-  { name: "address", label: "Donor Address", type: "text", required: true },
-  {
-    name: "lastDonation",
-    label: "Last Donation",
-    type: "text",
-    required: true,
-  },
-  { name: "diseases", label: "Diseases", type: "enum", options: ["Yes", "No"] },
   {
     name: "cardiac",
     label: "Cardiac",
@@ -58,16 +44,17 @@ export const donorFormFields = [
 
 export const bloodRequestFields = [
   { name: "name", label: "Full Name", type: "text" },
+
+  { name: "email", label: "Email", type: "text" },
+  { name: "address", label: "Address", type: "text" },
+  { name: "requestAmount", label: "Requested Amount", type: "text" },
+  { name: "reason", label: "Give Your Reason", type: "text" },
   {
     name: "bloodGroup",
     label: "Blood Group",
     type: "enum",
     options: ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"],
   },
-  { name: "email", label: "Email", type: "text" },
-  { name: "address", label: "Address", type: "text" },
-  { name: "requestAmount", label: "Requested Amount", type: "text" },
-  { name: "reason", label: "Give Your Reason", type: "text" },
 ];
 export const requestFields = [
   { name: "name", label: "Name" },
@@ -76,16 +63,14 @@ export const requestFields = [
   { name: "email", label: "Email" },
   { name: "requestAmount", label: "Requested Amount" },
   { name: "status", label: "Status" },
+  { name: "reason", label: "Reason" },
 ];
 export const donorFields = [
   { name: "name", label: "Name" },
   { name: "dateOfBirth", label: "Date Of Birth" },
   { name: "phoneNumber", label: "Phone Number" },
   { name: "email", label: "Email" },
-  { name: "occupation", label: "Ocupation" },
   { name: "address", label: "Donor Address" },
-  { name: "lastDonation", label: "Last Donation" },
-  { name: "diseases", label: "Diseases" },
   { name: "cardiac", label: "Cardiac" },
   { name: "hhh", label: "HIV/AIDS" },
   { name: "allergies", label: "Allergies" },

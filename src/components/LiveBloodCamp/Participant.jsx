@@ -37,7 +37,7 @@ const Participant = ({ openParticipantModal, handleClose, onFormSubmit }) => {
         <Modal.Body>
           <div>
             {" "}
-            <h6 className="mid-font text-dark my-1">Enter your Name</h6>
+            <Form.Label className="text-dark mb-0">Enter Your Name</Form.Label>
             <Form.Group className="">
               <Form.Control
                 type={"text"}
@@ -52,9 +52,9 @@ const Participant = ({ openParticipantModal, handleClose, onFormSubmit }) => {
                 }
               />
             </Form.Group>{" "}
-            <h6 className="mid-font text-dark my-1">
-              Enter your Contact Number
-            </h6>
+            <Form.Label className="text-dark mb-0">
+              Enter Your Contact Number
+            </Form.Label>
             <Form.Group className="">
               <Form.Control
                 type={"text"}

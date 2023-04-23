@@ -25,7 +25,7 @@ const Home = () => {
                 className="d-flex py-2 home-text text-center  flex-column justify-content-center align-items-center"
               >
                 <h6 className="huge  text-primary">Effective blood supply</h6>
-                <Alert  className="w-75">
+                <Alert className="w-75">
                   Say goodbye to manual processes and hello to streamlined
                   operations that ensure quick and efficient delivery of blood
                   products to those in need
@@ -51,7 +51,7 @@ const Home = () => {
           </Row>
         </div>
         <div className="mx-4 my-2">
-          <h6 className="xxxxlarge my-5 text-center">What do we do?</h6>
+          <h6 className="larger my-5 text-center">What do we do?</h6>
           <Row>
             <Col xs={12} md={4} lg={3} className="my-2">
               <div className="p-1">
@@ -101,28 +101,30 @@ const Home = () => {
           </Row>
         </div>
         <div className="mx-4mb-5  mt-5">
+          {" "}
+          <h6 className="larger my-5 text-center">Our Contribution</h6>
           <Row className="mx-2 d-flex justify-content-center ">
             <Col xs={12} md={4} lg={2} className="my-2">
               <Alert className="px-2 text-dark text-center py-2">
-                <h6 className="xxxlarge">21</h6>
+                <h6 className="xxxxlarge">21</h6>
                 <h6 className="xlarge mb-0">Event Organized</h6>
               </Alert>
             </Col>
             <Col xs={12} md={4} lg={2} className="my-2">
               <Alert className="px-2 text-dark text-center py-2">
-                <h6 className="xxxlarge">322</h6>
+                <h6 className="xxxxlarge">322</h6>
                 <h6 className="xlarge mb-0">Blood Collected</h6>
               </Alert>
             </Col>
             <Col xs={12} md={4} lg={2} className="my-2">
               <Alert className="px-2 text-dark text-center py-2">
-                <h6 className="xxxlarge">17</h6>
+                <h6 className="xxxxlarge">17</h6>
                 <h6 className="xlarge mb-0">Total Donor</h6>
               </Alert>
             </Col>
             <Col xs={12} md={4} lg={2} className="my-2">
               <Alert className="px-2 text-dark text-center py-2">
-                <h6 className="xxxlarge">872</h6>
+                <h6 className="xxxxlarge">872</h6>
                 <h6 className="xlarge mb-0">Blood Searched</h6>
               </Alert>
             </Col>
@@ -145,7 +147,7 @@ const Home = () => {
                 <h6 className="huge  text-primary">
                   Get Involve in Blood Donation
                 </h6>
-                <Alert  className="w-75">
+                <Alert className="w-75">
                   We Organize blood donation campaign every week , you can get
                   enrolled in it
                 </Alert>
@@ -171,7 +173,7 @@ const Home = () => {
                 <h6 className="huge mb-0  text-primary">
                   Save a life, donate blood{" "}
                 </h6>
-                <h6 className="xxxlarge">Donate blood for:</h6>
+                <h6 className="xxxlarge mb-0">Why to donate blood?</h6>
                 <h6 className="mb-0 d-flex">
                   <ArrowRightCircle className="mr-1" /> Saving lives
                 </h6>
