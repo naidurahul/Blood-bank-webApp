@@ -5,6 +5,7 @@ import CampHome from "../assets/CampHome.png";
 import ManagindBlood from "../assets/managingBlood.jpg";
 import SupplyBlood from "../assets/SupplyBlood.jpg";
 import RegisterDonor from "../assets/RegisterDonor.jpg";
+import RequestBloods from "../assets/RequestBlood.png";
 import OrganizeBloodCamp from "../assets/OrganizeBloodCamp.jpg";
 import BeAHero from "../assets/BeAHero.png";
 import {
@@ -20,43 +21,139 @@ const Home = () => {
   return (
     <>
       <div className="mt-4">
-        <div className="mx-2 my-2">
+        <div className="mx-2">
           <Row>
             <Col xs={12} md={6} lg={6}>
               <div
                 style={{ height: "100%" }}
-                className="d-flex py-2 home-text text-center  flex-column justify-content-center align-items-center"
+                className="d-flex py-2 flex-column justify-content-center align-items-center"
               >
-                <h6 className="huge  text-primary">Effective blood supply</h6>
-                <Alert className="w-75">
-                  Say goodbye to manual processes and hello to streamlined
-                  operations that ensure quick and efficient delivery of blood
-                  products to those in need
+                <Alert variant="green" className="w-100">
+                  <div
+                    style={{ height: "100%" }}
+                    className="d-flex  w-100 home-text flex-column"
+                  >
+                    <h6 className="xxxxlarge mb-0  text-primary">
+                      Get Emergency Blood Requests Fulfilled with ERakta Nepal{" "}
+                    </h6>
+                    <p>
+                      If you require blood in an emergency, ERakta Nepal is here
+                      to help. Simply fill out the form on our platform to
+                      request the blood you need. Our network of donors is ready
+                      to assist in providing life-saving transfusions, making it
+                      easy and convenient to access the blood you need during
+                      critical situations.
+                    </p>
+                    <div className="d-flex">
+                      <Button
+                        variant="outline-primary d-flex border-dark"
+                        onClick={() =>
+                          navigate(`/request-blood`, { replace: true })
+                        }
+                      >
+                        Request Blood <ArrowRight className="mt-1 ml-2" />
+                      </Button>{" "}
+                    </div>
+                  </div>
                 </Alert>
-                <div className="p-2 d-flex ">
-                  <Button
-                    variant="outline-primary d-flex border-dark mx-2"
-                    onClick={() =>
-                      navigate(`/donor-registration`, { replace: true })
-                    }
-                  >
-                    Donate Blood
-                    <ArrowRight className="mt-1 ml-2" />
-                  </Button>{" "}
-                  <Button
-                    variant="outline-primary d-flex border-dark mx-2"
-                    onClick={() =>
-                      navigate(`/request-blood`, { replace: true })
-                    }
-                  >
-                    Request Blood <ArrowRight className="mt-1 ml-2" />
-                  </Button>{" "}
-                </div>
               </div>
             </Col>
             <Col xs={12} md={6} lg={6}>
               <Image
                 src={HomePhoto}
+                style={{ marginTop: "-60px" }}
+                width={800}
+              />
+            </Col>
+          </Row>
+        </div>
+        <div className="mx-2 my-2 py-1">
+          <Row>
+            <Col xs={12} md={6} lg={6}>
+              <Image
+                src={CampHome}
+                style={{ marginTop: "-60px" }}
+                width={800}
+              />
+            </Col>
+            <Col xs={12} md={6} lg={6}>
+              <div
+                style={{ height: "100%" }}
+                className="d-flex py-2 flex-column justify-content-center align-items-center"
+              >
+                <Alert variant="green" className="w-100">
+                  <div
+                    style={{ height: "100%" }}
+                    className="d-flex  w-100 home-text flex-column"
+                  >
+                    <h6 className="xxxxlarge mb-1  text-primary">
+                      Donate Blood and Save Lives at Live Camps with ERakta
+                      Nepal{" "}
+                    </h6>
+                    <p>
+                      Discover live blood donation camps happening throughout
+                      Nepal on ERakta Nepal. Participate in these events to
+                      support humanity and donate blood to those in need. By
+                      attending these blood donation camps, you can make a
+                      significant impact on the lives of others and help save
+                      lives in your community."
+                    </p>
+                    <div className="d-flex">
+                      <Button
+                        variant="outline-primary d-flex border-dark"
+                        onClick={() =>
+                          navigate(`/live-blood-camp`, { replace: true })
+                        }
+                      >
+                        Find Blood Camps <ArrowRight className="mt-1 ml-2" />
+                      </Button>{" "}
+                    </div>
+                  </div>
+                </Alert>
+              </div>
+            </Col>
+          </Row>
+        </div>
+        <div className="mx-2 my-2">
+          <Row>
+            <Col xs={12} md={6} lg={6}>
+              <div
+                style={{ height: "100%" }}
+                className="d-flex py-2 flex-column justify-content-center align-items-center"
+              >
+                <Alert variant="green" className="w-100">
+                  <div
+                    style={{ height: "100%" }}
+                    className="d-flex  w-100 home-text flex-column"
+                  >
+                    <h6 className="xxxxlarge mb-0  text-primary">
+                      Join ERakta Nepal's Blood Donor Network Today{" "}
+                    </h6>
+                    <p>
+                      Join ERakta Nepal's network of blood donors by registering
+                      yourself as a donor. Your registration will enable people
+                      in emergency situations to easily access blood donations
+                      and receive life-saving transfusions. Don't wait any
+                      longer - register now to become a blood donor and make a
+                      meaningful impact on someone's life.
+                    </p>
+                    <div className="d-flex">
+                      <Button
+                        variant="outline-primary d-flex border-dark"
+                        onClick={() =>
+                          navigate(`/donor-registration`, { replace: true })
+                        }
+                      >
+                        Donate Blood <ArrowRight className="mt-1 ml-2" />
+                      </Button>{" "}
+                    </div>
+                  </div>
+                </Alert>
+              </div>
+            </Col>
+            <Col xs={12} md={6} lg={6}>
+              <Image
+                src={RequestBloods}
                 style={{ marginTop: "-60px" }}
                 width={800}
               />
@@ -118,104 +215,40 @@ const Home = () => {
           <h6 className="larger my-5 text-center">Our Contribution</h6>
           <Row className="mx-2 d-flex justify-content-center ">
             <Col xs={12} md={4} lg={2} className="my-2">
-              <Alert className="px-2 text-dark text-center py-2">
+              <Alert
+                variant="green"
+                className="px-2 text-dark text-center py-2"
+              >
                 <h6 className="xxxxlarge">21</h6>
                 <h6 className="xlarge mb-0">Event Organized</h6>
               </Alert>
             </Col>
             <Col xs={12} md={4} lg={2} className="my-2">
-              <Alert className="px-2 text-dark text-center py-2">
+              <Alert
+                variant="green"
+                className="px-2 text-dark text-center py-2"
+              >
                 <h6 className="xxxxlarge">322</h6>
                 <h6 className="xlarge mb-0">Blood Collected</h6>
               </Alert>
             </Col>
             <Col xs={12} md={4} lg={2} className="my-2">
-              <Alert className="px-2 text-dark text-center py-2">
+              <Alert
+                variant="green"
+                className="px-2 text-dark text-center py-2"
+              >
                 <h6 className="xxxxlarge">17</h6>
                 <h6 className="xlarge mb-0">Total Donor</h6>
               </Alert>
             </Col>
             <Col xs={12} md={4} lg={2} className="my-2">
-              <Alert className="px-2 text-dark text-center py-2">
+              <Alert
+                variant="green"
+                className="px-2 text-dark text-center py-2"
+              >
                 <h6 className="xxxxlarge">872</h6>
                 <h6 className="xlarge mb-0">Blood Searched</h6>
               </Alert>
-            </Col>
-          </Row>
-        </div>
-        <div className="mx-2 my-4 py-5">
-          <Row>
-            <Col xs={12} md={6} lg={6}>
-              <Image
-                src={CampHome}
-                style={{ marginTop: "-60px" }}
-                width={800}
-              />
-            </Col>
-            <Col xs={12} md={6} lg={6}>
-              <div
-                style={{ height: "100%" }}
-                className="d-flex py-2 home-text text-center  flex-column justify-content-center align-items-center"
-              >
-                <h6 className="huge  text-primary">
-                  Get Involve in Blood Donation
-                </h6>
-                <Alert className="w-75">
-                  We Organize blood donation campaign every week , you can get
-                  enrolled in it
-                </Alert>
-                <div className="p-2 d-flex  ">
-                  <Button
-                    variant="outline-primary d-flex border-dark mx-2"
-                    onClick={() =>
-                      navigate(`/live-blood-camp`, { replace: true })
-                    }
-                  >
-                    See Camps <ArrowRight className="mt-1 ml-2" />
-                  </Button>{" "}
-                </div>
-              </div>
-            </Col>
-          </Row>
-        </div>
-        <div className="mx-4 mb-4">
-          <Row>
-            <Col xs={12} md={6} lg={6}>
-              <Image src={BeAHero} width={800} />
-            </Col>
-            <Col xs={12} md={6} lg={6}>
-              <div
-                style={{ height: "100%" }}
-                className="d-flex py-2 w-100 home-text flex-column"
-              >
-                <h6 className="huge mb-0  text-primary">
-                  Save a life, donate blood{" "}
-                </h6>
-                <h6 className="xxxlarge mb-0">Why to donate blood?</h6>
-                <h6 className="mb-0 d-flex">
-                  <ArrowRightCircle className="mr-1" /> Saving lives
-                </h6>
-                <h6 className="mb-0 d-flex">
-                  {" "}
-                  <ArrowRightCircle className="mr-1" />
-                  Reducing the risk of heart disease
-                </h6>
-                <h6 className="mb-0 d-flex">
-                  {" "}
-                  <ArrowRightCircle className="mr-1" />
-                  Improving blood flow
-                </h6>
-                <h6 className="mb-0 d-flex">
-                  {" "}
-                  <ArrowRightCircle className="mr-1" />
-                  Promoting community health
-                </h6>
-                <h6 className="mb-0 d-flex">
-                  {" "}
-                  <ArrowRightCircle className="mr-1" />
-                  Screening for medical conditions
-                </h6>
-              </div>
             </Col>
           </Row>
         </div>
