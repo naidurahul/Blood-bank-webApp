@@ -7,7 +7,7 @@ import RequestBloods from "../../assets/RequestBlood.png";
 import { bloodRequestFields } from "../../global/constants";
 
 const RequestBlood = () => {
-  const [bloodRequestDetails, setBloodRequestDetails] = useState({});
+  const [bloodRequestDetails, setBloodRequestDetails] = useState(null);
 
   const saveDonorDetails = async (details) => {
     try {
@@ -17,14 +17,14 @@ const RequestBlood = () => {
       );
       if (data.status) {
         toast.success("Succesfully Requested Blood");
-        setBloodRequestDetails({});
+        setBloodRequestDetails(null);
       }
     } catch (error) {
       console.log(error.message);
     }
   };
 
-  const handleResuesterDetails = () => {
+  const onRequestClick = () => {
     const emptyFields = bloodRequestFields.find(
       (x) => !bloodRequestDetails[x.name]
     );
@@ -33,7 +33,7 @@ const RequestBlood = () => {
     }
     saveDonorDetails(bloodRequestDetails);
   };
-
+  console.log(bloodRequestDetails);
   return (
     <>
       <Row noGutters>
@@ -61,30 +61,25 @@ const RequestBlood = () => {
                   >
                     <Form.Label className="text-dark mb-0">
                       {field.label}
-                      {field?.required && (
-                        <span className="text-red" style={{ color: "red" }}>
-                          *
-                        </span>
-                      )}{" "}
                     </Form.Label>
 
                     {field.type === "enum" && (
                       <Dropdown
                         className=""
-                        onSelect={(e) => {
-                          bloodRequestDetails[field.name] = e;
+                        onSelect={(e) =>
                           setBloodRequestDetails({
                             ...bloodRequestDetails,
-                          });
-                        }}
+                            [field.name]: e,
+                          })
+                        }
                       >
                         <Dropdown.Toggle
                           size="sm"
                           className="p-1 w-100 text-dark float-left"
-                          variant="outline-muted"
+                          variant="outline-secondary"
                           style={{ height: 40, borderRadius: 8 }}
                         >
-                          {bloodRequestDetails[field.name] ??
+                          {bloodRequestDetails?.[field.name] ??
                             "Select Blood Group"}
                         </Dropdown.Toggle>
                         <Dropdown.Menu>
@@ -104,7 +99,7 @@ const RequestBlood = () => {
                       <Form.Group className="">
                         <Form.Control
                           type={field.type}
-                          value={bloodRequestDetails[field.name]}
+                          value={bloodRequestDetails?.[field.name] ?? ''}
                           placeholder=""
                           className=""
                           onChange={(e) =>
@@ -122,7 +117,7 @@ const RequestBlood = () => {
             </Row>
             <Button
               variant="outline-green mt-3 d-flex"
-              onClick={handleResuesterDetails}
+              onClick={onRequestClick}
             >
               Request <ArrowRight className="mt-1 ml-2" />
             </Button>{" "}

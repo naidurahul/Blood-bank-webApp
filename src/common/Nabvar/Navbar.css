@@ -8,5 +8,7 @@
   width: 100%;
 }
 .underline-custom {
-  text-decoration: underline;
+  border-bottom: 1px solid black;
+  padding-bottom: 5px;
+  font-size: 18px;
 }

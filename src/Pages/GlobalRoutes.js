@@ -8,7 +8,6 @@ import DashboardMain from "../components/Dashboard/DashboardMain";
 import DonorRegistration from "../components/DonorRegistration/DonorRegistration";
 import LiveBloodCamp from "../components/LiveBloodCamp/LiveBloodCamp";
 import RequestBlood from "../components/RequestBlood/RequestBlood";
-import SearchDonor from "../components/SearchDonor/SearchDonor";
 import Home from "./Home";
 
 const GlobalRoutes = () => {
@@ -24,7 +23,6 @@ const GlobalRoutes = () => {
           <Route element={<ContactUs />} path="/contact-us" />
           <Route element={<LiveBloodCamp />} path="/live-blood-camp" />
           <Route element={<RequestBlood />} path="/request-blood" />
-          <Route element={<SearchDonor />} path="/search-donor" />
         </Routes>
       </div>
       <Footer />

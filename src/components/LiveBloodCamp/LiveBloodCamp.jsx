@@ -41,7 +41,7 @@ const LiveBloodCamp = () => {
       if (data.status) {
         console.log(data.msg);
         setBloodCamps([...addOrUpdateItemInArray(bloodCamps, data.msg)]);
-        toast.success("Succesfully Registered");
+        toast.success("Details Sent Succesfully!");
         setOpenParticipantModal(null);
       }
     } catch (error) {

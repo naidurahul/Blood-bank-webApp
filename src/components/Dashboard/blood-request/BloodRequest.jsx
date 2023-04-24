@@ -5,17 +5,33 @@ import {
   CardChecklist,
   CheckCircleFill,
   InfoCircleFill,
+  Trash3Fill,
   XCircleFill,
 } from "react-bootstrap-icons";
 import { toast } from "react-toastify";
 import Loader from "../../../common/Loader";
 import { addOrUpdateItemInArray } from "../../../global/constants";
 import RequestDetail from "./RequestDetail";
+import DeleteModal from "../../../common/DeleteModal";
 
 const BloodRequest = () => {
   const [requester, setRequester] = useState([]);
   const [openDetailModal, setOpenDetailmodal] = useState(null);
+  const [openDeleteModal, setOpenDeleteModal] = useState(null);
   const [loading, setLoading] = useState(false);
+
+  const handelDeleteDonor = async (id) => {
+    try {
+      const { data } = await axios.delete(
+        `http://localhost:4000/api/v1/blood-request/${id}`
+      );
+      setOpenDetailmodal(null);
+      toast.success("Donor Deleted Successfully!");
+      fetchData();
+    } catch (error) {
+      console.log(error.response.data.msg);
+    }
+  };
   const handleEdit = async (value) => {
     try {
       const { data } = await axios.put(
@@ -34,20 +50,20 @@ const BloodRequest = () => {
       console.log(error.message);
     }
   };
+  const fetchData = async () => {
+    try {
+      setLoading(true);
+      const { data } = await axios.get(
+        "http://localhost:4000/api/v1/blood-request"
+      );
+      setRequester(data.msg);
+      setLoading(false);
+    } catch (error) {
+      console.log(error.message);
+      setLoading(false);
+    }
+  };
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        setLoading(true);
-        const { data } = await axios.get(
-          "http://localhost:4000/api/v1/blood-request"
-        );
-        setRequester(data.msg);
-        setLoading(false);
-      } catch (error) {
-        console.log(error.message);
-        setLoading(false);
-      }
-    };
     fetchData();
   }, []);
   return (
@@ -79,18 +95,24 @@ const BloodRequest = () => {
                   <tr
                     className={
                       request?.status === "accepted"
-                        ? "bg-light-green"
-                        : "bg-light-red"
+                        ? "bg-light-green hover"
+                        : "bg-light-red hover"
                     }
                   >
-                    <td>{request?.name}</td>
-                    <td>{request?.address}</td>
-                    <td>{request?.bloodGroup}</td>
+                    <td onClick={() => setOpenDetailmodal(request)}>
+                      {request?.name}
+                    </td>
+                    <td onClick={() => setOpenDetailmodal(request)}>
+                      {request?.address}
+                    </td>
+                    <td onClick={() => setOpenDetailmodal(request)}>
+                      {request?.bloodGroup}
+                    </td>
                     <td className="text-center d-flex justify-content-around">
-                      <InfoCircleFill
+                      <Trash3Fill
                         size={20}
-                        className="text-muted hover"
-                        onClick={() => setOpenDetailmodal(request)}
+                        className="text-danger hover"
+                        onClick={() => setOpenDeleteModal(request)}
                       />
                       <CheckCircleFill
                         size={20}
@@ -114,6 +136,15 @@ const BloodRequest = () => {
           </Table>
         )}
       </Card>
+      <DeleteModal
+        openDeleteModal={openDeleteModal}
+        onHide={() => setOpenDeleteModal(null)}
+        onDelete={(id) => {
+          console.log(id);
+          setOpenDeleteModal(null);
+          handelDeleteDonor(id);
+        }}
+      />
       <RequestDetail
         openDetailModal={openDetailModal}
         handleClose={() => setOpenDetailmodal(null)}

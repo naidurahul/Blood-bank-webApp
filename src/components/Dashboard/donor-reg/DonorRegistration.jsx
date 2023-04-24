@@ -34,9 +34,7 @@ const DonorRegistration = () => {
   const handelDeleteDonor = async (id) => {
     try {
       const { data } = await axios.delete(
-        `http://localhost:4000/api/v1/${
-          pathname === "/live-blood-camp" ? "hospitals" : "donations"
-        }/${id}`
+        `http://localhost:4000/api/v1/donations/${id}`
       );
       setOpenDetailmodal(null);
       toast.success("Donor Deleted Successfully!");
@@ -138,7 +136,7 @@ const DonorRegistration = () => {
             <tbody>
               {filteredList.map((donor) => {
                 return (
-                  <tr key={donor?.phone} className="">
+                  <tr key={donor?.phone} className="hover">
                     <td onClick={() => setOpenDetailmodal(donor)}>
                       {donor?.name}
                     </td>
@@ -155,11 +153,6 @@ const DonorRegistration = () => {
                           size={20}
                           className="text-danger mr-1 mt-1 hover"
                           onClick={() => setOpenDeleteModal(donor)}
-                        />
-                        <InfoCircleFill
-                          size={20}
-                          className="text-muted ml-3 mt-1 hover"
-                          onClick={() => setOpenDetailmodal(donor)}
                         />
                       </div>
                     </td>

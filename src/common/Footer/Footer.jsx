@@ -16,8 +16,8 @@ const Footer = () => {
   return (
     <>
       <Row
-        className="px-2 mx-1 pt-2 mt-5 mb-0 "
-        style={{ borderTop: "1px solid grey" }}
+        className="px-2 mx-1 py-3 mt-5 mb-0 "
+        style={{ borderTop: "1px solid #c9bebd" }}
       >
         <Col xs={12} md={6} lg={4}>
           {" "}

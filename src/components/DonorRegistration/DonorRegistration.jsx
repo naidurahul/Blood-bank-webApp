@@ -4,7 +4,12 @@ import { Button, Col, Dropdown, Form, Image, Row } from "react-bootstrap";
 import { toast } from "react-toastify";
 import RegisterAsDonor from "../../assets/RegisterAsDonor.png";
 import { donorFormFields } from "../../global/constants";
-import { ArrowRight, HeartPulseFill, Search } from "react-bootstrap-icons";
+import {
+  ArrowRight,
+  BalloonHeartFill,
+  HeartPulseFill,
+  Search,
+} from "react-bootstrap-icons";
 
 const DonorRegistration = () => {
   const [donorDetails, setDonorDetails] = useState({});
@@ -15,9 +20,12 @@ const DonorRegistration = () => {
         `http://localhost:4000/api/v1/donation`,
         { ...details }
       );
-      if (data.status) {
+      if (data.status === "Success") {
         toast.success("Succesfully Registered");
         setDonorDetails({});
+      }
+      if (data.msg === "Donor Exists") {
+        toast.error("Donor Already Exists in our System!");
       }
     } catch (error) {
       console.log(error.message);
@@ -46,7 +54,7 @@ const DonorRegistration = () => {
               Donate Blood,
               <h6 className="huge mb-0 text-dark d-flex">
                 Be a Life Saver
-                <HeartPulseFill className="ml-2 mt-1 text-danger" />
+                <BalloonHeartFill className="ml-2 mt-1 text-info" />
               </h6>
             </h6>{" "}
             <Row className="">
@@ -61,11 +69,6 @@ const DonorRegistration = () => {
                   >
                     <Form.Label className="text-dark mb-0">
                       {field.label}
-                      {field?.required && (
-                        <span className="text-red" style={{ color: "red" }}>
-                          *
-                        </span>
-                      )}{" "}
                     </Form.Label>
                     {field.type === "enum" && (
                       <Dropdown
@@ -80,10 +83,10 @@ const DonorRegistration = () => {
                         <Dropdown.Toggle
                           size="sm"
                           className="p-1 w-100 text-dark float-left"
-                          variant="outline-muted"
+                          variant="outline-secondary"
                           style={{ height: 40, borderRadius: 8 }}
                         >
-                          {donorDetails[field.name] ?? "Select Option"}
+                          {donorDetails[field.name] ?? "Choose One"}
                         </Dropdown.Toggle>
                         <Dropdown.Menu>
                           {field?.options &&
@@ -103,6 +106,7 @@ const DonorRegistration = () => {
                         <Form.Control
                           type={field.type}
                           placeholder=""
+                          value={donorDetails[field.name] ?? ""}
                           className=""
                           onChange={(e) =>
                             setDonorDetails({
