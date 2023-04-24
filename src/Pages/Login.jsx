@@ -44,7 +44,7 @@ const Login = () => {
               Login in to,
               <h6 className="huge mb-0 text-dark d-flex">
                 ERakta Nepal
-                <BoxArrowInRight className="ml-2 mt-1 text-primary" />
+                <BoxArrowInRight className="ml-2 mt-1 text-green" />
               </h6>
             </h6>
             <div className="mt-2">

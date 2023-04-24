@@ -3,7 +3,15 @@ import { Card, Form, Table } from "react-bootstrap";
 import {
   CardChecklist,
   DatabaseX,
+  FilterCircle,
+  FilterCircleFill,
+  Funnel,
+  FunnelFill,
   InfoCircleFill,
+  SortAlphaDown,
+  SortAlphaUp,
+  Trash2Fill,
+  Trash3Fill,
 } from "react-bootstrap-icons";
 import { donorFieldsToShowInTable } from "../../../global/constants";
 import axios from "axios";
@@ -11,11 +19,14 @@ import { toast } from "react-toastify";
 import { useLocation } from "react-router-dom";
 import DonorDetail from "./DonorDetail";
 import Loader from "../../../common/Loader";
+import { insertionSort } from "../../../global/helper";
+import DeleteModal from "../../../common/DeleteModal";
 
 const DonorRegistration = () => {
   const [donorList, setDonorList] = useState([]);
   const [openDetailModal, setOpenDetailmodal] = useState(null);
-  const [openDeleteDonorModal, setOpenDeleteDonorModal] = useState(null);
+  const [openDeleteModal, setOpenDeleteModal] = useState(null);
+  const [sort, setSort] = useState(false);
   const [filteredList, setFilteredList] = useState([]);
   const [searchQuery, setSearchQUery] = useState("");
   const [fetchingDonors, setFetchingDonors] = useState(false);
@@ -27,7 +38,7 @@ const DonorRegistration = () => {
           pathname === "/live-blood-camp" ? "hospitals" : "donations"
         }/${id}`
       );
-      setOpenDeleteDonorModal(null);
+      setOpenDetailmodal(null);
       toast.success("Donor Deleted Successfully!");
       fetchData();
     } catch (error) {
@@ -51,15 +62,26 @@ const DonorRegistration = () => {
   useEffect(() => {
     fetchData();
   }, []);
+  const filterRule = (donor) => {
+    console.log();
+    return (
+      donor.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      donor.address.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      donor.bloodGroup.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+  };
+
   useEffect(() => {
     const filteredValue =
       searchQuery !== ""
-        ? donorList.filter((donor) =>
-            donor.name.toLowerCase().includes(searchQuery.toLowerCase())
-          )
+        ? donorList.filter((donor) => filterRule(donor))
         : [...donorList];
-    setFilteredList([...filteredValue]);
-  }, [searchQuery]);
+    if (sort) {
+      setFilteredList([...insertionSort(filteredValue)]);
+    } else {
+      setFilteredList(filteredValue);
+    }
+  }, [searchQuery, sort]);
   return (
     <>
       <Card className="mt-2 w-50">
@@ -68,13 +90,28 @@ const DonorRegistration = () => {
             <CardChecklist size={30} className="mt-0 mr-1" />
             Donor List{" "}
           </h6>
-          <Form className="my-1">
-            <Form.Control
-              placeholder="Search donor by name here.."
-              value={searchQuery}
-              onChange={(e) => setSearchQUery(e.target.value)}
-            ></Form.Control>
-          </Form>
+          <div className="d-flex">
+            {sort ? (
+              <SortAlphaDown
+                className="mx-2 text-muted hover mt-2"
+                size={25}
+                onClick={() => setSort(!sort)}
+              />
+            ) : (
+              <SortAlphaUp
+                className="mx-2 text-muted hover mt-2"
+                size={25}
+                onClick={() => setSort(!sort)}
+              />
+            )}
+            <Form className="my-1">
+              <Form.Control
+                placeholder="Search donor by name here.."
+                value={searchQuery}
+                onChange={(e) => setSearchQUery(e.target.value)}
+              ></Form.Control>
+            </Form>
+          </div>
         </Card.Header>{" "}
         {fetchingDonors ? (
           <div className="px-2">
@@ -94,24 +131,37 @@ const DonorRegistration = () => {
             <thead>
               <tr>
                 {donorFieldsToShowInTable?.map((donor) => {
-                  return <td>{donor.label}</td>;
+                  return <td key={donor.label}>{donor.label}</td>;
                 })}
               </tr>
             </thead>
             <tbody>
               {filteredList.map((donor) => {
                 return (
-                  <tr className="" onClick={() => setOpenDetailmodal(donor)}>
-                    <td>{donor?.name}</td>
-                    <td>{donor?.bloodGroup}</td>
-                    <td>{donor?.phoneNumber}</td>
+                  <tr key={donor?.phone} className="">
+                    <td onClick={() => setOpenDetailmodal(donor)}>
+                      {donor?.name}
+                    </td>
+                    <td onClick={() => setOpenDetailmodal(donor)}>
+                      {donor?.bloodGroup}
+                    </td>
+                    <td onClick={() => setOpenDetailmodal(donor)}>
+                      {donor?.phoneNumber}
+                    </td>
                     <td className="d-flex justify-content-between">
                       {donor?.address}{" "}
-                      <InfoCircleFill
-                        size={20}
-                        className="text-muted ml-3 mt-1 hover"
-                        onClick={() => setOpenDetailmodal(donor)}
-                      />
+                      <div className="d-flex">
+                        <Trash3Fill
+                          size={20}
+                          className="text-danger mr-1 mt-1 hover"
+                          onClick={() => setOpenDeleteModal(donor)}
+                        />
+                        <InfoCircleFill
+                          size={20}
+                          className="text-muted ml-3 mt-1 hover"
+                          onClick={() => setOpenDetailmodal(donor)}
+                        />
+                      </div>
                     </td>
                   </tr>
                 );
@@ -120,7 +170,15 @@ const DonorRegistration = () => {
           </Table>
         )}
       </Card>
-
+      <DeleteModal
+        openDeleteModal={openDeleteModal}
+        onHide={() => setOpenDeleteModal(null)}
+        onDelete={(id) => {
+          console.log(id);
+          setOpenDeleteModal(null);
+          handelDeleteDonor(id);
+        }}
+      />
       <DonorDetail
         openDetailModal={openDetailModal}
         handleClose={() => setOpenDetailmodal(null)}

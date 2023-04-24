@@ -128,7 +128,7 @@ const LiveBloodCamp = () => {
                                 {moment(camp.sDate).format("MMM Do YYYY")}
                                 <br />
                                 <strong>Time:</strong>{" "}
-                                {moment(camp.sDate).format("HH:mm a")}
+                                {moment(camp.sTime, "HH:mm").format("HH:mm a")}
                                 <br />
                                 {camp?.description}
                               </div>

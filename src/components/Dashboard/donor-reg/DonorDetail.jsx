@@ -4,7 +4,6 @@ import { donorFields } from "../../../global/constants";
 import { CardText } from "react-bootstrap-icons";
 
 const DonorDetail = ({ openDetailModal, handleClose }) => {
-  console.log(openDetailModal);
   return (
     <>
       <Modal show={openDetailModal !== null} onHide={handleClose}>

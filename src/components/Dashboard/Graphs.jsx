@@ -8,7 +8,7 @@ const Graphs = () => {
   const [bloodStocks, setBloodStocks] = useState([]);
   const [donorList, setDonorList] = useState([]);
   const [dataForGraph, setDataForGraph] = useState();
-  const label = ["A+", "A-", "B+", "B-", "O+", "O-", "AB"];
+  const label = ["A+", "A-", "B+", "B-", "O+", "O-", "AB+"];
   const fetchData = async () => {
     try {
       const { data } = await axios.get("http://localhost:4000/api/v1/stock");
@@ -88,22 +88,22 @@ const Graphs = () => {
                   label: "Blood Donor",
                   data: dataForGraph?.donorData,
                   backgroundColor: [
-                    "#bfcbdb",
-                    "#b3bfd1",
-                    "#a4a2a8",
-                    "#df8879",
-                    "#c86558",
-                    "#b04238",
-                    "#991f17",
+                    "#e27c7c",
+                    "#a86464",
+                    "#6d4b4b",
+                    "#503f3f",
+                    "#333333",
+                    "#3c4e4b",
+                    "#466964",
                   ],
                   borderColor: [
-                    "#bfcbdb",
-                    "#b3bfd1",
-                    "#a4a2a8",
-                    "#df8879",
-                    "#c86558",
-                    "#b04238",
-                    "#991f17",
+                    "#e27c7c",
+                    "#a86464",
+                    "#6d4b4b",
+                    "#503f3f",
+                    "#333333",
+                    "#3c4e4b",
+                    "#466964",
                   ],
                   borderWidth: 2,
                 },

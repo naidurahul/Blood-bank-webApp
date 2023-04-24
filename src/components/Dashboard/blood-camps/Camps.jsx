@@ -1,7 +1,12 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Button, Card, Table } from "react-bootstrap";
-import { HCircle, PencilSquare, TrashFill } from "react-bootstrap-icons";
+import {
+  DatabaseX,
+  HCircle,
+  PencilSquare,
+  TrashFill,
+} from "react-bootstrap-icons";
 import { addOrUpdateItemInArray } from "../../../global/constants";
 import moment from "moment";
 import { toast } from "react-toastify";
@@ -12,7 +17,6 @@ const Camps = () => {
   const [openAddOrEditBloodCamp, setOpenAddOrEditBloodCamp] = useState(null);
   const [bloodCamps, setBloodCamps] = useState([]);
   const [fetchingData, setFetchingData] = useState(false);
-  console.log(moment("12:30", "HH:mm")?._d);
   const onFormSubmit = (data) => {
     if (!data?.data?.cName) return toast.error("Camp Name is required!");
     if (!data?.data?.address) return toast.error("Address is required!");
@@ -107,6 +111,15 @@ const Camps = () => {
           <div className="px-2">
             <Loader />
           </div>
+        ) : !bloodCamps.length ? (
+          <h6 className="mt-5 w-100 d-flex xxlarge justify-content-center">
+            <DatabaseX
+              size={30}
+              className="mr-1"
+              style={{ marginTop: "-10px" }}
+            />{" "}
+            No Data to Show!
+          </h6>
         ) : (
           <Table striped bordered hover style={{ marginBottom: "0px" }}>
             <thead>

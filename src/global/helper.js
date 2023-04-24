@@ -5,3 +5,17 @@ export function toSentenceCase(sentence) {
   }
   return words.join(" "); // join words back together into a string
 }
+
+export function insertionSort(arr) {
+  let copyArr = arr;
+  for (let i = 1; i < copyArr.length; i++) {
+    let j = i - 1;
+    const temp = copyArr[i];
+    while (j >= 0 && copyArr[j].bloodGroup > temp.bloodGroup) {
+      copyArr[j + 1] = copyArr[j];
+      j--;
+    }
+    copyArr[j + 1] = temp;
+  }
+  return copyArr;
+}

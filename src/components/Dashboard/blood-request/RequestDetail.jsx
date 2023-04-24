@@ -4,7 +4,6 @@ import { requestFields } from "../../../global/constants";
 import { CardText } from "react-bootstrap-icons";
 
 const RequestDetail = ({ openDetailModal, handleClose }) => {
-  console.log(openDetailModal);
   return (
     <>
       <Modal show={openDetailModal !== null} onHide={handleClose}>
