@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Button, Col, Form, Image, Row } from "react-bootstrap";
-import { ArrowRight, BoxArrowInRight, ChatDotsFill } from "react-bootstrap-icons";
+import {
+  ArrowRight,
+  BoxArrowInRight,
+  ChatDotsFill,
+} from "react-bootstrap-icons";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import LoginImg from "../assets/Login.png";
@@ -37,16 +41,21 @@ const Login = () => {
         <Col xs={12} md={5} lg={5}>
           <div className="px-0">
             <h6 className="huge mb-0 text-dark">
-             Login in to,
+              Login in to,
               <h6 className="huge mb-0 text-dark d-flex">
                 ERakta Nepal
-                <BoxArrowInRight  className="ml-2 mt-1 text-primary" />
+                <BoxArrowInRight className="ml-2 mt-1 text-primary" />
               </h6>
             </h6>
             <div className="mt-2">
               {" "}
               <Form.Group className="w-75">
-                <h6 className="mid-font text-dark mb-1">Username</h6>
+                <h6
+                  style={{ fontWeight: 300 }}
+                  className="mid-font text-dark mb-1"
+                >
+                  Username
+                </h6>
                 <Form.Control
                   type={"text"}
                   placeholder=""
@@ -60,7 +69,12 @@ const Login = () => {
                 />
               </Form.Group>
               <Form.Group className="w-75">
-                <h6 className="mid-font text-dark mb-1">Password</h6>
+                <h6
+                  style={{ fontWeight: 300 }}
+                  className="mid-font text-dark mb-1"
+                >
+                  Password
+                </h6>
                 <Form.Control
                   type={"password"}
                   placeholder=""
@@ -76,6 +90,13 @@ const Login = () => {
               <Button variant="outline-green  mt-3 d-flex" onClick={onLogin}>
                 Login <ArrowRight className="mt-1 ml-2" />
               </Button>{" "}
+              <h6
+                style={{ fontWeight: 300, textDecoration: "underline" }}
+                className="mt-2 hover"
+                onClick={() => navigate(`/`, { replace: true })}
+              >
+                Go to Home
+              </h6>
             </div>
           </div>
         </Col>

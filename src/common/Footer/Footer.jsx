@@ -24,11 +24,10 @@ const Footer = () => {
           <div className="w-100">
             <h6 className="text-dark xxxlarge ">Social Link</h6>
             <div className="text-dark d-flex">
-              <Facebook className="mx-1 hover" />{" "}
-              <Instagram className="mx-1 hover" />{" "}
-              <Twitter className="mx-1 hover" />{" "}
-              <Youtube className="mx-1 hover" />
-              <Linkedin className="mx-1 hover" />
+              <Facebook className="mr-4 hover" />{" "}
+              <Instagram className="mr-4 hover" />{" "}
+              <Twitter className="mr-4 hover" />{" "}
+              <Youtube className="mr-4 hover" />
             </div>
           </div>
         </Col>

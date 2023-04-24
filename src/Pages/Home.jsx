@@ -12,8 +12,11 @@ import {
   ArrowRightCircle,
   ArrowUpRight,
 } from "react-bootstrap-icons";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
+  const navigate = useNavigate();
+
   return (
     <>
       <div className="mt-4">
@@ -30,12 +33,22 @@ const Home = () => {
                   operations that ensure quick and efficient delivery of blood
                   products to those in need
                 </Alert>
-                <div className="p-2 d-flex  ">
-                  <Button variant="outline-primary d-flex border-dark mx-2  ">
+                <div className="p-2 d-flex ">
+                  <Button
+                    variant="outline-primary d-flex border-dark mx-2"
+                    onClick={() =>
+                      navigate(`/donor-registration`, { replace: true })
+                    }
+                  >
                     Donate Blood
                     <ArrowRight className="mt-1 ml-2" />
                   </Button>{" "}
-                  <Button variant="outline-primary d-flex border-dark mx-2  ">
+                  <Button
+                    variant="outline-primary d-flex border-dark mx-2"
+                    onClick={() =>
+                      navigate(`/request-blood`, { replace: true })
+                    }
+                  >
                     Request Blood <ArrowRight className="mt-1 ml-2" />
                   </Button>{" "}
                 </div>
@@ -152,7 +165,12 @@ const Home = () => {
                   enrolled in it
                 </Alert>
                 <div className="p-2 d-flex  ">
-                  <Button variant="outline-primary d-flex border-dark mx-2  ">
+                  <Button
+                    variant="outline-primary d-flex border-dark mx-2"
+                    onClick={() =>
+                      navigate(`/live-blood-camp`, { replace: true })
+                    }
+                  >
                     See Camps <ArrowRight className="mt-1 ml-2" />
                   </Button>{" "}
                 </div>

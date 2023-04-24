@@ -36,12 +36,22 @@ const Feedback = () => {
                   <ChatLeftText size={30} className="mt-2 mr-2" />
                 </div>
                 <div>
-                  <Form.Label className="text-dark mb-0">
+                  <Form.Label
+                    style={{ fontWeight: 500 }}
+                    className="text-dark mb-0"
+                  >
                     Sender Name
                   </Form.Label>
-                  <h6>{toSentenceCase(feedback?.name)}</h6>
-                  <Form.Label className="text-dark mb-0">Feedback</Form.Label>
-                  <h6>{feedback?.feedback}</h6>
+                  <h6 style={{ fontWeight: 300 }} className="mb-0">
+                    {toSentenceCase(feedback?.name)}
+                  </h6>
+                  <Form.Label
+                    className="text-dark mb-0"
+                    style={{ fontWeight: 500 }}
+                  >
+                    Feedback
+                  </Form.Label>
+                  <h6 style={{ fontWeight: 300 }}>{feedback?.feedback}</h6>
                 </div>
               </div>
             </Card>
