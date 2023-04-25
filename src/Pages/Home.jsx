@@ -100,7 +100,7 @@ const Home = () => {
                     </p>
                     <div className="d-flex">
                       <Button
-                        variant="outline-primary d-flex border-dark"
+                        variant="outline-green d-flex"
                         onClick={() =>
                           navigate(`/request-blood`, { replace: true })
                         }
@@ -138,7 +138,7 @@ const Home = () => {
                 <Alert variant="green" className="w-100">
                   <div
                     style={{ height: "100%" }}
-                    className="d-flex  w-100 home-text flex-column"
+                    className="d-flex  w-100  flex-column"
                   >
                     <h6 className="xxxxlarge mb-1 text-dark">
                       Donate Blood and Save Lives at Live Camps with ERakta
@@ -154,7 +154,7 @@ const Home = () => {
                     </p>
                     <div className="d-flex">
                       <Button
-                        variant="outline-primary d-flex border-dark"
+                        variant="outline-green d-flex"
                         onClick={() =>
                           navigate(`/live-blood-camp`, { replace: true })
                         }
@@ -193,7 +193,7 @@ const Home = () => {
                     </p>
                     <div className="d-flex">
                       <Button
-                        variant="outline-primary d-flex border-dark"
+                        variant="outline-green d-flex"
                         onClick={() =>
                           navigate(`/donor-registration`, { replace: true })
                         }
@@ -220,46 +220,49 @@ const Home = () => {
             <Col xs={12} md={4} lg={3} className="my-2">
               <div className="p-1">
                 <Image src={ManagindBlood} width={250} />
-                <hr className="my-0" />
-                <h6 className="my-2 xxxlarge ">Managing Blood Stocks</h6>
-                <p>
-                  Managing blood stocks involves keeping track of the available
-                  blood inventory,quantity.
-                </p>
+                <Alert variant="green" className="w-100 my-3 p-2">
+                  <h6 className="mb-2 xxxlarge ">Managing Blood Stocks</h6>
+                  <p className="text-greem">
+                    Managing blood stocks involves keeping track of the
+                    available blood inventory,quantity.
+                  </p>
+                </Alert>
               </div>
             </Col>{" "}
             <Col xs={12} md={4} lg={3} className="my-2">
               <div className="p-1">
                 <Image src={OrganizeBloodCamp} width={250} height={200} />
-                <hr className="my-0" />
-                <h6 className="my-2 xxxlarge ">Organizing Blood Camps</h6>
-                <p>
-                  Organizing blood camps involves planning, coordinating, and
-                  executing events to encourage blood donation.
-                </p>
+                <Alert variant="green" className="w-100 my-3 p-2">
+                  <h6 className="mb-2 xxxlarge ">Organizing Blood Camps</h6>
+                  <p>
+                    Organizing blood camps involves planning, coordinating, and
+                    executing events to encourage blood donation.
+                  </p>
+                </Alert>
               </div>
             </Col>{" "}
             <Col xs={12} md={4} lg={3} className="my-2">
               <div className="p-1">
                 <Image src={SupplyBlood} width={250} />
-                <hr className="mt-1 mb-0" />
-                <h6 className="my-2 xxxlarge ">Maintain Blood Supply</h6>
-                <p>
-                  Maintaining blood supply involves ensuring a steady and
-                  adequate supply of blood products to meet the needs of
-                  patients.
-                </p>
+                <Alert variant="green" className="w-100 my-4 p-2">
+                  <h6 className="mb-2 xxxlarge ">Maintain Blood Supply</h6>
+                  <p>
+                    Maintaining blood supply involves ensuring a steady and full
+                    supply of blood to meet the needs of patients.
+                  </p>
+                </Alert>
               </div>
             </Col>{" "}
             <Col xs={12} md={4} lg={3} className="my-2">
               <div className="p-1">
                 <Image src={RegisterDonor} width={250} />
-                <hr className="my-0" />
-                <h6 className="my-2 xxxlarge ">Registering Blood Donors</h6>
-                <p>
-                  Registering blood donors involves collecting and recording
-                  important information about Donors.
-                </p>
+                <Alert variant="green" className="w-100 my-4 p-2">
+                  <h6 className="mb-2 xxxlarge ">Registering Blood Donors</h6>
+                  <p>
+                    Registering blood donors involves collecting and recording
+                    important information about Donors.
+                  </p>
+                </Alert>
               </div>
             </Col>
           </Row>
@@ -308,6 +311,53 @@ const Home = () => {
                 </h6>
                 <h6 className="xlarge mb-0">Request Served</h6>
               </Alert>
+            </Col>
+          </Row>
+        </div>{" "}
+        <div className="mx-2 my-5">
+          <Row>
+            {" "}
+            <Col xs={12} md={6} lg={6}>
+              <Image
+                src={RequestBloods}
+                style={{ marginTop: "-30px" }}
+                width={800}
+              />
+            </Col>
+            <Col xs={12} md={6} lg={6}>
+              <div
+                style={{ height: "100%" }}
+                className="d-flex py-2 flex-column justify-content-center align-items-center"
+              >
+                <Alert variant="green" className="w-100">
+                  <div
+                    style={{ height: "100%" }}
+                    className="d-flex  w-100 home-text flex-column"
+                  >
+                    <h6 className="xxxxlarge mb-0 text-dark">
+                      Love to hear from you, Get in touch{" "}
+                    </h6>
+                    <p>
+                      We would greatly appreciate it if you could provide your
+                      feedback to ERakta Nepal. Your valuable insights will help
+                      us learn and improve our services. We are constantly
+                      striving to enhance our offerings, and your feedback will
+                      play an instrumental role in achieving that goal. Thank
+                      you for taking the time to share your thoughts with us.
+                    </p>
+                    <div className="d-flex">
+                      <Button
+                        variant="outline-green d-flex"
+                        onClick={() =>
+                          navigate(`/give-feedback`, { replace: true })
+                        }
+                      >
+                        Give Feedback <ArrowRight className="mt-1 ml-2" />
+                      </Button>{" "}
+                    </div>
+                  </div>
+                </Alert>
+              </div>
             </Col>
           </Row>
         </div>
