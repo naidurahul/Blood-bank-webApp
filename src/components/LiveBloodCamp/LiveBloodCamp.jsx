@@ -48,7 +48,7 @@ const LiveBloodCamp = () => {
       console.log(error.message);
     }
   };
-  const fetchData = async () => {
+  const fetchingLiveBloodCamps = async () => {
     try {
       setFetchingData(true);
       const { data } = await axios.get(
@@ -62,7 +62,7 @@ const LiveBloodCamp = () => {
     }
   };
   useEffect(() => {
-    fetchData();
+    fetchingLiveBloodCamps();
   }, []);
   const filterRule = (camp) => {
     console.log();
@@ -153,8 +153,8 @@ const LiveBloodCamp = () => {
                           >
                             <PersonCheckFill size={40} className="mr-2" />{" "}
                             <div>
-                              <h6 className="xxlarge mb-0">Participants</h6>
-                              <h6 className="xxxlarge mb-0">
+                              <h6 className="xxlarge mb-0">Participant</h6>
+                              <h6 className="xxxlarge mb-0 text-center mr-3">
                                 {camp?.donorRegistered?.length}
                               </h6>
                             </div>

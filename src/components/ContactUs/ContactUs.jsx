@@ -7,7 +7,7 @@ import Contact from "../../assets/ContactUs.png";
 import { ArrowRight, ChatDotsFill, Send } from "react-bootstrap-icons";
 
 const ContactUs = () => {
-  const [feedbackData, setFeedbackData] = useState({});
+  const [feedbackData, setFeedbackData] = useState(null);
   const saveFeedback = async () => {
     try {
       const { data } = await axios.post(
@@ -16,6 +16,7 @@ const ContactUs = () => {
       );
       if (data.status) {
         toast.success("Your Feedback has been succesfully sent!");
+        setFeedbackData(null);
       }
     } catch (error) {
       console.log(error.message);
@@ -54,7 +55,7 @@ const ContactUs = () => {
                   type={"text"}
                   placeholder=""
                   className="w-50"
-                  value={feedbackData?.name}
+                  value={feedbackData?.name ?? ""}
                   onChange={(e) =>
                     setFeedbackData({ ...feedbackData, name: e.target.value })
                   }
@@ -67,7 +68,7 @@ const ContactUs = () => {
                     as="textarea"
                     rows={3}
                     placeholder="Enter your feedback here"
-                    value={feedbackData?.feedback}
+                    value={feedbackData?.feedback ?? ""}
                     onChange={(e) =>
                       setFeedbackData({
                         ...feedbackData,
@@ -78,10 +79,7 @@ const ContactUs = () => {
                 </Form.Group>
               </Form>
             </div>
-            <Button
-              variant="outline-green mt-3 d-flex"
-              onClick={onSendClick}
-            >
+            <Button variant="outline-green mt-3 d-flex" onClick={onSendClick}>
               Sends <ArrowRight className="mt-1 ml-2" />
             </Button>{" "}
           </div>

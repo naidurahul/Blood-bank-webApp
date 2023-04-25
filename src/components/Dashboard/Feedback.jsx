@@ -27,7 +27,7 @@ const Feedback = () => {
     <>
       {loading ? (
         <Loader />
-      ) : (
+      ) : feedbacks.length ? (
         feedbacks?.map((feedback) => {
           return (
             <Card className="w-50 p-2 my-3">
@@ -57,6 +57,8 @@ const Feedback = () => {
             </Card>
           );
         })
+      ) : (
+        <h6 className="bg-light-green w-25 p-2 rounded mt-2">No any feedback received!</h6>
       )}
     </>
   );

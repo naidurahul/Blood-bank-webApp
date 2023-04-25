@@ -15,7 +15,7 @@ import Loader from "../../../common/Loader";
 import { addOrUpdateItemInArray } from "../../../global/constants";
 import RequestDetail from "./RequestDetail";
 import DeleteModal from "../../../common/DeleteModal";
-import { insertionSort } from "../../../global/helper";
+import { insertionSort, priorityQueue } from "../../../global/helper";
 
 const BloodRequest = () => {
   const [requester, setRequester] = useState([]);
@@ -33,7 +33,7 @@ const BloodRequest = () => {
       );
       setOpenDetailmodal(null);
       toast.success("Requester Deleted Successfully!");
-      fetchData();
+      fetchingBloodRequest();
     } catch (error) {
       console.log(error.response.data.msg);
     }
@@ -57,12 +57,13 @@ const BloodRequest = () => {
       console.log(error.message);
     }
   };
-  const fetchData = async () => {
+  const fetchingBloodRequest = async () => {
     try {
       setLoading(true);
       const { data } = await axios.get(
         "http://localhost:4000/api/v1/blood-request"
       );
+      priorityQueue(data.msg);
       setRequester(data.msg);
       setFilteredList(data.msg);
       setLoading(false);
@@ -91,7 +92,7 @@ const BloodRequest = () => {
     }
   }, [searchQuery, sort]);
   useEffect(() => {
-    fetchData();
+    fetchingBloodRequest();
   }, []);
   return (
     <>

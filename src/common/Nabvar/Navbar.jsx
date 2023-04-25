@@ -46,7 +46,7 @@ const Navbar = () => {
                     <h6
                       className={`${
                         pathname === link.link && "text-dark underline-custom"
-                      } mx-2 xlarge  hover`}
+                      } mx-3 xlarge  hover`}
                       style={{ fontWeight: 300 }}
                     >
                       {link.label}

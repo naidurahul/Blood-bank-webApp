@@ -1,6 +1,7 @@
 import React from "react";
 import { Button, Col, Form, Row } from "react-bootstrap";
 import {
+  ArrowRight,
   EnvelopeAt,
   Facebook,
   Instagram,
@@ -11,8 +12,11 @@ import {
   Twitter,
   Youtube,
 } from "react-bootstrap-icons";
+import { useNavigate } from "react-router-dom";
 
 const Footer = () => {
+  const navigate = useNavigate();
+
   return (
     <>
       <Row
@@ -24,10 +28,10 @@ const Footer = () => {
           <div className="w-100">
             <h6 className="text-dark xxxlarge ">Social Link</h6>
             <div className="text-dark d-flex">
-              <Facebook className="mr-4 hover" />{" "}
-              <Instagram className="mr-4 hover" />{" "}
-              <Twitter className="mr-4 hover" />{" "}
-              <Youtube className="mr-4 hover" />
+              <Facebook className="mr-5 hover" />{" "}
+              <Instagram className="mr-5 hover" />{" "}
+              <Twitter className="mr-5 hover" />{" "}
+              <Youtube className="mr-5 hover" />
             </div>
           </div>
         </Col>
@@ -53,16 +57,16 @@ const Footer = () => {
         </Col>
         <Col xs={12} md={6} lg={4}>
           <div className="w-100">
-            <h6 className="text-dark xxxlarge">Newsletter</h6>
+            <h6 className="text-dark xxxlarge">Control Panel</h6>
             <div className="d-flex">
-              <Form.Group className="mb-3">
-                <Form.Control
-                  type={"text"}
-                  placeholder="Enter Email Here"
-                  className="border-muted"
-                />
-              </Form.Group>
-              <Telegram size={30} className="ml-3 mt-1 hover text-dark" />
+              <Button
+                variant="dark d-flex border-dark"
+                onClick={() =>
+                  navigate(`/admin/dashboard`, { replace: true })
+                }
+              >
+                Dashboard <ArrowRight className="mt-1 ml-2" />
+              </Button>{" "}
             </div>
           </div>
         </Col>

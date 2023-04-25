@@ -83,24 +83,7 @@ export const donorFieldsToShowInTable = [
   { name: "address", label: "Address" },
 ];
 
-export const shortOptions = [
-  {
-    label: "Max 10",
-    value: 10,
-  },
-  {
-    label: "Max 20",
-    value: 20,
-  },
-  {
-    label: "Max 50",
-    value: 50,
-  },
-  {
-    label: "All",
-    value: 200,
-  },
-];
+
 
 export const addOrUpdateItemInArray = (array, object, pk = "_id") => {
   const indexInArray = array.findIndex((item) => item[pk] === object[pk]);
@@ -134,15 +117,11 @@ export const sidebarLinks = [
     name: "liveBloodCamp",
     link: "/live-blood-camp",
   },
+
   {
-    label: "Dashboard",
-    name: "dashboard",
-    link: "/admin/dashboard",
-  },
-  {
-    label: "Contact Us",
+    label: "Give Feedback",
     name: "contactUs",
-    link: "/contact-us",
+    link: "/give-feedback",
   },
 ];
 
@@ -164,79 +143,15 @@ export const navBarLinks = [
     link: "/request-blood",
   },
   {
-    label: "Contact Us",
+    label: "Give Feedback",
     name: "contactUs",
-    link: "/contact-us",
+    link: "/give-feedback",
   },
   {
     label: "Blood Camps",
     name: "liveBloodCamp",
     link: "/live-blood-camp",
   },
-
-  {
-    label: "Dashboard",
-    name: "dashboard",
-    link: "/admin/dashboard",
-  },
-];
-
-export const otherPlaceForBloodDonation = [
-  {
-    bloodCenter: "Baglung",
-    contactPerson: "Guru Datta Sharma",
-    phone: "068-5202732",
-  },
-  {
-    bloodCenter: "Bhadrapur",
-    contactPerson: "Torna Bikram Karki",
-    phone: "023-5208142",
-  },
-  {
-    bloodCenter: "Bhaktapur",
-    contactPerson: "Uttam Kusma",
-    phone: "065-2381871",
-  },
-  {
-    bloodCenter: "Butwal",
-    contactPerson: "Jogbahadur Gurung",
-    phone: "071-541004",
-  },
-  {
-    bloodCenter: "Bhadrapur",
-    contactPerson: "Torna Bikram Karki",
-    phone: "023-5208124",
-  },
-  {
-    bloodCenter: "Baglung",
-    contactPerson: "Guru Datta Sharma",
-    phone: "068-520273",
-  },
-  {
-    bloodCenter: "Bhadrapur",
-    contactPerson: "Torna Bikram Karki",
-    phone: "023-520814",
-  },
-  {
-    bloodCenter: "Bhaktapur",
-    contactPerson: "Uttam Kusma",
-    phone: "065-520880",
-  },
-  {
-    bloodCenter: "Nepalgunj",
-    contactPerson: "Upendra Regmi",
-    phone: "071-520174",
-  },
-];
-
-export const bloodDonationCriteria = [
-  "Be 18 to 60 years old",
-  "Weight above 45 kg",
-  "Have hemoglobin above 12 gm/dl",
-  "Have blood pressure 110-160 / 70-96 mmHg",
-  "Not to be pregnant, breastfeeding, and recent menstruation",
-  "Not having recent use of drugs or strong medicines",
-  "Not to had a medical surgery for 2 years",
 ];
 
 export const bloodCampFormFields = [
@@ -264,23 +179,5 @@ export const bloodCampFormFields = [
     name: "sTime",
     label: "Starting Time",
     type: "time",
-  },
-];
-
-export const ourTeam = [
-  {
-    name: "Samrat Ojha",
-    photoLink:
-      "https://scontent.fbir1-1.fna.fbcdn.net/v/t39.30808-6/340103516_742928627409393_313235162660502935_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=cq7cAzYI0pkAX_Lzynm&_nc_ht=scontent.fbir1-1.fna&oh=00_AfC8q0UgLvWRxUVIv2JtD_WwNaGVfy4Aa7SVRV8uCUtt5A&oe=6448BD93",
-  },
-  {
-    name: "Rahul Naidu",
-    photoLink:
-      "https://scontent.fbir1-1.fna.fbcdn.net/v/t39.30808-6/247596640_707200056923175_3085567850879490623_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=19026a&_nc_ohc=qSyFmhgGZE4AX9OpUmZ&_nc_ht=scontent.fbir1-1.fna&oh=00_AfBiRGHDfMs2ykvElrCjLFP1cbyiBpLJTVKUdq0o2lbWvw&oe=64495EC5",
-  },
-  {
-    name: "Prabin Khawas",
-    photoLink:
-      "https://i.pinimg.com/originals/e9/36/ab/e936ab240156c33be7974c2c36188bdf.jpg",
   },
 ];

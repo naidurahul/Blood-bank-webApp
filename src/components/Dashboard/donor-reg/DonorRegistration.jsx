@@ -32,12 +32,12 @@ const DonorRegistration = () => {
       );
       setOpenDetailmodal(null);
       toast.success("Donor Deleted Successfully!");
-      fetchData();
+      fetchingDonor();
     } catch (error) {
       console.log(error.response.data.msg);
     }
   };
-  const fetchData = async () => {
+  const fetchingDonor = async () => {
     try {
       setFetchingDonors(true);
       const { data } = await axios.get(
@@ -52,7 +52,7 @@ const DonorRegistration = () => {
     }
   };
   useEffect(() => {
-    fetchData();
+    fetchingDonor();
   }, []);
   const filterRule = (donor) => {
     console.log();
