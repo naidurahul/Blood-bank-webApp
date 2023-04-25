@@ -12,11 +12,14 @@ import moment from "moment";
 import { toast } from "react-toastify";
 import AddOrEditBloodCamps from "./AddOrEditModal";
 import Loader from "../../../common/Loader";
+import DeleteModal from "../../../common/DeleteModal";
 
 const Camps = () => {
   const [openAddOrEditBloodCamp, setOpenAddOrEditBloodCamp] = useState(null);
+  const [openDeleteModal, setOpenDeleteModal] = useState(null);
   const [bloodCamps, setBloodCamps] = useState([]);
   const [fetchingData, setFetchingData] = useState(false);
+
   const onFormSubmit = (data) => {
     if (!data?.data?.cName) return toast.error("Camp Name is required!");
     if (!data?.data?.address) return toast.error("Address is required!");
@@ -124,7 +127,7 @@ const Camps = () => {
           <Table striped bordered hover style={{ marginBottom: "0px" }}>
             <thead>
               <tr>
-                <td>Vanue</td>
+                <td>Camp Description</td>
                 <td>Time</td>
                 <td>Action</td>
               </tr>
@@ -142,8 +145,9 @@ const Camps = () => {
                         onClick={() => setOpenAddOrEditBloodCamp(camp)}
                       />
                       <TrashFill
+                        size={20}
                         className="ml-2 hover text-danger"
-                        onClick={() => deteletBloodCamp(camp?._id)}
+                        onClick={() => setOpenDeleteModal(camp)}
                       />
                     </td>
                   </tr>
@@ -153,6 +157,15 @@ const Camps = () => {
           </Table>
         )}
       </Card>{" "}
+      <DeleteModal
+        openDeleteModal={openDeleteModal}
+        onHide={() => setOpenDeleteModal(null)}
+        onDelete={(id) => {
+          console.log(id);
+          setOpenDeleteModal(null);
+          deteletBloodCamp(id);
+        }}
+      />
       <AddOrEditBloodCamps
         openEditOrAddFormModal={openAddOrEditBloodCamp}
         handleClose={() => setOpenAddOrEditBloodCamp(null)}

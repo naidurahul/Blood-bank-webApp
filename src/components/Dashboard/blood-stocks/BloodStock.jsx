@@ -28,13 +28,7 @@ const bloodGroup = [
 const BloodStock = () => {
   const [openEditBloodStock, setOpenEditBloodStock] = useState(null);
   const [bloodStocks, setBloodStocks] = useState([]);
-  const [donorList, setDonorList] = useState([]);
   const [fetchingData, setFetchingData] = useState(false);
-
-  const findTotalDonor = (bg) => {
-    const donors = donorList.filter((x) => x.bloodGroup === bg);
-    return donors?.length ?? 0;
-  };
 
   const onFormSubmit = (data) => {
     console.log(data);
@@ -45,19 +39,6 @@ const BloodStock = () => {
     }
   };
 
-  const fetchDonor = async () => {
-    try {
-      const { data } = await axios.get(
-        "http://localhost:4000/api/v1/all/donations"
-      );
-      setDonorList(data.msg);
-    } catch (error) {
-      console.log(error.message);
-    }
-  };
-  useEffect(() => {
-    fetchDonor();
-  }, []);
   const addBloodStock = async (details) => {
     try {
       const { data } = await axios.post(`http://localhost:4000/api/v1/stock`, {
@@ -87,7 +68,7 @@ const BloodStock = () => {
       console.log(error.message);
     }
   };
-  const fetchData = async () => {
+  const fetchBloodStock = async () => {
     try {
       setFetchingData(true);
       const { data } = await axios.get("http://localhost:4000/api/v1/stock");
@@ -100,7 +81,7 @@ const BloodStock = () => {
   };
 
   useEffect(() => {
-    fetchData();
+    fetchBloodStock();
   }, []);
   return (
     <>
@@ -118,8 +99,6 @@ const BloodStock = () => {
         ) : (
           <Row className="">
             {bloodGroup?.map((b, index) => {
-              const donorNumber = findTotalDonor(b.bg);
-
               return (
                 <>
                   <Col xs={4} md={4} className="d-flex my-2">

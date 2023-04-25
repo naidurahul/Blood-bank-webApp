@@ -7,7 +7,7 @@ $theme-colors: (
   yellow: #feff01,
   yellow-light: #ffd50069,
   info: #91eaac,
-  secondary: #CED4DA,
+  secondary: #ced4da,
   grey: #dee2e6,
   disabled: #eaeaea99,
   green: #447612,
@@ -30,32 +30,12 @@ body,
 #root {
   height: 100%;
   font-family: "Crimson Text", serif;
-  // background: rgb(51, 1, 1);
-  // background: -moz-radial-gradient(
-  //   circle,
-  //   rgba(51, 1, 1, 0.994817910074186) 0%,
-  //   rgba(0, 0, 0, 1) 92%
-  // );
-  // background: -webkit-radial-gradient(
-  //   circle,
-  //   rgba(51, 1, 1, 0.994817910074186) 0%,
-  //   rgba(0, 0, 0, 1) 92%
-  // );
-  // background: radial-gradient(
-  //   circle,
-  //   rgba(51, 1, 1, 0.994817910074186) 0%,
-  //   rgba(0, 0, 0, 1) 92%
-  // );
-  // filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#330101",endColorstr="#000000",GradientType=1);
 }
 
 .hover {
   cursor: pointer;
 }
 
-.home-text {
-  font-family: "Crimson Text", serif;
-}
 .hover-light:hover {
   background-color: #ff8e2b36;
   cursor: pointer;

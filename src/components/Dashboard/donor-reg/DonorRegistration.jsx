@@ -1,26 +1,20 @@
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Card, Form, Table } from "react-bootstrap";
 import {
   CardChecklist,
   DatabaseX,
-  FilterCircle,
-  FilterCircleFill,
-  Funnel,
-  FunnelFill,
-  InfoCircleFill,
   SortAlphaDown,
   SortAlphaUp,
-  Trash2Fill,
   Trash3Fill,
 } from "react-bootstrap-icons";
-import { donorFieldsToShowInTable } from "../../../global/constants";
-import axios from "axios";
-import { toast } from "react-toastify";
 import { useLocation } from "react-router-dom";
-import DonorDetail from "./DonorDetail";
-import Loader from "../../../common/Loader";
-import { insertionSort } from "../../../global/helper";
+import { toast } from "react-toastify";
 import DeleteModal from "../../../common/DeleteModal";
+import Loader from "../../../common/Loader";
+import { donorFieldsToShowInTable } from "../../../global/constants";
+import { insertionSort } from "../../../global/helper";
+import DonorDetail from "./DonorDetail";
 
 const DonorRegistration = () => {
   const [donorList, setDonorList] = useState([]);
@@ -104,7 +98,7 @@ const DonorRegistration = () => {
             )}
             <Form className="my-1">
               <Form.Control
-                placeholder="Search donor by name here.."
+                placeholder="Search donor here..."
                 value={searchQuery}
                 onChange={(e) => setSearchQUery(e.target.value)}
               ></Form.Control>

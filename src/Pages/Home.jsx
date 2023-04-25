@@ -1,22 +1,76 @@
-import React from "react";
-import { Alert, Button, Card, Col, Image, Row } from "react-bootstrap";
-import HomePhoto from "../assets/Home.png";
+import React, { useEffect, useState } from "react";
+import { Alert, Button, Col, Image, Row } from "react-bootstrap";
+import { ArrowRight } from "react-bootstrap-icons";
+import { useNavigate } from "react-router-dom";
 import CampHome from "../assets/CampHome.png";
-import ManagindBlood from "../assets/managingBlood.jpg";
-import SupplyBlood from "../assets/SupplyBlood.jpg";
+import HomePhoto from "../assets/Home.png";
+import OrganizeBloodCamp from "../assets/OrganizeBloodCamp.jpg";
 import RegisterDonor from "../assets/RegisterDonor.jpg";
 import RequestBloods from "../assets/RequestBlood.png";
-import OrganizeBloodCamp from "../assets/OrganizeBloodCamp.jpg";
-import BeAHero from "../assets/BeAHero.png";
-import {
-  ArrowRight,
-  ArrowRightCircle,
-  ArrowUpRight,
-} from "react-bootstrap-icons";
-import { useNavigate } from "react-router-dom";
+import SupplyBlood from "../assets/SupplyBlood.jpg";
+import ManagindBlood from "../assets/managingBlood.jpg";
+import axios from "axios";
 
 const Home = () => {
+  const [bloodCamps, setBloodCamps] = useState();
+  const [bloodStocks, setBloodStocks] = useState();
+  const [donors, setDonors] = useState();
+  const [requester, setRequester] = useState();
   const navigate = useNavigate();
+
+  console.log(bloodCamps, bloodStocks, donors, requester);
+  const findBloodCollected = (stock) => {
+    const totalStock = stock?.reduce((accumulator, currentValue) => {
+      return accumulator + Number(currentValue.stock);
+    }, 0);
+    return totalStock;
+  };
+  const fetchBloodCamps = async () => {
+    try {
+      const { data } = await axios.get(
+        "http://localhost:4000/api/v1/blood-camp"
+      );
+      setBloodCamps(data.msg);
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
+  const fetchDonor = async () => {
+    try {
+      const { data } = await axios.get(
+        "http://localhost:4000/api/v1/all/donations"
+      );
+      setDonors(data.msg);
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
+  const fetchBloodRequester = async () => {
+    try {
+      const { data } = await axios.get(
+        "http://localhost:4000/api/v1/blood-request"
+      );
+      setRequester(data.msg);
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+  const fetchBloodStock = async () => {
+    try {
+      const { data } = await axios.get("http://localhost:4000/api/v1/stock");
+      setBloodStocks(data.msg);
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+  useEffect(() => {
+    fetchDonor();
+    fetchBloodRequester();
+    fetchBloodCamps();
+    fetchBloodStock();
+  }, []);
 
   return (
     <>
@@ -33,7 +87,7 @@ const Home = () => {
                     style={{ height: "100%" }}
                     className="d-flex  w-100 home-text flex-column"
                   >
-                    <h6 className="xxxxlarge mb-0  text-primary">
+                    <h6 className="xxxxlarge mb-0 text-dark">
                       Get Emergency Blood Requests Fulfilled with ERakta Nepal{" "}
                     </h6>
                     <p>
@@ -86,7 +140,7 @@ const Home = () => {
                     style={{ height: "100%" }}
                     className="d-flex  w-100 home-text flex-column"
                   >
-                    <h6 className="xxxxlarge mb-1  text-primary">
+                    <h6 className="xxxxlarge mb-1 text-dark">
                       Donate Blood and Save Lives at Live Camps with ERakta
                       Nepal{" "}
                     </h6>
@@ -126,7 +180,7 @@ const Home = () => {
                     style={{ height: "100%" }}
                     className="d-flex  w-100 home-text flex-column"
                   >
-                    <h6 className="xxxxlarge mb-0  text-primary">
+                    <h6 className="xxxxlarge mb-0 text-dark">
                       Join ERakta Nepal's Blood Donor Network Today{" "}
                     </h6>
                     <p>
@@ -219,7 +273,7 @@ const Home = () => {
                 variant="green"
                 className="px-2 text-dark text-center py-2"
               >
-                <h6 className="xxxxlarge">21</h6>
+                <h6 className="xxxxlarge">{bloodCamps?.length ?? 0} </h6>
                 <h6 className="xlarge mb-0">Event Organized</h6>
               </Alert>
             </Col>
@@ -228,7 +282,10 @@ const Home = () => {
                 variant="green"
                 className="px-2 text-dark text-center py-2"
               >
-                <h6 className="xxxxlarge">322</h6>
+                <h6 className="xxxxlarge">
+                  {" "}
+                  {findBloodCollected(bloodStocks)}
+                </h6>
                 <h6 className="xlarge mb-0">Blood Collected</h6>
               </Alert>
             </Col>
@@ -237,7 +294,7 @@ const Home = () => {
                 variant="green"
                 className="px-2 text-dark text-center py-2"
               >
-                <h6 className="xxxxlarge">17</h6>
+                <h6 className="xxxxlarge">{donors?.length}</h6>
                 <h6 className="xlarge mb-0">Total Donor</h6>
               </Alert>
             </Col>
@@ -246,8 +303,10 @@ const Home = () => {
                 variant="green"
                 className="px-2 text-dark text-center py-2"
               >
-                <h6 className="xxxxlarge">872</h6>
-                <h6 className="xlarge mb-0">Blood Searched</h6>
+                <h6 className="xxxxlarge">
+                  {requester?.filter((x) => x.status === "accepted")?.length}
+                </h6>
+                <h6 className="xlarge mb-0">Request Served</h6>
               </Alert>
             </Col>
           </Row>

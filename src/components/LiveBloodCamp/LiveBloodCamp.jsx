@@ -64,12 +64,18 @@ const LiveBloodCamp = () => {
   useEffect(() => {
     fetchData();
   }, []);
+  const filterRule = (camp) => {
+    console.log();
+    return (
+      camp.cName.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      camp.address.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      camp.description.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+  };
   useEffect(() => {
     const filteredValue =
       searchQuery !== ""
-        ? bloodCamps.filter((camp) =>
-            camp.address.toLowerCase().includes(searchQuery.toLowerCase())
-          )
+        ? bloodCamps.filter((camp) => filterRule(camp))
         : [...bloodCamps];
     console.log(filteredValue, bloodCamps, searchQuery);
     setFilteredList(filteredValue);

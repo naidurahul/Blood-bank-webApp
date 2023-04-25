@@ -25,15 +25,15 @@ const RequestBlood = () => {
   };
 
   const onRequestClick = () => {
-    const emptyFields = bloodRequestFields.find(
-      (x) => !bloodRequestDetails[x.name]
+    const emptyFields = bloodRequestFields?.find(
+      (x) => !bloodRequestDetails?.[x.name]
     );
+    console.log(emptyFields);
     if (emptyFields) {
       return toast.error(`${emptyFields.label} is Required`);
     }
     saveDonorDetails(bloodRequestDetails);
   };
-  console.log(bloodRequestDetails);
   return (
     <>
       <Row noGutters>
@@ -99,7 +99,7 @@ const RequestBlood = () => {
                       <Form.Group className="">
                         <Form.Control
                           type={field.type}
-                          value={bloodRequestDetails?.[field.name] ?? ''}
+                          value={bloodRequestDetails?.[field.name] ?? ""}
                           placeholder=""
                           className=""
                           onChange={(e) =>

@@ -53,7 +53,7 @@ export const bloodRequestFields = [
     name: "bloodGroup",
     label: "Blood Group",
     type: "enum",
-    options: ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"],
+    options: ["A+", "A-", "B+", "B-", "AB+", "O+", "O-"],
   },
 ];
 export const requestFields = [
